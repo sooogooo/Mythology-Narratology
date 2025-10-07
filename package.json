@@ -1,0 +1,34 @@
+{
+  "name": "ebook-mathlogy",
+  "version": "1.0.0",
+  "description": "医美神话叙事学 - 如何发现美以及如何讲述美",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 8000 -c-1",
+    "start": "npx http-server -p 8000",
+    "build": "echo 'This is a static site, no build needed'",
+    "deploy": "echo 'Please use Netlify or Vercel for deployment'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ebook-mathlogy.git"
+  },
+  "keywords": [
+    "医美",
+    "叙事学",
+    "电子书",
+    "AI",
+    "医疗美容",
+    "美学"
+  ],
+  "author": {
+    "name": "于晓冬",
+    "email": "yuxiaodong@beaucare.org",
+    "organization": "联合丽格医美连锁投资股份有限公司西南中心"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/yourusername/ebook-mathlogy#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

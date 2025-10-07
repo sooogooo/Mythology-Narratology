@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>医美神话叙事学 - 如何发现美以及如何讲述美</title>
+    <link rel="icon" type="image/png" href="https://docs.bccsw.cn/favicon.png">
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="https://docs.bccsw.cn/logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+                <h1 class="site-title">医美神话叙事学</h1>
+            </div>
+            <nav class="header-nav">
+                <button class="nav-btn" data-page="guide" aria-label="使用说明">
+                    <i class="ri-question-line"></i>
+                    <span>使用说明</span>
+                </button>
+                <button class="nav-btn" data-page="about" aria-label="关于">
+                    <i class="ri-information-line"></i>
+                    <span>关于</span>
+                </button>
+                <button class="nav-btn" id="settingsBtn" aria-label="设置">
+                    <i class="ri-settings-3-line"></i>
+                    <span>设置</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h3>设置</h3>
+                <button class="close-btn" id="closeSettings" aria-label="关闭">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-palette-line"></i> 配色主题</h4>
+                <div class="theme-grid">
+                    <button class="theme-btn active" data-theme="elegant-gray">优雅灰</button>
+                    <button class="theme-btn" data-theme="warm-rose">温暖玫瑰</button>
+                    <button class="theme-btn" data-theme="mint-fresh">薄荷清新</button>
+                    <button class="theme-btn" data-theme="lavender-dream">薰衣梦境</button>
+                    <button class="theme-btn" data-theme="pearl-white">珍珠白</button>
+                    <button class="theme-btn" data-theme="coral-pink">珊瑚粉</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-font-size"></i> 字号设置</h4>
+                <div class="font-size-btns">
+                    <button class="size-btn" data-size="small">小</button>
+                    <button class="size-btn active" data-size="medium">中</button>
+                    <button class="size-btn" data-size="large">大</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-robot-line"></i> AI输出风格</h4>
+                <div class="ai-style-btns">
+                    <button class="style-btn" data-style="casual">轻松幽默</button>
+                    <button class="style-btn active" data-style="standard">标准日常</button>
+                    <button class="style-btn" data-style="scientific">科学严谨</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-text"></i> AI输出长度</h4>
+                <div class="ai-length-btns">
+                    <button class="length-btn" data-length="detailed">详细</button>
+                    <button class="length-btn" data-length="standard">标准</button>
+                    <button class="length-btn active" data-length="concise">简约</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-cpu-line"></i> AI模型配置</h4>
+
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <label style="display: block; font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-xs);">
+                        对话模型
+                    </label>
+                    <select id="chatModelSelect" style="
+                        width: 100%;
+                        padding: var(--spacing-sm) var(--spacing-md);
+                        border: 1px solid var(--color-border);
+                        border-radius: var(--radius-sm);
+                        background: var(--color-bg);
+                        color: var(--color-text);
+                        font-size: 0.9rem;
+                        cursor: pointer;
+                    ">
+                        <option value="gemini-flash">Gemini 2.5 Flash</option>
+                        <option value="openai-gpt4">OpenAI GPT-4</option>
+                        <option value="openai-gpt35">OpenAI GPT-3.5 Turbo</option>
+                        <option value="claude-sonnet">Claude 3.5 Sonnet</option>
+                        <option value="custom">自定义模型</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <label style="display: block; font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-xs);">
+                        图片生成模型
+                    </label>
+                    <select id="imageModelSelect" style="
+                        width: 100%;
+                        padding: var(--spacing-sm) var(--spacing-md);
+                        border: 1px solid var(--color-border);
+                        border-radius: var(--radius-sm);
+                        background: var(--color-bg);
+                        color: var(--color-text);
+                        font-size: 0.9rem;
+                        cursor: pointer;
+                    ">
+                        <option value="gemini-flash-image">Gemini 2.5 Flash Image</option>
+                        <option value="custom">自定义模型</option>
+                    </select>
+                </div>
+
+                <button id="manageApiKeysBtn" style="
+                    width: 100%;
+                    padding: var(--spacing-md);
+                    background: var(--color-bg-secondary);
+                    border: 1px solid var(--color-border);
+                    border-radius: var(--radius-sm);
+                    color: var(--color-text);
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: var(--spacing-xs);
+                ">
+                    <i class="ri-key-line"></i>
+                    管理 API Keys
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Home Page -->
+        <div class="page active" id="homePage">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">医美神话叙事学</h2>
+                    <p class="hero-subtitle">如何发现美以及如何讲述美</p>
+                    <div class="hero-decorative-line">
+                        <svg width="100%" height="2" viewBox="0 0 300 2">
+                            <line x1="0" y1="1" x2="300" y2="1" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="outline-container">
+                    <h3 class="section-title">
+                        <i class="ri-book-open-line"></i>
+                        书籍大纲
+                    </h3>
+                    <div id="outlineContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guide Page -->
+        <div class="page" id="guidePage">
+            <div class="page-content">
+                <h2 class="page-title">
+                    <i class="ri-guide-line"></i>
+                    使用说明
+                </h2>
+                <div class="guide-content">
+                    <div class="guide-section">
+                        <h3>功能导航</h3>
+                        <ul>
+                            <li><strong>书籍大纲：</strong>浏览完整的15万字书籍章节结构</li>
+                            <li><strong>AI对话：</strong>与AI助手探讨医美相关话题</li>
+                            <li><strong>视觉设计：</strong>生成医美相关的视觉图片</li>
+                            <li><strong>历史记录：</strong>查看和管理您的对话与设计历史</li>
+                        </ul>
+                    </div>
+                    <div class="guide-section">
+                        <h3>划词功能</h3>
+                        <p>选中任何AI输出的文字，可以进行进一步的AI分析、解释或扩展</p>
+                    </div>
+                    <div class="guide-section">
+                        <h3>导出功能</h3>
+                        <p>您可以将设计和报告导出为PNG或PDF格式保存</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page" id="aboutPage">
+            <div class="page-content">
+                <h2 class="page-title">
+                    <i class="ri-information-line"></i>
+                    关于
+                </h2>
+                <div class="about-content">
+                    <div class="about-section">
+                        <h3>关于本书</h3>
+                        <p>《医美神话叙事学 - 如何发现美以及如何讲述美》是一本探索医美行业叙事艺术的专业著作。本书从神话学、叙事学、美学等多个维度，深入分析医美行业如何构建美的话语体系，如何通过叙事创造价值。</p>
+                    </div>
+                    <div class="about-section">
+                        <h3>作者信息</h3>
+                        <p><strong>作者：</strong>于晓冬</p>
+                        <p><strong>单位：</strong>联合丽格医美连锁投资股份有限公司西南中心</p>
+                        <p><strong>邮箱：</strong><a href="mailto:yuxiaodong@beaucare.org">yuxiaodong@beaucare.org</a></p>
+                        <p><strong>微信：</strong>sooogooo</p>
+                    </div>
+                    <div class="about-section">
+                        <h3>联系我们</h3>
+                        <p><strong>公司：</strong>重庆联合丽格科技有限公司</p>
+                        <p><strong>地址：</strong>重庆市渝中区临江支路28号</p>
+                        <p><strong>电子邮件：</strong><a href="mailto:yuxiaodong@beaucare.org">yuxiaodong@beaucare.org</a></p>
+                        <p><strong>联系电话：</strong>023-63326559</p>
+                        <div class="qr-code-section">
+                            <h4>扫码咨询</h4>
+                            <a href="https://work.weixin.qq.com/kfid/kfc193e1c58e9c203c2" target="_blank" rel="noopener">
+                                <img src="https://docs.bccsw.cn/images/dr-he/dr-he-brcode.png" alt="联系二维码" class="qr-code">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Page -->
+        <div class="page" id="chatPage">
+            <div class="page-content">
+                <h2 class="page-title">
+                    <i class="ri-chat-4-line"></i>
+                    AI对话助手
+                </h2>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="suggested-questions" id="suggestedQuestions"></div>
+                    <div class="chat-input-container">
+                        <textarea id="chatInput" placeholder="输入您的问题..." rows="3"></textarea>
+                        <button id="sendBtn" class="send-btn">
+                            <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Generation Page -->
+        <div class="page" id="imagePage">
+            <div class="page-content">
+                <h2 class="page-title">
+                    <i class="ri-image-line"></i>
+                    视觉设计生成
+                </h2>
+                <div class="image-gen-container">
+                    <div class="input-section">
+                        <textarea id="imagePrompt" placeholder="描述您想要生成的医美视觉图片..." rows="4"></textarea>
+                        <button id="generateImageBtn" class="generate-btn">
+                            <i class="ri-magic-line"></i>
+                            生成图片
+                        </button>
+                    </div>
+                    <div class="image-result" id="imageResult"></div>
+                    <div class="export-section" id="exportSection" style="display:none;">
+                        <button class="export-btn" data-format="png">
+                            <i class="ri-image-line"></i>
+                            导出PNG
+                        </button>
+                        <button class="export-btn" data-format="pdf">
+                            <i class="ri-file-pdf-line"></i>
+                            导出PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Page -->
+        <div class="page" id="historyPage">
+            <div class="page-content">
+                <h2 class="page-title">
+                    <i class="ri-history-line"></i>
+                    历史记录
+                </h2>
+                <div class="history-tabs">
+                    <button class="history-tab active" data-tab="chat">对话历史</button>
+                    <button class="history-tab" data-tab="image">图片历史</button>
+                </div>
+                <div class="history-content">
+                    <div class="history-list active" id="chatHistory"></div>
+                    <div class="history-list" id="imageHistory"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter Reader Page -->
+        <div class="page" id="chapterPage">
+            <div class="page-content chapter-reader-content">
+                <div class="chapter-nav-top">
+                    <button class="back-to-outline-btn" id="backToOutline">
+                        <i class="ri-arrow-left-line"></i>
+                        返回大纲
+                    </button>
+                    <div class="chapter-info">
+                        <span id="currentChapterTitle"></span>
+                    </div>
+                </div>
+                <article class="chapter-article" id="chapterContent">
+                    <div class="loading-chapter">
+                        <i class="ri-loader-4-line"></i>
+                        <p>加载中...</p>
+                    </div>
+                </article>
+                <div class="chapter-nav-bottom">
+                    <button class="chapter-nav-btn" id="prevChapter" style="display:none;">
+                        <i class="ri-arrow-left-line"></i>
+                        上一章
+                    </button>
+                    <button class="chapter-nav-btn" id="nextChapter" style="display:none;">
+                        下一章
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <nav class="footer-nav">
+            <button class="footer-btn active" data-page="home">
+                <i class="ri-home-line"></i>
+                <span>首页</span>
+            </button>
+            <button class="footer-btn" data-page="chat">
+                <i class="ri-chat-4-line"></i>
+                <span>AI对话</span>
+            </button>
+            <button class="footer-btn" data-page="image">
+                <i class="ri-image-line"></i>
+                <span>视觉设计</span>
+            </button>
+            <button class="footer-btn" data-page="history">
+                <i class="ri-history-line"></i>
+                <span>历史</span>
+            </button>
+        </nav>
+    </footer>
+
+    <!-- ICP Footer -->
+    <div class="icp-footer">
+        <div class="icp-content">
+            <span>© 2025 重庆联合丽格科技有限公司</span>
+            <span class="icp-separator">|</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">渝ICP备2024023473号</a>
+        </div>
+    </div>
+
+    <!-- Text Selection Popup -->
+    <div class="selection-popup" id="selectionPopup">
+        <button class="popup-btn" data-action="explain">
+            <i class="ri-question-line"></i>
+            解释
+        </button>
+        <button class="popup-btn" data-action="expand">
+            <i class="ri-file-list-line"></i>
+            展开
+        </button>
+        <button class="popup-btn" data-action="analyze">
+            <i class="ri-search-line"></i>
+            分析
+        </button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>处理中...</p>
+    </div>
+
+    <!-- API Keys管理模态窗口 -->
+    <div class="modal-overlay" id="apiKeysModal" style="display: none;">
+        <div class="modal-content" style="max-width: 600px; max-height: 80vh; overflow-y: auto;">
+            <div class="modal-header">
+                <h3><i class="ri-key-line"></i> API Keys 管理</h3>
+                <button class="close-btn" id="closeApiKeysModal">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="apiKeysModalBody">
+                <!-- 动态生成内容 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="toast.js"></script>
+    <script src="ai-models.js"></script>
+    <script src="outline.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
