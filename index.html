@@ -18,6 +18,8 @@
 
     <!-- Marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="ui-enhancements.css">
@@ -158,6 +160,22 @@
                     <i class="ri-key-line"></i>
                     管理 API Keys
                 </button>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-wifi-line"></i> 模型连通性测试</h4>
+                <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+                    测试各AI模型的连接状态和响应速度
+                </p>
+                <div id="connectivityTestContainer"></div>
+            </div>
+
+            <div class="settings-section">
+                <h4><i class="ri-bar-chart-box-line"></i> Token使用统计</h4>
+                <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+                    查看各模型的Token使用情况和请求记录
+                </p>
+                <div id="tokenStatsContainer"></div>
             </div>
         </div>
     </div>
@@ -496,8 +514,12 @@
     <script src="ai-models.js"></script>
     <script src="svg-icons.js"></script>
     <script src="svg-illustrations.js"></script>
+    <script src="chapter-illustrations.js"></script>
     <script src="image-viewer.js"></script>
     <script src="visual-todo.js"></script>
+    <script src="mermaid-integration.js"></script>
+    <script src="data-charts.js"></script>
+    <script src="ai-stats-ui.js"></script>
     <script src="init-visual.js"></script>
     <script src="outline.js"></script>
     <script src="app.js"></script>

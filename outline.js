@@ -902,6 +902,33 @@ async function loadChapter(chapterId) {
             contentDiv.innerHTML = `<pre>${markdown}</pre>`;
         }
 
+        // 添加章节专属插图（对于正文章节）
+        if (typeof chapterId === 'number' && typeof renderChapterIllustration !== 'undefined') {
+            const illustration = renderChapterIllustration(`chapter${chapterId}`, {
+                clickable: true,
+                style: 'margin: var(--spacing-xl) auto; display: block;'
+            });
+
+            // 在内容开头插入插图
+            if (illustration) {
+                const firstH1 = contentDiv.querySelector('h1');
+                if (firstH1) {
+                    const illustrationDiv = document.createElement('div');
+                    illustrationDiv.innerHTML = illustration;
+                    firstH1.insertAdjacentElement('afterend', illustrationDiv.firstChild);
+                } else {
+                    contentDiv.insertAdjacentHTML('afterbegin', illustration);
+                }
+            }
+        }
+
+        // 渲染Mermaid图表
+        if (typeof MermaidIntegration !== 'undefined') {
+            setTimeout(() => {
+                MermaidIntegration.renderAll();
+            }, 100);
+        }
+
         // 滚动到顶部
         window.scrollTo(0, 0);
 
