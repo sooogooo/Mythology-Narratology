@@ -435,70 +435,84 @@ function renderOutline() {
 
     let html = '';
 
-    // 添加序言和前言部分
+    // 添加首页插画装饰
     html += `
-        <div class="special-chapters" style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-border);">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md);">
-                <div class="special-chapter-card" style="
-                    padding: var(--spacing-lg);
-                    background: var(--color-surface);
-                    border: 1px solid var(--color-border);
-                    border-radius: var(--radius-md);
-                    transition: all var(--transition-base);
-                ">
-                    <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
-                        <i class="ri-quill-pen-line" style="color: var(--color-primary); font-size: 1.5rem;"></i>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--color-text);">序言</h3>
-                    </div>
-                    <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-md);">
-                        推荐阅读
-                    </p>
+        <div class="hero-illustration" style="margin-bottom: var(--spacing-xl);">
+            <div id="heroIllustration"></div>
+        </div>
+    `;
+
+    // 添加序言章节（与正文相同样式）
+    html += `
+        <div class="chapter intro-chapter" data-chapter-id="foreword">
+            <div class="chapter-header">
+                <div>
+                    <h3 class="chapter-title">
+                        ${renderSVGIcon('narrative', 'story', '', 'margin-right: 8px; font-size: 1.2rem;')}
+                        序言
+                        <span style="color: var(--color-primary); margin-left: 8px; font-size: 0.9rem;">📖 推荐阅读</span>
+                    </h3>
+                </div>
+                <i class="ri-arrow-down-s-line toggle-icon"></i>
+            </div>
+            <div class="chapter-content">
+                <div class="section-item">
+                    <p class="section-description">从医美叙事学的视角，探讨美的发现与讲述，为全书奠定理论基础。</p>
+                </div>
+                <div style="margin-top: var(--spacing-lg); text-align: center;">
                     <button class="read-chapter-btn" data-chapter="foreword" style="
                         display: inline-flex;
                         align-items: center;
                         gap: var(--spacing-sm);
-                        padding: var(--spacing-sm) var(--spacing-lg);
+                        padding: var(--spacing-md) var(--spacing-xl);
                         background: var(--color-primary);
                         color: var(--color-surface);
                         border: none;
-                        border-radius: var(--radius-sm);
-                        font-size: 0.9rem;
+                        border-radius: var(--radius-md);
+                        font-size: 1rem;
                         cursor: pointer;
                         transition: all var(--transition-fast);
                     ">
-                        <i class="ri-book-open-line"></i>
+                        <i class="ri-book-read-line"></i>
                         阅读序言
                     </button>
                 </div>
+            </div>
+        </div>
+    `;
 
-                <div class="special-chapter-card" style="
-                    padding: var(--spacing-lg);
-                    background: var(--color-surface);
-                    border: 1px solid var(--color-border);
-                    border-radius: var(--radius-md);
-                    transition: all var(--transition-base);
-                ">
-                    <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
-                        <i class="ri-file-text-line" style="color: var(--color-primary); font-size: 1.5rem;"></i>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--color-text);">前言</h3>
-                    </div>
-                    <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-md);">
-                        作者自述 · 本书缘起
-                    </p>
+    // 添加前言章节（与正文相同样式）
+    html += `
+        <div class="chapter intro-chapter" data-chapter-id="preface">
+            <div class="chapter-header">
+                <div>
+                    <h3 class="chapter-title">
+                        ${renderSVGIcon('narrative', 'dialogue', '', 'margin-right: 8px; font-size: 1.2rem;')}
+                        前言
+                        <span style="color: var(--color-primary); margin-left: 8px; font-size: 0.9rem;">✍️ 作者自述</span>
+                    </h3>
+                </div>
+                <i class="ri-arrow-down-s-line toggle-icon"></i>
+            </div>
+            <div class="chapter-content">
+                <div class="section-item">
+                    <p class="section-description">本书的写作缘起、研究历程、方法论说明以及致谢。重庆江北城与北京团结湖，2022春至2025秋。</p>
+                </div>
+                <div style="margin-top: var(--spacing-lg); text-align: center;">
                     <button class="read-chapter-btn" data-chapter="preface" style="
                         display: inline-flex;
                         align-items: center;
                         gap: var(--spacing-sm);
-                        padding: var(--spacing-sm) var(--spacing-lg);
+                        padding: var(--spacing-md) var(--spacing-xl);
                         background: var(--color-primary);
                         color: var(--color-surface);
                         border: none;
-                        border-radius: var(--radius-sm);
-                        font-size: 0.9rem;
+                        border-radius: var(--radius-md);
+                        font-size: 1rem;
                         cursor: pointer;
                         transition: all var(--transition-fast);
                     ">
-                        <i class="ri-book-open-line"></i>
+                        <i class="ri-book-read-line"></i>
                         阅读前言
                     </button>
                 </div>
@@ -506,76 +520,10 @@ function renderOutline() {
         </div>
     `;
 
-    // 添加快速访问区
+    // 添加章节分隔装饰
     html += `
-        <div class="quick-access" style="
-            margin: var(--spacing-xl) 0;
-            padding: var(--spacing-lg);
-            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-surface) 100%);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--color-primary);
-        ">
-            <h4 style="
-                margin: 0 0 var(--spacing-md) 0;
-                color: var(--color-primary-dark);
-                display: flex;
-                align-items: center;
-                gap: var(--spacing-sm);
-            ">
-                <i class="ri-bookmark-line"></i>
-                快速访问
-            </h4>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm);">
-                <button class="read-chapter-btn" data-chapter="afterword" style="
-                    display: inline-flex;
-                    align-items: center;
-                    gap: var(--spacing-xs);
-                    padding: var(--spacing-sm) var(--spacing-md);
-                    background: var(--color-surface);
-                    color: var(--color-primary);
-                    border: 1px solid var(--color-primary);
-                    border-radius: var(--radius-sm);
-                    font-size: 0.85rem;
-                    cursor: pointer;
-                    transition: all var(--transition-fast);
-                ">
-                    <i class="ri-edit-box-line"></i>
-                    后记
-                </button>
-                <button class="read-chapter-btn" data-chapter="appendix" style="
-                    display: inline-flex;
-                    align-items: center;
-                    gap: var(--spacing-xs);
-                    padding: var(--spacing-sm) var(--spacing-md);
-                    background: var(--color-surface);
-                    color: var(--color-primary);
-                    border: 1px solid var(--color-primary);
-                    border-radius: var(--radius-sm);
-                    font-size: 0.85rem;
-                    cursor: pointer;
-                    transition: all var(--transition-fast);
-                ">
-                    <i class="ri-book-2-line"></i>
-                    附录
-                </button>
-                <button class="read-chapter-btn" data-chapter="essay" style="
-                    display: inline-flex;
-                    align-items: center;
-                    gap: var(--spacing-xs);
-                    padding: var(--spacing-sm) var(--spacing-md);
-                    background: var(--color-primary);
-                    color: var(--color-surface);
-                    border: 1px solid var(--color-primary);
-                    border-radius: var(--radius-sm);
-                    font-size: 0.85rem;
-                    cursor: pointer;
-                    transition: all var(--transition-fast);
-                    font-weight: 500;
-                ">
-                    <i class="ri-star-line"></i>
-                    专题文章
-                </button>
-            </div>
+        <div style="text-align: center; margin: var(--spacing-xl) 0;">
+            ${renderSVGIcon('chapter', 'ornament1', '', 'font-size: 2rem; opacity: 0.6;')}
         </div>
     `;
 
@@ -630,11 +578,19 @@ function renderOutline() {
         `;
     });
 
+    // 添加章节分隔装饰
+    html += `
+        <div style="text-align: center; margin: var(--spacing-xl) 0;">
+            ${renderSVGIcon('chapter', 'divider', '', 'font-size: 2rem; opacity: 0.6;')}
+        </div>
+    `;
+
     // 添加后记、附录和专题文章部分
     html += `
-        <div class="special-chapters-end" style="margin-top: var(--spacing-xl); padding-top: var(--spacing-xl); border-top: 1px solid var(--color-border);">
-            <h3 style="text-align: center; color: var(--color-text); margin-bottom: var(--spacing-lg); font-size: 1.2rem;">
-                <i class="ri-bookmark-line"></i> 补充内容
+        <div class="special-chapters-end" style="margin-top: var(--spacing-xl); padding-top: var(--spacing-xl);">
+            <h3 style="text-align: center; color: var(--color-text); margin-bottom: var(--spacing-lg); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: var(--spacing-sm);">
+                ${renderSVGIcon('beauty', 'lotus', '', 'font-size: 1.5rem;')}
+                <span>补充内容</span>
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);">
                 <div class="special-chapter-card" style="
@@ -752,7 +708,98 @@ function renderOutline() {
         </div>
     `;
 
+    // 添加快速访问区（移到页尾）
+    html += `
+        <div class="quick-access" style="
+            margin: var(--spacing-xl) 0 0 0;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-surface) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-primary);
+            text-align: center;
+        ">
+            <div style="margin-bottom: var(--spacing-md);">
+                ${renderSVGIcon('ui', 'fullscreen', '', 'font-size: 2rem; color: var(--color-primary);')}
+            </div>
+            <h4 style="
+                margin: 0 0 var(--spacing-sm) 0;
+                color: var(--color-primary-dark);
+                font-size: 1.1rem;
+            ">
+                快速访问
+            </h4>
+            <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-lg);">
+                一键直达补充内容
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center;">
+                <button class="read-chapter-btn" data-chapter="afterword" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: var(--spacing-xs);
+                    padding: var(--spacing-md) var(--spacing-lg);
+                    background: var(--color-surface);
+                    color: var(--color-primary);
+                    border: 1px solid var(--color-primary);
+                    border-radius: var(--radius-md);
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transition: all var(--transition-fast);
+                    font-weight: 500;
+                ">
+                    <i class="ri-edit-box-line"></i>
+                    后记
+                </button>
+                <button class="read-chapter-btn" data-chapter="appendix" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: var(--spacing-xs);
+                    padding: var(--spacing-md) var(--spacing-lg);
+                    background: var(--color-surface);
+                    color: var(--color-primary);
+                    border: 1px solid var(--color-primary);
+                    border-radius: var(--radius-md);
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transition: all var(--transition-fast);
+                    font-weight: 500;
+                ">
+                    <i class="ri-book-2-line"></i>
+                    附录
+                </button>
+                <button class="read-chapter-btn" data-chapter="essay" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: var(--spacing-xs);
+                    padding: var(--spacing-md) var(--spacing-lg);
+                    background: var(--color-primary);
+                    color: var(--color-surface);
+                    border: none;
+                    border-radius: var(--radius-md);
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transition: all var(--transition-fast);
+                    font-weight: 600;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                ">
+                    <i class="ri-star-line"></i>
+                    专题文章
+                </button>
+            </div>
+        </div>
+    `;
+
     container.innerHTML = html;
+
+    // 渲染首页插画
+    setTimeout(() => {
+        const heroIllustration = document.getElementById('heroIllustration');
+        if (heroIllustration) {
+            heroIllustration.innerHTML = renderIllustration('concept', {
+                clickable: false,
+                style: 'max-width: 600px; margin: 0 auto;'
+            });
+        }
+    }, 100);
 
     // 添加折叠/展开功能
     document.querySelectorAll('.chapter-header').forEach(header => {

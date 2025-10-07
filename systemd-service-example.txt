@@ -1,0 +1,29 @@
+# 医美神话叙事学 - Systemd服务配置示例
+#
+# 使用方法：
+# 1. 创建服务文件：sudo nano /etc/systemd/system/ebook-mathlogy.service
+# 2. 复制下面的内容（修改路径和用户）
+# 3. 重新加载：sudo systemctl daemon-reload
+# 4. 启动服务：sudo systemctl start ebook-mathlogy
+# 5. 开机自启：sudo systemctl enable ebook-mathlogy
+# 6. 查看状态：sudo systemctl status ebook-mathlogy
+# 7. 查看日志：sudo journalctl -u ebook-mathlogy -f
+
+[Unit]
+Description=Medical Aesthetics Mythology and Narratology E-book Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/claude/ebook-mathlogy
+ExecStart=/usr/bin/python3 -m http.server 28008
+Restart=always
+RestartSec=10
+
+# 日志
+StandardOutput=append:/root/claude/ebook-mathlogy/server.log
+StandardError=append:/root/claude/ebook-mathlogy/server.log
+
+[Install]
+WantedBy=multi-user.target
