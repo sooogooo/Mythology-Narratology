@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="visual-components.css">
 </head>
 <body>
     <!-- Header -->
@@ -303,6 +304,72 @@
             </div>
         </div>
 
+        <!-- Visualization Page -->
+        <div class="page" id="visualPage">
+            <div class="page-content">
+                <h2 class="page-title">
+                    <i class="ri-gallery-line"></i>
+                    可视化展示
+                </h2>
+
+                <!-- SVG插画展示 -->
+                <section style="margin-bottom: var(--spacing-xl);">
+                    <h3 style="font-family: var(--font-family-serif); color: var(--color-primary); margin-bottom: var(--spacing-lg);">
+                        <i class="ri-image-line"></i> 章节插画
+                    </h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">
+                        点击图片可放大查看，支持缩放和拖拽
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-lg);">
+                        <div id="illustration1"></div>
+                        <div id="illustration2"></div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
+                        <div id="illustration3"></div>
+                        <div id="illustration4"></div>
+                    </div>
+                </section>
+
+                <!-- SVG图标展示 -->
+                <section style="margin-bottom: var(--spacing-xl);">
+                    <h3 style="font-family: var(--font-family-serif); color: var(--color-primary); margin-bottom: var(--spacing-lg);">
+                        <i class="ri-palette-line"></i> 主题图标
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: var(--spacing-md);">
+                        <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                            <div id="icon1" style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--spacing-xs);"></div>
+                            <p style="font-size: 0.8rem; color: var(--color-text-secondary);">美颜</p>
+                        </div>
+                        <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                            <div id="icon2" style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--spacing-xs);"></div>
+                            <p style="font-size: 0.8rem; color: var(--color-text-secondary);">护肤</p>
+                        </div>
+                        <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                            <div id="icon3" style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--spacing-xs);"></div>
+                            <p style="font-size: 0.8rem; color: var(--color-text-secondary);">镜面</p>
+                        </div>
+                        <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                            <div id="icon4" style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--spacing-xs);"></div>
+                            <p style="font-size: 0.8rem; color: var(--color-text-secondary);">光芒</p>
+                        </div>
+                        <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                            <div id="icon5" style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--spacing-xs);"></div>
+                            <p style="font-size: 0.8rem; color: var(--color-text-secondary);">故事</p>
+                        </div>
+                        <div style="text-align: center; padding: var(--spacing-md); background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+                            <div id="icon6" style="font-size: 3rem; color: var(--color-primary); margin-bottom: var(--spacing-xs);"></div>
+                            <p style="font-size: 0.8rem; color: var(--color-text-secondary);">对话</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Todo List -->
+                <section>
+                    <div id="visualTodoContainer"></div>
+                </section>
+            </div>
+        </div>
+
         <!-- History Page -->
         <div class="page" id="historyPage">
             <div class="page-content">
@@ -368,6 +435,10 @@
                 <i class="ri-image-line"></i>
                 <span>视觉设计</span>
             </button>
+            <button class="footer-btn" data-page="visual">
+                <i class="ri-gallery-line"></i>
+                <span>可视化</span>
+            </button>
             <button class="footer-btn" data-page="history">
                 <i class="ri-history-line"></i>
                 <span>历史</span>
@@ -423,6 +494,11 @@
 
     <script src="toast.js"></script>
     <script src="ai-models.js"></script>
+    <script src="svg-icons.js"></script>
+    <script src="svg-illustrations.js"></script>
+    <script src="image-viewer.js"></script>
+    <script src="visual-todo.js"></script>
+    <script src="init-visual.js"></script>
     <script src="outline.js"></script>
     <script src="app.js"></script>
 </body>
