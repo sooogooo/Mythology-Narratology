@@ -902,10 +902,19 @@ async function loadChapter(chapterId) {
             contentDiv.innerHTML = `<pre>${markdown}</pre>`;
         }
 
-        // 添加章节专属插图（对于正文章节）
-        if (typeof chapterId === 'number' && typeof renderChapterIllustration !== 'undefined') {
+        // 添加章节专属插图（所有章节：正文、序言、前言、后记、附录、专题）
+        if (typeof renderChapterIllustration !== 'undefined') {
             try {
-                const illustration = renderChapterIllustration(`chapter${chapterId}`, {
+                // 确定插图ID
+                let illustrationId;
+                if (typeof chapterId === 'number') {
+                    illustrationId = `chapter${chapterId}`;
+                } else {
+                    // 字符串类型：foreword, preface, afterword, appendix, essay
+                    illustrationId = chapterId;
+                }
+
+                const illustration = renderChapterIllustration(illustrationId, {
                     clickable: true,
                     style: 'margin: var(--spacing-xl) auto; display: block;'
                 });

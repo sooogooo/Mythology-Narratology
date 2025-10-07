@@ -5,6 +5,214 @@
  */
 
 const ChapterIllustrations = {
+    // 序言：开启美的探索之旅
+    foreword: `
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 书页展开效果 -->
+            <path d="M 120 80 Q 200 70 280 80 L 280 220 Q 200 230 120 220 Z"
+                  fill="none" stroke="#333" stroke-width="0.8"/>
+            <line x1="200" y1="70" x2="200" y2="230" stroke="#ddd" stroke-width="0.5"/>
+
+            <!-- 左页内容线条 -->
+            <line x1="140" y1="100" x2="190" y2="100" stroke="#999" stroke-width="0.3"/>
+            <line x1="140" y1="115" x2="190" y2="115" stroke="#999" stroke-width="0.3"/>
+            <line x1="140" y1="130" x2="180" y2="130" stroke="#999" stroke-width="0.3"/>
+
+            <!-- 右页内容线条 -->
+            <line x1="210" y1="100" x2="260" y2="100" stroke="#999" stroke-width="0.3"/>
+            <line x1="210" y1="115" x2="260" y2="115" stroke="#999" stroke-width="0.3"/>
+            <line x1="210" y1="130" x2="250" y2="130" stroke="#999" stroke-width="0.3"/>
+
+            <!-- 装饰性光芒 -->
+            <circle cx="200" cy="150" r="30" fill="none" stroke="#ccc" stroke-width="0.5" opacity="0.5"/>
+            <circle cx="200" cy="150" r="40" fill="none" stroke="#ddd" stroke-width="0.3" opacity="0.3"/>
+
+            <!-- 起点标记 -->
+            <circle cx="200" cy="150" r="5" fill="#666"/>
+
+            <text x="200" y="265" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">序言 · 开启探索之旅</text>
+        </svg>
+    `,
+
+    // 前言：作者的思考与愿景
+    preface: `
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 思维脉络网络 -->
+            <circle cx="200" cy="100" r="20" fill="none" stroke="#333" stroke-width="0.8"/>
+            <text x="200" y="105" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">缘起</text>
+
+            <circle cx="130" cy="160" r="18" fill="none" stroke="#666" stroke-width="0.6"/>
+            <text x="130" y="165" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">思考</text>
+
+            <circle cx="200" cy="180" r="18" fill="none" stroke="#666" stroke-width="0.6"/>
+            <text x="200" y="185" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">探索</text>
+
+            <circle cx="270" cy="160" r="18" fill="none" stroke="#666" stroke-width="0.6"/>
+            <text x="270" y="165" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">愿景</text>
+
+            <!-- 连接线 -->
+            <line x1="200" y1="120" x2="130" y2="145" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+            <line x1="200" y1="120" x2="200" y2="162" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+            <line x1="200" y1="120" x2="270" y2="145" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+            <!-- 地点时间标记 -->
+            <g transform="translate(80, 230)">
+                <text x="0" y="0" font-family="Noto Sans SC" font-size="9" fill="#999">重庆江北城</text>
+            </g>
+            <g transform="translate(240, 230)">
+                <text x="0" y="0" font-family="Noto Sans SC" font-size="9" fill="#999">北京团结湖</text>
+            </g>
+
+            <!-- 时间跨度 -->
+            <line x1="80" y1="245" x2="310" y2="245" stroke="#ccc" stroke-width="0.5"/>
+            <text x="200" y="257" font-family="Noto Sans SC" font-size="8" fill="#bbb" text-anchor="middle">2022春 - 2025秋</text>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">前言 · 作者自述</text>
+        </svg>
+    `,
+
+    // 后记：回顾与展望
+    afterword: `
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 螺旋上升路径 -->
+            <path d="M 200 200
+                     Q 220 190 230 170
+                     Q 240 150 230 130
+                     Q 220 110 200 100
+                     Q 180 90 160 100
+                     Q 140 110 140 130
+                     Q 140 150 155 165
+                     Q 170 180 190 185
+                     Q 210 190 220 175
+                     Q 230 160 220 145"
+                  fill="none" stroke="#666" stroke-width="0.8"/>
+
+            <!-- 起点 -->
+            <circle cx="200" cy="200" r="5" fill="#999"/>
+            <text x="215" y="205" font-family="Noto Sans SC" font-size="8" fill="#999">起点</text>
+
+            <!-- 终点/新起点 -->
+            <circle cx="220" cy="145" r="5" fill="#333"/>
+            <text x="235" y="150" font-family="Noto Sans SC" font-size="8" fill="#333">新起点</text>
+
+            <!-- 路径标记 -->
+            <circle cx="230" cy="170" r="2" fill="#ccc"/>
+            <circle cx="230" cy="130" r="2" fill="#ccc"/>
+            <circle cx="200" cy="100" r="2" fill="#ccc"/>
+            <circle cx="160" cy="100" r="2" fill="#ccc"/>
+            <circle cx="140" cy="130" r="2" fill="#ccc"/>
+
+            <!-- 上升箭头 -->
+            <path d="M 280 200 L 280 120 M 275 125 L 280 120 L 285 125"
+                  stroke="#ddd" stroke-width="0.5" fill="none"/>
+            <text x="290" y="160" font-family="Noto Sans SC" font-size="8" fill="#bbb">持续探索</text>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">后记 · 回顾与展望</text>
+        </svg>
+    `,
+
+    // 附录：知识体系
+    appendix: `
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 知识树结构 -->
+            <line x1="200" y1="220" x2="200" y2="120" stroke="#666" stroke-width="1"/>
+
+            <!-- 分支 -->
+            <line x1="200" y1="120" x2="140" y2="80" stroke="#999" stroke-width="0.6"/>
+            <line x1="200" y1="120" x2="200" y2="70" stroke="#999" stroke-width="0.6"/>
+            <line x1="200" y1="120" x2="260" y2="80" stroke="#999" stroke-width="0.6"/>
+
+            <!-- 叶节点 -->
+            <circle cx="140" cy="80" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+            <text x="140" y="85" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">术语</text>
+
+            <circle cx="200" cy="70" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+            <text x="200" y="75" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">方法</text>
+
+            <circle cx="260" cy="80" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+            <text x="260" y="85" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">资源</text>
+
+            <!-- 根部 -->
+            <ellipse cx="200" cy="220" rx="40" ry="15" fill="none" stroke="#666" stroke-width="0.8"/>
+            <text x="200" y="225" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">知识基础</text>
+
+            <!-- 辅助线 -->
+            <line x1="120" y1="160" x2="140" y2="92" stroke="#ddd" stroke-width="0.3" stroke-dasharray="2,2"/>
+            <line x1="280" y1="160" x2="260" y2="92" stroke="#ddd" stroke-width="0.3" stroke-dasharray="2,2"/>
+
+            <text x="200" y="270" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">附录 · 术语与资源</text>
+        </svg>
+    `,
+
+    // 专题文章：智能时代
+    essay: `
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 中心：人类 -->
+            <circle cx="200" cy="150" r="25" fill="none" stroke="#333" stroke-width="0.8"/>
+            <text x="200" y="155" font-family="Noto Sans SC" font-size="9" fill="#333" text-anchor="middle">人</text>
+
+            <!-- 智能环绕 -->
+            <circle cx="200" cy="150" r="60" fill="none" stroke="#999" stroke-width="0.5" stroke-dasharray="3,3"/>
+
+            <!-- AI节点 -->
+            <g transform="translate(200, 90)">
+                <rect x="-12" y="-8" width="24" height="16" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="0" y="4" font-family="Noto Sans SC" font-size="7" fill="#666" text-anchor="middle">AI</text>
+            </g>
+
+            <!-- 数字化节点 -->
+            <g transform="translate(260, 120)">
+                <rect x="-15" y="-8" width="30" height="16" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="0" y="4" font-family="Noto Sans SC" font-size="7" fill="#666" text-anchor="middle">数字化</text>
+            </g>
+
+            <!-- 具身体验节点 -->
+            <g transform="translate(260, 180)">
+                <rect x="-18" y="-8" width="36" height="16" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="0" y="4" font-family="Noto Sans SC" font-size="7" fill="#666" text-anchor="middle">具身体验</text>
+            </g>
+
+            <!-- 精神慰籍节点 -->
+            <g transform="translate(200, 210)">
+                <rect x="-18" y="-8" width="36" height="16" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="0" y="4" font-family="Noto Sans SC" font-size="7" fill="#666" text-anchor="middle">精神慰籍</text>
+            </g>
+
+            <!-- 医美节点 -->
+            <g transform="translate(140, 180)">
+                <rect x="-12" y="-8" width="24" height="16" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="0" y="4" font-family="Noto Sans SC" font-size="7" fill="#666" text-anchor="middle">医美</text>
+            </g>
+
+            <!-- 神话节点 -->
+            <g transform="translate(140, 120)">
+                <rect x="-12" y="-8" width="24" height="16" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="0" y="4" font-family="Noto Sans SC" font-size="7" fill="#666" text-anchor="middle">神话</text>
+            </g>
+
+            <!-- 连接线 -->
+            <line x1="200" y1="125" x2="200" y2="98" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="220" y1="135" x2="248" y2="120" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="225" y1="155" x2="242" y2="172" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="200" y1="175" x2="200" y2="202" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="175" y1="165" x2="152" y2="180" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="180" y1="140" x2="152" y2="128" stroke="#ccc" stroke-width="0.3"/>
+
+            <text x="200" y="270" font-family="Noto Serif SC, serif" font-size="11" fill="#333" text-anchor="middle" opacity="0.7">智能时代的医美神话</text>
+            <text x="200" y="285" font-family="Noto Sans SC" font-size="9" fill="#999" text-anchor="middle">与具身体验的精神慰籍</text>
+        </svg>
+    `,
+
     // 第一章：美的形而上学 - 抽象哲学概念的视觉表达
     chapter1: `
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
