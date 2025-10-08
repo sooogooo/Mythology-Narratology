@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>调试章节插图</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .log { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .error { color: red; }
+        .success { color: green; }
+        #chapterContent { border: 2px solid #ccc; padding: 20px; margin: 20px 0; min-height: 200px; }
+        .illustration-loading { text-align: center; padding: 20px; }
+        .ri-loader-4-line { 
+            display: inline-block; 
+            animation: spin 1s linear infinite; 
+            font-size: 24px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h1>调试章节插图加载</h1>
+    
+    <div class="log">
+        <h3>加载顺序测试：</h3>
+        <div id="loadOrder"></div>
+    </div>
+    
+    <button onclick="testChapterLoad()">测试加载序言章节</button>
+    
+    <div id="chapterContent"></div>
+    
+    <div class="log">
+        <h3>调试信息：</h3>
+        <pre id="debugInfo"></pre>
+    </div>
+    
+    <script src="chapter-illustrations.js"></script>
+    <script src="image-viewer.js"></script>
+    <script>
+        const loadOrder = document.getElementById('loadOrder');
+        const debugInfo = document.getElementById('debugInfo');
+        
+        function log(msg, type = 'info') {
+            const p = document.createElement('p');
+            p.className = type;
+            p.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            loadOrder.appendChild(p);
+            console.log(msg);
+        }
+        
+        log('1. 页面加载完成');
+        log(`2. ChapterIllustrations 类型: ${typeof ChapterIllustrations}`, 
+            typeof ChapterIllustrations === 'object' ? 'success' : 'error');
+        log(`3. renderChapterIllustrationSync 类型: ${typeof renderChapterIllustrationSync}`,
+            typeof renderChapterIllustrationSync === 'function' ? 'success' : 'error');
+        
+        async function testChapterLoad() {
+            log('=== 开始测试章节加载 ===');
+            
+            const contentDiv = document.getElementById('chapterContent');
+            contentDiv.innerHTML = '<h1>序言</h1><p>这是序言内容...</p>';
+            
+            log('4. 模拟章节内容已插入');
+            
+            if (typeof renderChapterIllustrationSync !== 'undefined') {
+                try {
+                    log('5. 调用 renderChapterIllustrationSync("foreword")');
+                    
+                    const illustration = renderChapterIllustrationSync('foreword', {
+                        clickable: true,
+                        style: 'margin: var(--spacing-xl) auto; display: block;'
+                    });
+                    
+                    log(`6. 返回值类型: ${typeof illustration}`);
+                    log(`7. 返回值前100字符: ${String(illustration).substring(0, 100)}`);
+                    
+                    debugInfo.textContent = `完整返回值:\n${illustration}`;
+                    
+                    if (illustration) {
+                        const firstH1 = contentDiv.querySelector('h1');
+                        if (firstH1) {
+                            log('8. 找到 H1，插入插图');
+                            firstH1.insertAdjacentHTML('afterend', illustration);
+                            log('9. 插图已插入，等待异步加载...', 'success');
+                        }
+                    }
+                } catch (error) {
+                    log(`错误: ${error.message}`, 'error');
+                    console.error(error);
+                }
+            } else {
+                log('renderChapterIllustrationSync 未定义！', 'error');
+            }
+        }
+    </script>
+</body>
+</html>
