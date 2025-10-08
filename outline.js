@@ -506,7 +506,7 @@ async function loadChapter(chapterId) {
         }
 
         // 添加章节专属插图（所有章节：正文、序言、前言、后记、附录、专题）
-        if (typeof renderChapterIllustration !== 'undefined') {
+        if (typeof renderChapterIllustrationSync !== 'undefined') {
             try {
                 // 确定插图ID
                 let illustrationId;
@@ -517,7 +517,7 @@ async function loadChapter(chapterId) {
                     illustrationId = chapterId;
                 }
 
-                const illustration = renderChapterIllustration(illustrationId, {
+                const illustration = renderChapterIllustrationSync(illustrationId, {
                     clickable: true,
                     style: 'margin: var(--spacing-xl) auto; display: block;'
                 });
