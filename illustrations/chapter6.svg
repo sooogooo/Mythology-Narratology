@@ -1,0 +1,36 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 伦理坐标系 -->
+            <line x1="80" y1="200" x2="320" y2="200" stroke="#333" stroke-width="0.8"/>
+            <line x1="200" y1="80" x2="200" y2="220" stroke="#333" stroke-width="0.8"/>
+
+            <!-- 箭头 -->
+            <path d="M 315 195 L 320 200 L 315 205" stroke="#333" stroke-width="0.8" fill="none"/>
+            <path d="M 195 85 L 200 80 L 205 85" stroke="#333" stroke-width="0.8" fill="none"/>
+
+            <!-- 轴标签 -->
+            <text x="340" y="205" font-family="Noto Sans SC" font-size="9" fill="#666">个体</text>
+            <text x="40" y="205" font-family="Noto Sans SC" font-size="9" fill="#666">社会</text>
+            <text x="205" y="70" font-family="Noto Sans SC" font-size="9" fill="#666">理想</text>
+            <text x="205" y="240" font-family="Noto Sans SC" font-size="9" fill="#666">现实</text>
+
+            <!-- 伦理区域 -->
+            <circle cx="260" cy="140" r="5" fill="#666" opacity="0.5"/>
+            <text x="270" y="135" font-family="Noto Sans SC" font-size="8" fill="#666">自主性</text>
+
+            <circle cx="140" cy="140" r="5" fill="#666" opacity="0.5"/>
+            <text x="95" y="135" font-family="Noto Sans SC" font-size="8" fill="#666">责任感</text>
+
+            <circle cx="260" cy="180" r="5" fill="#666" opacity="0.5"/>
+            <text x="270" y="185" font-family="Noto Sans SC" font-size="8" fill="#666">选择权</text>
+
+            <circle cx="140" cy="180" r="5" fill="#666" opacity="0.5"/>
+            <text x="85" y="185" font-family="Noto Sans SC" font-size="8" fill="#666">规范性</text>
+
+            <!-- 平衡点 -->
+            <circle cx="200" cy="160" r="8" fill="none" stroke="#333" stroke-width="1"/>
+            <text x="200" y="165" font-family="Noto Sans SC" font-size="7" fill="#333" text-anchor="middle">平衡</text>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">叙事的伦理向度</text>
+        </svg>

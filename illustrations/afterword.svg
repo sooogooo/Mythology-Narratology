@@ -1,0 +1,38 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 螺旋上升路径 -->
+            <path d="M 200 200
+                     Q 220 190 230 170
+                     Q 240 150 230 130
+                     Q 220 110 200 100
+                     Q 180 90 160 100
+                     Q 140 110 140 130
+                     Q 140 150 155 165
+                     Q 170 180 190 185
+                     Q 210 190 220 175
+                     Q 230 160 220 145"
+                  fill="none" stroke="#666" stroke-width="0.8"/>
+
+            <!-- 起点 -->
+            <circle cx="200" cy="200" r="5" fill="#999"/>
+            <text x="215" y="205" font-family="Noto Sans SC" font-size="8" fill="#999">起点</text>
+
+            <!-- 终点/新起点 -->
+            <circle cx="220" cy="145" r="5" fill="#333"/>
+            <text x="235" y="150" font-family="Noto Sans SC" font-size="8" fill="#333">新起点</text>
+
+            <!-- 路径标记 -->
+            <circle cx="230" cy="170" r="2" fill="#ccc"/>
+            <circle cx="230" cy="130" r="2" fill="#ccc"/>
+            <circle cx="200" cy="100" r="2" fill="#ccc"/>
+            <circle cx="160" cy="100" r="2" fill="#ccc"/>
+            <circle cx="140" cy="130" r="2" fill="#ccc"/>
+
+            <!-- 上升箭头 -->
+            <path d="M 280 200 L 280 120 M 275 125 L 280 120 L 285 125"
+                  stroke="#ddd" stroke-width="0.5" fill="none"/>
+            <text x="290" y="160" font-family="Noto Sans SC" font-size="8" fill="#bbb">持续探索</text>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">后记 · 回顾与展望</text>
+        </svg>

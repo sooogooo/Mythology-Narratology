@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 时间轴 -->
+            <line x1="60" y1="200" x2="340" y2="200" stroke="#333" stroke-width="0.8"/>
+            <path d="M 335 195 L 340 200 L 335 205" stroke="#333" stroke-width="0.8" fill="none"/>
+
+            <!-- 时间节点 -->
+            <circle cx="100" cy="200" r="4" fill="#666"/>
+            <text x="100" y="220" font-family="Noto Sans SC" font-size="8" fill="#666" text-anchor="middle">过去</text>
+
+            <circle cx="200" cy="200" r="4" fill="#333"/>
+            <text x="200" y="220" font-family="Noto Sans SC" font-size="8" fill="#333" text-anchor="middle">现在</text>
+
+            <circle cx="300" cy="200" r="4" fill="#999"/>
+            <text x="300" y="220" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">未来</text>
+
+            <!-- 趋势曲线 -->
+            <path d="M 60 180 Q 150 120 240 100 T 340 60" stroke="#666" stroke-width="0.8" fill="none" stroke-dasharray="3,3"/>
+
+            <!-- 趋势标签 -->
+            <g transform="translate(260, 80)">
+                <circle r="3" fill="#666"/>
+                <text x="10" y="5" font-family="Noto Sans SC" font-size="8" fill="#666">个性化</text>
+            </g>
+
+            <g transform="translate(220, 110)">
+                <circle r="3" fill="#666"/>
+                <text x="10" y="5" font-family="Noto Sans SC" font-size="8" fill="#666">智能化</text>
+            </g>
+
+            <g transform="translate(140, 140)">
+                <circle r="3" fill="#666"/>
+                <text x="10" y="5" font-family="Noto Sans SC" font-size="8" fill="#666">可持续</text>
+            </g>
+
+            <!-- 愿景光芒 -->
+            <g transform="translate(320, 60)" opacity="0.3">
+                <line x1="0" y1="0" x2="0" y2="-15" stroke="#ffd700" stroke-width="0.5"/>
+                <line x1="0" y1="0" x2="10" y2="-10" stroke="#ffd700" stroke-width="0.5"/>
+                <line x1="0" y1="0" x2="15" y2="0" stroke="#ffd700" stroke-width="0.5"/>
+                <line x1="0" y1="0" x2="10" y2="10" stroke="#ffd700" stroke-width="0.5"/>
+            </g>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">美的未来叙事</text>
+        </svg>

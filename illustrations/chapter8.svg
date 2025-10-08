@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 文化节点 -->
+            <g id="culture-nodes">
+                <!-- 东方 -->
+                <circle cx="100" cy="150" r="30" fill="none" stroke="#333" stroke-width="0.5"/>
+                <text x="100" y="155" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">东方</text>
+
+                <!-- 西方 -->
+                <circle cx="300" cy="150" r="30" fill="none" stroke="#333" stroke-width="0.5"/>
+                <text x="300" y="155" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">西方</text>
+
+                <!-- 中间对话空间 -->
+                <rect x="170" y="130" width="60" height="40" fill="none" stroke="#666" stroke-width="0.8" stroke-dasharray="3,3"/>
+                <text x="200" y="155" font-family="Noto Sans SC" font-size="9" fill="#333" text-anchor="middle">对话</text>
+            </g>
+
+            <!-- 交流箭头 -->
+            <path d="M 130 145 L 170 145" stroke="#999" stroke-width="0.6" marker-end="url(#arrow8)"/>
+            <path d="M 270 155 L 230 155" stroke="#999" stroke-width="0.6" marker-end="url(#arrow8)"/>
+
+            <!-- 上层：传统 -->
+            <ellipse cx="100" cy="90" rx="40" ry="15" fill="none" stroke="#999" stroke-width="0.4"/>
+            <text x="100" y="95" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">传统</text>
+
+            <ellipse cx="300" cy="90" rx="40" ry="15" fill="none" stroke="#999" stroke-width="0.4"/>
+            <text x="300" y="95" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">现代</text>
+
+            <!-- 下层：实践 -->
+            <ellipse cx="100" cy="210" rx="40" ry="15" fill="none" stroke="#999" stroke-width="0.4"/>
+            <text x="100" y="215" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">实践</text>
+
+            <ellipse cx="300" cy="210" rx="40" ry="15" fill="none" stroke="#999" stroke-width="0.4"/>
+            <text x="300" y="215" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">创新</text>
+
+            <!-- 连接线 -->
+            <line x1="100" y1="105" x2="100" y2="120" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="100" y1="180" x2="100" y2="195" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="300" y1="105" x2="300" y2="120" stroke="#ccc" stroke-width="0.3"/>
+            <line x1="300" y1="180" x2="300" y2="195" stroke="#ccc" stroke-width="0.3"/>
+
+            <defs>
+                <marker id="arrow8" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#999"/>
+                </marker>
+            </defs>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">跨文化的美学对话</text>
+        </svg>

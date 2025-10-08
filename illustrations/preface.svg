@@ -1,0 +1,35 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 思维脉络网络 -->
+            <circle cx="200" cy="100" r="20" fill="none" stroke="#333" stroke-width="0.8"/>
+            <text x="200" y="105" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">缘起</text>
+
+            <circle cx="130" cy="160" r="18" fill="none" stroke="#666" stroke-width="0.6"/>
+            <text x="130" y="165" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">思考</text>
+
+            <circle cx="200" cy="180" r="18" fill="none" stroke="#666" stroke-width="0.6"/>
+            <text x="200" y="185" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">探索</text>
+
+            <circle cx="270" cy="160" r="18" fill="none" stroke="#666" stroke-width="0.6"/>
+            <text x="270" y="165" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">愿景</text>
+
+            <!-- 连接线 -->
+            <line x1="200" y1="120" x2="130" y2="145" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+            <line x1="200" y1="120" x2="200" y2="162" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+            <line x1="200" y1="120" x2="270" y2="145" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+            <!-- 地点时间标记 -->
+            <g transform="translate(80, 230)">
+                <text x="0" y="0" font-family="Noto Sans SC" font-size="9" fill="#999">重庆江北城</text>
+            </g>
+            <g transform="translate(240, 230)">
+                <text x="0" y="0" font-family="Noto Sans SC" font-size="9" fill="#999">北京团结湖</text>
+            </g>
+
+            <!-- 时间跨度 -->
+            <line x1="80" y1="245" x2="310" y2="245" stroke="#ccc" stroke-width="0.5"/>
+            <text x="200" y="257" font-family="Noto Sans SC" font-size="8" fill="#bbb" text-anchor="middle">2022春 - 2025秋</text>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">前言 · 作者自述</text>
+        </svg>

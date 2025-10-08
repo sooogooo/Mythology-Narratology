@@ -1,0 +1,38 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 价值链条 -->
+            <g id="value-chain">
+                <!-- 生产 -->
+                <rect x="60" y="120" width="60" height="40" fill="none" stroke="#333" stroke-width="0.5"/>
+                <text x="90" y="145" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">生产</text>
+
+                <!-- 流通 -->
+                <rect x="170" y="120" width="60" height="40" fill="none" stroke="#333" stroke-width="0.5"/>
+                <text x="200" y="145" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">流通</text>
+
+                <!-- 消费 -->
+                <rect x="280" y="120" width="60" height="40" fill="none" stroke="#333" stroke-width="0.5"/>
+                <text x="310" y="145" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">消费</text>
+
+                <!-- 箭头连接 -->
+                <path d="M 120 140 L 170 140" stroke="#666" stroke-width="0.8" marker-end="url(#arrow7)"/>
+                <path d="M 230 140 L 280 140" stroke="#666" stroke-width="0.8" marker-end="url(#arrow7)"/>
+            </g>
+
+            <!-- 价值回流 -->
+            <path d="M 310 160 Q 200 220 90 160" stroke="#999" stroke-width="0.5" stroke-dasharray="3,3" fill="none"/>
+            <text x="200" y="215" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">价值回流</text>
+
+            <!-- 上层：符号价值 -->
+            <ellipse cx="200" cy="70" rx="80" ry="20" fill="none" stroke="#666" stroke-width="0.5" stroke-dasharray="2,2"/>
+            <text x="200" y="75" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">符号价值</text>
+
+            <defs>
+                <marker id="arrow7" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+                </marker>
+            </defs>
+
+            <text x="200" y="280" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">美的经济学叙事</text>
+        </svg>

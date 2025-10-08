@@ -1,0 +1,31 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 知识树结构 -->
+            <line x1="200" y1="220" x2="200" y2="120" stroke="#666" stroke-width="1"/>
+
+            <!-- 分支 -->
+            <line x1="200" y1="120" x2="140" y2="80" stroke="#999" stroke-width="0.6"/>
+            <line x1="200" y1="120" x2="200" y2="70" stroke="#999" stroke-width="0.6"/>
+            <line x1="200" y1="120" x2="260" y2="80" stroke="#999" stroke-width="0.6"/>
+
+            <!-- 叶节点 -->
+            <circle cx="140" cy="80" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+            <text x="140" y="85" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">术语</text>
+
+            <circle cx="200" cy="70" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+            <text x="200" y="75" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">方法</text>
+
+            <circle cx="260" cy="80" r="12" fill="none" stroke="#999" stroke-width="0.5"/>
+            <text x="260" y="85" font-family="Noto Sans SC" font-size="8" fill="#999" text-anchor="middle">资源</text>
+
+            <!-- 根部 -->
+            <ellipse cx="200" cy="220" rx="40" ry="15" fill="none" stroke="#666" stroke-width="0.8"/>
+            <text x="200" y="225" font-family="Noto Sans SC" font-size="9" fill="#666" text-anchor="middle">知识基础</text>
+
+            <!-- 辅助线 -->
+            <line x1="120" y1="160" x2="140" y2="92" stroke="#ddd" stroke-width="0.3" stroke-dasharray="2,2"/>
+            <line x1="280" y1="160" x2="260" y2="92" stroke="#ddd" stroke-width="0.3" stroke-dasharray="2,2"/>
+
+            <text x="200" y="270" font-family="Noto Serif SC, serif" font-size="12" fill="#333" text-anchor="middle" opacity="0.7">附录 · 术语与资源</text>
+        </svg>

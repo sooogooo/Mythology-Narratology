@@ -1,0 +1,38 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#fafafa"/>
+
+            <!-- 中心：身体 -->
+            <rect x="170" y="120" width="60" height="60" fill="none" stroke="#333" stroke-width="0.8"/>
+            <text x="200" y="155" font-family="Noto Sans SC" font-size="10" fill="#333" text-anchor="middle">身体</text>
+
+            <!-- 文化维度的四个方向 -->
+            <g id="dimension1">
+                <line x1="200" y1="120" x2="200" y2="60" stroke="#666" stroke-width="0.5"/>
+                <circle cx="200" cy="50" r="12" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="200" y="35" font-family="Noto Sans SC" font-size="8" fill="#666" text-anchor="middle">社会</text>
+            </g>
+
+            <g id="dimension2">
+                <line x1="230" y1="150" x2="290" y2="150" stroke="#666" stroke-width="0.5"/>
+                <circle cx="300" cy="150" r="12" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="330" y="155" font-family="Noto Sans SC" font-size="8" fill="#666" text-anchor="middle">历史</text>
+            </g>
+
+            <g id="dimension3">
+                <line x1="200" y1="180" x2="200" y2="240" stroke="#666" stroke-width="0.5"/>
+                <circle cx="200" cy="250" r="12" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="200" y="275" font-family="Noto Sans SC" font-size="8" fill="#666" text-anchor="middle">心理</text>
+            </g>
+
+            <g id="dimension4">
+                <line x1="170" y1="150" x2="110" y2="150" stroke="#666" stroke-width="0.5"/>
+                <circle cx="100" cy="150" r="12" fill="none" stroke="#666" stroke-width="0.5"/>
+                <text x="70" y="155" font-family="Noto Sans SC" font-size="8" fill="#666" text-anchor="middle">文化</text>
+            </g>
+
+            <!-- 交织网络 -->
+            <line x1="200" y1="62" x2="288" y2="150" stroke="#999" stroke-width="0.3" opacity="0.3" stroke-dasharray="2,2"/>
+            <line x1="288" y1="150" x2="200" y2="238" stroke="#999" stroke-width="0.3" opacity="0.3" stroke-dasharray="2,2"/>
+            <line x1="200" y1="238" x2="112" y2="150" stroke="#999" stroke-width="0.3" opacity="0.3" stroke-dasharray="2,2"/>
+            <line x1="112" y1="150" x2="200" y2="62" stroke="#999" stroke-width="0.3" opacity="0.3" stroke-dasharray="2,2"/>
+        </svg>
