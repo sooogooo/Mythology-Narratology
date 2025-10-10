@@ -354,6 +354,8 @@
 
 ---
 
+<div class="concept-illustration" data-illustration="beauty-dimensions"></div>
+
 ## 第三章结语
 
 从医学到文化,从心理到社会,我们完成了对美的多维探索。

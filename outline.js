@@ -536,6 +536,59 @@ async function loadChapter(chapterId) {
             }
         }
 
+        // 处理概念配图
+        if (typeof ChapterIllustrations !== 'undefined') {
+            const conceptIllustrations = contentDiv.querySelectorAll('.concept-illustration[data-illustration]');
+            conceptIllustrations.forEach(async (container) => {
+                const illustrationId = container.getAttribute('data-illustration');
+                if (illustrationId) {
+                    // 显示加载状态
+                    container.innerHTML = `
+                        <div class="illustration-loading" style="text-align: center; padding: var(--spacing-lg); color: var(--color-text-secondary);">
+                            <i class="ri-loader-4-line" style="animation: spin 1s linear infinite;"></i>
+                            <p style="margin-top: var(--spacing-sm); font-size: 0.9rem;">加载配图中...</p>
+                        </div>
+                    `;
+
+                    try {
+                        const svg = await ChapterIllustrations.load(illustrationId);
+                        if (svg) {
+                            container.innerHTML = svg;
+                            container.style.cssText = 'margin: var(--spacing-xl) auto; max-width: 800px; text-align: center;';
+
+                            // 添加点击放大功能
+                            const svgElement = container.querySelector('svg');
+                            if (svgElement && typeof ImageViewer !== 'undefined') {
+                                svgElement.style.cursor = 'pointer';
+                                svgElement.style.transition = 'transform 0.2s';
+                                svgElement.addEventListener('mouseenter', () => {
+                                    svgElement.style.transform = 'scale(1.02)';
+                                });
+                                svgElement.addEventListener('mouseleave', () => {
+                                    svgElement.style.transform = 'scale(1)';
+                                });
+                                svgElement.addEventListener('click', () => {
+                                    // 将SVG转换为base64用于查看
+                                    const svgData = new XMLSerializer().serializeToString(svgElement);
+                                    const svgBase64 = btoa(unescape(encodeURIComponent(svgData)));
+                                    const svgUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                                    ImageViewer.open(svgUrl, `概念配图 - ${illustrationId}`, 'svg');
+                                });
+                            }
+                        }
+                    } catch (error) {
+                        console.warn(`概念配图加载失败: ${illustrationId}`, error);
+                        container.innerHTML = `
+                            <div style="text-align: center; padding: var(--spacing-md); color: var(--color-text-tertiary); font-size: 0.9rem;">
+                                <i class="ri-image-line"></i>
+                                <p>配图加载失败</p>
+                            </div>
+                        `;
+                    }
+                }
+            });
+        }
+
         // 渲染Mermaid图表
         if (typeof MermaidIntegration !== 'undefined') {
             setTimeout(() => {
