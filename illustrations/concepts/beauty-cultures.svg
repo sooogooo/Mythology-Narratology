@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .dashed { stroke-dasharray: 3,3; }
+    </style>
+  </defs>
+
+  <!-- 左圆：西方美学 -->
+  <circle class="line" cx="120" cy="150" r="80"/>
+  <text x="120" y="90" text-anchor="middle" font-size="12" fill="#666" font-family="serif">西方美学</text>
+
+  <!-- 西方符号：黄金比例 -->
+  <rect class="thin-line" x="95" y="130" width="50" height="31"/>
+  <line class="thin-line" x1="120" y1="130" x2="120" y2="161"/>
+
+  <!-- 右圆：东方美学 -->
+  <circle class="line" cx="280" cy="150" r="80"/>
+  <text x="280" y="90" text-anchor="middle" font-size="12" fill="#666" font-family="serif">东方美学</text>
+
+  <!-- 东方符号：和谐圆 -->
+  <circle class="thin-line" cx="280" cy="150" r="25"/>
+  <path class="thin-line" d="M 280 125 Q 280 150, 280 175" stroke-width="0.3"/>
+  <path class="thin-line" d="M 255 150 Q 280 150, 305 150" stroke-width="0.3"/>
+
+  <!-- 连接线：交汇与对话 -->
+  <path class="line dashed" d="M 200 130 L 200 170"/>
+  <circle cx="200" cy="150" r="3" fill="#999"/>
+
+  <!-- 交集区域标注 -->
+  <text x="200" y="120" text-anchor="middle" font-size="10" fill="#999">审美共性</text>
+
+  <!-- 装饰性连接弧线 -->
+  <path class="thin-line" d="M 200 150 Q 160 110, 120 130" opacity="0.4"/>
+  <path class="thin-line" d="M 200 150 Q 240 110, 280 130" opacity="0.4"/>
+  <path class="thin-line" d="M 200 150 Q 160 190, 120 170" opacity="0.4"/>
+  <path class="thin-line" d="M 200 150 Q 240 190, 280 170" opacity="0.4"/>
+</svg>

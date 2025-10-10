@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概念配图测试 - 医美神话叙事学</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            justify-content: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .chapter-section {
+            margin-bottom: 40px;
+        }
+
+        .chapter-title {
+            font-size: 20px;
+            color: #2196F3;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .illustrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .illustration-card {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .illustration-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .illustration-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .illustration-container {
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .illustration-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .loading {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #f44336;
+            font-size: 14px;
+        }
+
+        .success {
+            color: #4CAF50;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2196F3;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>概念配图测试页面</h1>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalCount">33</div>
+                <div class="stat-label">总计</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="loadedCount">0</div>
+                <div class="stat-label">已加载</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="errorCount">0</div>
+                <div class="stat-label">失败</div>
+            </div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第一章 - 神话与美学的起源 (3个)</h2>
+            <div class="illustrations-grid" id="chapter1"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第二章 - 叙事的力量 (3个)</h2>
+            <div class="illustrations-grid" id="chapter2"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第三章 - 美的标准 (4个)</h2>
+            <div class="illustrations-grid" id="chapter3"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第四章 - 叙事模态 (3个)</h2>
+            <div class="illustrations-grid" id="chapter4"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第五章 - 品牌神话构建 (3个)</h2>
+            <div class="illustrations-grid" id="chapter5"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第六章 - 对话式叙事 (3个)</h2>
+            <div class="illustrations-grid" id="chapter6"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第七章 - 数字时代的叙事 (3个)</h2>
+            <div class="illustrations-grid" id="chapter7"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第八章 - 伦理边界 (3个)</h2>
+            <div class="illustrations-grid" id="chapter8"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第九章 - 案例分析 (3个)</h2>
+            <div class="illustrations-grid" id="chapter9"></div>
+        </div>
+
+        <div class="chapter-section">
+            <h2 class="chapter-title">第十章 - 未来展望 (3个)</h2>
+            <div class="illustrations-grid" id="chapter10"></div>
+        </div>
+    </div>
+
+    <script src="chapter-illustrations.js?v=20251010150000"></script>
+    <script>
+        const conceptsByChapter = {
+            chapter1: [
+                { id: 'aphrodite-birth', name: '阿佛洛狄忒诞生' },
+                { id: 'beauty-cultures', name: '东西方美学对话' },
+                { id: 'narrative-framework', name: '叙事学框架' }
+            ],
+            chapter2: [
+                { id: 'hero-journey', name: '英雄之旅' },
+                { id: 'conflict-resolution', name: '冲突与和解' },
+                { id: 'emotional-resonance', name: '情感共鸣曲线' }
+            ],
+            chapter3: [
+                { id: 'golden-ratio', name: '黄金比例' },
+                { id: 'culture-spectrum', name: '文化审美光谱' },
+                { id: 'psychology-maze', name: '心理决策迷宫' },
+                { id: 'power-pyramid', name: '话语权金字塔' }
+            ],
+            chapter4: [
+                { id: 'visual-timeline', name: '视觉叙事时间线' },
+                { id: 'text-narrative-tree', name: '文字叙事树' },
+                { id: 'multimodal-network', name: '多模态网络' }
+            ],
+            chapter5: [
+                { id: 'brand-archetypes', name: '品牌原型轮盘' },
+                { id: 'myth-spiral', name: '神话螺旋' },
+                { id: 'ip-personality', name: 'IP人格体系' }
+            ],
+            chapter6: [
+                { id: 'listening-funnel', name: '倾听漏斗' },
+                { id: 'reframing', name: '重述框架' },
+                { id: 'co-creation', name: '共创循环' }
+            ],
+            chapter7: [
+                { id: 'social-network', name: '社交网络传播' },
+                { id: 'data-personalization', name: '数据个性化' },
+                { id: 'virtual-real', name: '虚实融合' }
+            ],
+            chapter8: [
+                { id: 'truth-balance', name: '真实性天平' },
+                { id: 'empowerment-paradox', name: '赋权悖论' },
+                { id: 'age-protection', name: '年龄守护' }
+            ],
+            chapter9: [
+                { id: 'global-brands', name: '国际品牌地图' },
+                { id: 'domestic-innovation', name: '国内创新路径' },
+                { id: 'ip-growth', name: 'IP成长曲线' }
+            ],
+            chapter10: [
+                { id: 'tech-tree', name: '技术树' },
+                { id: 'values-web', name: '价值观重构网' },
+                { id: 'responsible-ecosystem', name: '负责任生态圈' }
+            ]
+        };
+
+        let loadedCount = 0;
+        let errorCount = 0;
+
+        async function loadIllustration(chapterId, concept) {
+            const container = document.getElementById(chapterId);
+            const card = document.createElement('div');
+            card.className = 'illustration-card';
+            card.innerHTML = `
+                <div class="illustration-name">${concept.name}</div>
+                <div class="illustration-container" id="container-${concept.id}">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+
+            try {
+                const svg = await ChapterIllustrations.load(concept.id);
+                const illustrationContainer = document.getElementById(`container-${concept.id}`);
+
+                if (svg) {
+                    illustrationContainer.innerHTML = svg;
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'success';
+                    successMsg.textContent = '✓ 加载成功';
+                    card.appendChild(successMsg);
+                    loadedCount++;
+                } else {
+                    throw new Error('SVG内容为空');
+                }
+            } catch (error) {
+                const illustrationContainer = document.getElementById(`container-${concept.id}`);
+                illustrationContainer.innerHTML = `<div class="error">✗ 加载失败: ${error.message}</div>`;
+                errorCount++;
+            }
+
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('loadedCount').textContent = loadedCount;
+            document.getElementById('loadedCount').style.color = loadedCount === 33 ? '#4CAF50' : '#FF9800';
+            document.getElementById('errorCount').textContent = errorCount;
+            document.getElementById('errorCount').style.color = errorCount > 0 ? '#f44336' : '#4CAF50';
+        }
+
+        // 加载所有插图
+        async function loadAll() {
+            for (const [chapterId, concepts] of Object.entries(conceptsByChapter)) {
+                for (const concept of concepts) {
+                    await loadIllustration(chapterId, concept);
+                }
+            }
+
+            console.log(`测试完成: ${loadedCount}/33 成功, ${errorCount}/33 失败`);
+        }
+
+        // 页面加载完成后开始测试
+        window.addEventListener('DOMContentLoaded', () => {
+            loadAll();
+        });
+    </script>
+</body>
+</html>

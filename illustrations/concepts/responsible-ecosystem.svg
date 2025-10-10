@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .thick-line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .node { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .center { fill: #fafafa; stroke: #333; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <!-- 同心圆生态系统 -->
+  <!-- 最外圈 -->
+  <circle class="thick-line" cx="200" cy="150" r="110"/>
+  <text x="200" y="45" text-anchor="middle" font-size="9" fill="#666">社会环境层</text>
+
+  <!-- 第二圈 -->
+  <circle class="line" cx="200" cy="150" r="85"/>
+  <text x="200" y="75" text-anchor="middle" font-size="9" fill="#666">行业层</text>
+
+  <!-- 第三圈 -->
+  <circle class="line" cx="200" cy="150" r="60"/>
+  <text x="200" y="100" text-anchor="middle" font-size="9" fill="#666">机构层</text>
+
+  <!-- 核心圈 -->
+  <circle class="center" cx="200" cy="150" r="35"/>
+  <text x="200" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">消费者</text>
+  <text x="200" y="162" text-anchor="middle" font-size="8" fill="#666">Consumer</text>
+
+  <!-- 参与者节点（最外圈） -->
+  <!-- 政府监管 -->
+  <circle class="node" cx="200" cy="40" r="12"/>
+  <text x="200" y="28" text-anchor="middle" font-size="8" fill="#333">政府</text>
+
+  <!-- 媒体 -->
+  <circle class="node" cx="300" cy="95" r="12"/>
+  <text x="315" y="98" text-anchor="start" font-size="8" fill="#333">媒体</text>
+
+  <!-- 行业协会 -->
+  <circle class="node" cx="300" cy="205" r="12"/>
+  <text x="315" y="208" text-anchor="start" font-size="8" fill="#333">协会</text>
+
+  <!-- 教育机构 -->
+  <circle class="node" cx="200" cy="260" r="12"/>
+  <text x="200" y="278" text-anchor="middle" font-size="8" fill="#333">教育</text>
+
+  <!-- 公众舆论 -->
+  <circle class="node" cx="100" cy="205" r="12"/>
+  <text x="85" y="208" text-anchor="end" font-size="8" fill="#333">公众</text>
+
+  <!-- 专家学者 -->
+  <circle class="node" cx="100" cy="95" r="12"/>
+  <text x="85" y="98" text-anchor="end" font-size="8" fill="#333">专家</text>
+
+  <!-- 第二圈节点 -->
+  <!-- 医美机构 -->
+  <circle class="node" cx="270" cy="120" r="10"/>
+  <text x="270" y="108" text-anchor="middle" font-size="7" fill="#666">机构</text>
+
+  <!-- 医生 -->
+  <circle class="node" cx="270" cy="180" r="10"/>
+  <text x="270" y="195" text-anchor="middle" font-size="7" fill="#666">医生</text>
+
+  <!-- 品牌商 -->
+  <circle class="node" cx="130" cy="120" r="10"/>
+  <text x="130" y="108" text-anchor="middle" font-size="7" fill="#666">品牌</text>
+
+  <!-- 平台 -->
+  <circle class="node" cx="130" cy="180" r="10"/>
+  <text x="130" y="195" text-anchor="middle" font-size="7" fill="#666">平台</text>
+
+  <!-- 连接关系线 -->
+  <!-- 内圈到中圈 -->
+  <line class="line" x1="200" y1="150" x2="270" y2="120" opacity="0.3"/>
+  <line class="line" x1="200" y1="150" x2="270" y2="180" opacity="0.3"/>
+  <line class="line" x1="200" y1="150" x2="130" y2="120" opacity="0.3"/>
+  <line class="line" x1="200" y1="150" x2="130" y2="180" opacity="0.3"/>
+
+  <!-- 中圈到外圈（部分） -->
+  <line class="line" x1="270" y1="120" x2="300" y2="95" opacity="0.2"/>
+  <line class="line" x1="130" y1="120" x2="100" y2="95" opacity="0.2"/>
+
+  <!-- 标题 -->
+  <text x="200" y="20" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">负责任的医美生态圈</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="290" text-anchor="middle" font-size="9" fill="#999">多方协同 · 共建共治 · 可持续发展</text>
+</svg>

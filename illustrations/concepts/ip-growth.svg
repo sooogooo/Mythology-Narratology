@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .milestone { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- 坐标轴 -->
+  <line class="thin-line" x1="50" y1="230" x2="350" y2="230" opacity="0.5"/>
+  <line class="thin-line" x1="50" y1="60" x2="50" y2="230" opacity="0.5"/>
+
+  <!-- Y轴标注 -->
+  <text x="25" y="70" font-size="10" fill="#999">影响力</text>
+  <text x="360" y="235" font-size="10" fill="#999">时间</text>
+
+  <!-- 成长曲线 -->
+  <path class="line" d="M 60 220
+    L 100 210
+    L 140 180
+    L 180 140
+    L 220 100
+    L 260 75
+    L 300 65
+    L 340 60"/>
+
+  <!-- 里程碑节点 -->
+  <!-- 0. 起点 -->
+  <circle class="milestone" cx="60" cy="220" r="6"/>
+  <text x="60" y="245" text-anchor="middle" font-size="9" fill="#666">起点</text>
+  <text x="60" y="258" text-anchor="middle" font-size="8" fill="#999">0粉丝</text>
+
+  <!-- 1. 首次曝光 -->
+  <circle class="milestone" cx="100" cy="210" r="5"/>
+  <text x="100" y="200" text-anchor="middle" font-size="8" fill="#666">首次曝光</text>
+
+  <!-- 2. 1000粉丝 -->
+  <circle class="milestone" cx="140" cy="180" r="5"/>
+  <text x="140" y="170" text-anchor="middle" font-size="8" fill="#666">1K粉丝</text>
+
+  <!-- 3. 1万粉丝 -->
+  <circle class="milestone" cx="180" cy="140" r="5"/>
+  <text x="180" y="130" text-anchor="middle" font-size="8" fill="#666">1W粉丝</text>
+
+  <!-- 4. 10万粉丝 -->
+  <circle class="milestone" cx="220" cy="100" r="5"/>
+  <text x="220" y="90" text-anchor="middle" font-size="8" fill="#666">10W粉丝</text>
+
+  <!-- 5. 100万粉丝 -->
+  <circle class="milestone" cx="260" cy="75" r="5"/>
+  <text x="260" y="65" text-anchor="middle" font-size="8" fill="#666">100W粉丝</text>
+
+  <!-- 6. IP影响力 -->
+  <circle class="milestone" cx="300" cy="65" r="6"/>
+  <text x="300" y="50" text-anchor="middle" font-size="9" fill="#666" font-weight="bold">IP地位</text>
+
+  <!-- 关键事件标注 -->
+  <line class="thin-line" x1="140" y1="180" x2="140" y2="195" stroke-dasharray="2,2"/>
+  <text x="140" y="205" text-anchor="middle" font-size="7" fill="#999">爆款内容</text>
+
+  <line class="thin-line" x1="220" y1="100" x2="220" y2="115" stroke-dasharray="2,2"/>
+  <text x="220" y="125" text-anchor="middle" font-size="7" fill="#999">品牌合作</text>
+
+  <!-- 增长阶段标注 -->
+  <text x="100" y="255" font-size="8" fill="#999">冷启动</text>
+  <text x="180" y="255" font-size="8" fill="#999">快速增长</text>
+  <text x="280" y="255" font-size="8" fill="#999">稳定期</text>
+
+  <!-- 标题 -->
+  <text x="200" y="30" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">个人IP成长曲线</text>
+  <text x="200" y="45" text-anchor="middle" font-size="9" fill="#666">Personal IP Growth Curve</text>
+
+  <!-- 装饰性参考线 -->
+  <line class="thin-line" x1="50" y1="150" x2="350" y2="150" stroke-dasharray="3,3" opacity="0.2"/>
+  <line class="thin-line" x1="50" y1="100" x2="350" y2="100" stroke-dasharray="3,3" opacity="0.2"/>
+</svg>

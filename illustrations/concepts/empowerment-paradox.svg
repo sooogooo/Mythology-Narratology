@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 1; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 莫比乌斯环（简化版） -->
+  <!-- 外环 -->
+  <path class="line" d="M 150 100
+    Q 120 100, 100 120
+    Q 80 140, 80 170
+    Q 80 200, 100 220
+    Q 120 240, 150 245
+    Q 180 250, 210 245
+    Q 240 240, 270 230
+    Q 300 220, 315 200
+    Q 330 180, 330 155
+    Q 330 130, 315 110
+    Q 300 90, 270 80
+    Q 240 70, 210 75
+    Q 180 80, 150 100"/>
+
+  <!-- 内环扭转 -->
+  <path class="thin-line" d="M 170 115
+    Q 200 110, 230 120
+    Q 260 130, 280 150
+    Q 300 170, 285 195
+    Q 270 220, 240 225
+    Q 210 230, 180 220
+    Q 150 210, 130 190
+    Q 110 170, 115 145
+    Q 120 120, 145 110
+    Q 160 105, 170 115"/>
+
+  <!-- 文字标注：赋权 -->
+  <text x="100" y="150" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">赋权</text>
+  <text x="100" y="165" text-anchor="middle" font-size="8" fill="#666">Empowerment</text>
+  <text x="100" y="178" text-anchor="middle" font-size="8" fill="#666">"你可以变美"</text>
+
+  <!-- 文字标注：规训 -->
+  <text x="300" y="150" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">规训</text>
+  <text x="300" y="165" text-anchor="middle" font-size="8" fill="#666">Discipline</text>
+  <text x="300" y="178" text-anchor="middle" font-size="8" fill="#666">"你应该变美"</text>
+
+  <!-- 箭头指示循环 -->
+  <path class="arrow" d="M 155 105 L 160 100 L 158 107"/>
+  <path class="arrow" d="M 245 240 L 250 245 L 248 238"/>
+
+  <!-- 中心悖论标注 -->
+  <text x="200" y="145" text-anchor="middle" font-size="10" fill="#999">悖论</text>
+  <text x="200" y="158" text-anchor="middle" font-size="8" fill="#999" opacity="0.7">Paradox</text>
+
+  <!-- 标题 -->
+  <text x="200" y="40" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">赋权与规训的悖论循环</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="280" text-anchor="middle" font-size="9" fill="#666">同一叙事，双重作用</text>
+
+  <!-- 装饰性双向箭头 -->
+  <line class="thin-line" x1="130" y1="165" x2="270" y2="165" stroke-dasharray="3,3" opacity="0.3"/>
+  <polygon points="135,162 130,165 135,168" fill="#999" opacity="0.3"/>
+  <polygon points="265,162 270,165 265,168" fill="#999" opacity="0.3"/>
+</svg>

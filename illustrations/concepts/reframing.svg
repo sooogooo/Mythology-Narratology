@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .box { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 左框架：问题框架 -->
+  <rect class="box" x="40" y="80" width="140" height="140" rx="5"/>
+  <text x="110" y="60" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">问题框架</text>
+  <text x="110" y="75" text-anchor="middle" font-size="9" fill="#666">Problem Frame</text>
+
+  <!-- 问题内容 -->
+  <text x="110" y="115" text-anchor="middle" font-size="10" fill="#333">"我不够美"</text>
+  <line class="thin-line" x1="60" y1="125" x2="160" y2="125"/>
+
+  <text x="110" y="145" text-anchor="middle" font-size="9" fill="#666">↓ 感受</text>
+  <text x="110" y="165" text-anchor="middle" font-size="9" fill="#666">焦虑</text>
+  <text x="110" y="180" text-anchor="middle" font-size="9" fill="#666">自卑</text>
+  <text x="110" y="195" text-anchor="middle" font-size="9" fill="#666">无力</text>
+
+  <!-- 转换箭头 -->
+  <path class="arrow" d="M 185 145 L 215 145 L 210 140 M 215 145 L 210 150"/>
+  <text x="200" y="135" text-anchor="middle" font-size="10" fill="#999" font-weight="bold">重述</text>
+  <text x="200" y="165" text-anchor="middle" font-size="8" fill="#999">Reframing</text>
+
+  <!-- 右框架：解决方案框架 -->
+  <rect class="box" x="220" y="80" width="140" height="140" rx="5"/>
+  <text x="290" y="60" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">解决方案框架</text>
+  <text x="290" y="75" text-anchor="middle" font-size="9" fill="#666">Solution Frame</text>
+
+  <!-- 解决方案内容 -->
+  <text x="290" y="115" text-anchor="middle" font-size="10" fill="#333">"我想变更美"</text>
+  <line class="thin-line" x1="240" y1="125" x2="340" y2="125"/>
+
+  <text x="290" y="145" text-anchor="middle" font-size="9" fill="#666">↓ 感受</text>
+  <text x="290" y="165" text-anchor="middle" font-size="9" fill="#666">希望</text>
+  <text x="290" y="180" text-anchor="middle" font-size="9" fill="#666">动力</text>
+  <text x="290" y="195" text-anchor="middle" font-size="9" fill="#666">赋能</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="250" text-anchor="middle" font-size="9" fill="#999">同一事实 · 不同叙事 · 不同情绪</text>
+
+  <!-- 装饰对比线 -->
+  <path class="thin-line" d="M 110 210 Q 200 230, 290 210" stroke-dasharray="3,3" opacity="0.4"/>
+</svg>

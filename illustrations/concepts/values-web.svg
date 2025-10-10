@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .thick-line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .node { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- 蛛网状多边形（6边形） -->
+  <!-- 外圈 -->
+  <polygon class="thick-line" points="200,50 310,100 310,200 200,250 90,200 90,100"/>
+
+  <!-- 中圈 -->
+  <polygon class="line" points="200,90 270,120 270,180 200,210 130,180 130,120"/>
+
+  <!-- 内圈 -->
+  <polygon class="line" points="200,130 235,145 235,155 200,170 165,155 165,145"/>
+
+  <!-- 辐射线 -->
+  <line class="line" x1="200" y1="150" x2="200" y2="50"/>
+  <line class="line" x1="200" y1="150" x2="310" y2="100"/>
+  <line class="line" x1="200" y1="150" x2="310" y2="200"/>
+  <line class="line" x1="200" y1="150" x2="200" y2="250"/>
+  <line class="line" x1="200" y1="150" x2="90" y2="200"/>
+  <line class="line" x1="200" y1="150" x2="90" y2="100"/>
+
+  <!-- 价值节点（6个维度） -->
+  <!-- 1. 健康价值（上） -->
+  <circle class="node" cx="200" cy="50" r="18"/>
+  <text x="200" y="48" text-anchor="middle" font-size="9" fill="#333">健康</text>
+  <text x="200" y="60" text-anchor="middle" font-size="7" fill="#666">Health</text>
+
+  <!-- 2. 美学价值（右上） -->
+  <circle class="node" cx="310" cy="100" r="18"/>
+  <text x="310" y="98" text-anchor="middle" font-size="9" fill="#333">美学</text>
+  <text x="310" y="110" text-anchor="middle" font-size="7" fill="#666">Aesthetics</text>
+
+  <!-- 3. 个人价值（右下） -->
+  <circle class="node" cx="310" cy="200" r="18"/>
+  <text x="310" y="198" text-anchor="middle" font-size="9" fill="#333">个人</text>
+  <text x="310" y="210" text-anchor="middle" font-size="7" fill="#666">Individual</text>
+
+  <!-- 4. 社会价值（下） -->
+  <circle class="node" cx="200" cy="250" r="18"/>
+  <text x="200" y="248" text-anchor="middle" font-size="9" fill="#333">社会</text>
+  <text x="200" y="260" text-anchor="middle" font-size="7" fill="#666">Social</text>
+
+  <!-- 5. 文化价值（左下） -->
+  <circle class="node" cx="90" cy="200" r="18"/>
+  <text x="90" y="198" text-anchor="middle" font-size="9" fill="#333">文化</text>
+  <text x="90" y="210" text-anchor="middle" font-size="7" fill="#666">Cultural</text>
+
+  <!-- 6. 伦理价值（左上） -->
+  <circle class="node" cx="90" cy="100" r="18"/>
+  <text x="90" y="98" text-anchor="middle" font-size="9" fill="#333">伦理</text>
+  <text x="90" y="110" text-anchor="middle" font-size="7" fill="#666">Ethics</text>
+
+  <!-- 中心：多元价值 -->
+  <circle cx="200" cy="150" r="20" fill="#fafafa" stroke="#333" stroke-width="1"/>
+  <text x="200" y="148" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">多元</text>
+  <text x="200" y="160" text-anchor="middle" font-size="8" fill="#666">价值观</text>
+
+  <!-- 标题 -->
+  <text x="200" y="30" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">价值观重构网</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="280" text-anchor="middle" font-size="9" fill="#999">从单一到多元 · 从对立到共生</text>
+
+  <!-- 装饰性连接 -->
+  <line class="line" x1="90" y1="100" x2="200" y2="50" stroke-dasharray="2,2" opacity="0.3"/>
+  <line class="line" x1="310" y1="100" x2="310" y2="200" stroke-dasharray="2,2" opacity="0.3"/>
+  <line class="line" x1="90" y1="200" x2="200" y2="250" stroke-dasharray="2,2" opacity="0.3"/>
+</svg>

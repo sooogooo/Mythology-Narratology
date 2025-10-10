@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .box { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 第一步：数据收集 -->
+  <rect class="box" x="30" y="120" width="90" height="60" rx="3"/>
+  <text x="75" y="145" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">数据收集</text>
+  <text x="75" y="165" text-anchor="middle" font-size="8" fill="#666">浏览记录</text>
+  <text x="75" y="177" text-anchor="middle" font-size="8" fill="#666">搜索关键词</text>
+
+  <!-- 箭头1 -->
+  <path class="arrow" d="M 125 150 L 145 150 L 140 145 M 145 150 L 140 155"/>
+
+  <!-- 第二步：AI分析 -->
+  <rect class="box" x="150" y="120" width="90" height="60" rx="3"/>
+  <text x="195" y="145" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">AI分析</text>
+  <text x="195" y="165" text-anchor="middle" font-size="8" fill="#666">需求识别</text>
+  <text x="195" y="177" text-anchor="middle" font-size="8" fill="#666">偏好预测</text>
+
+  <!-- 箭头2 -->
+  <path class="arrow" d="M 245 150 L 265 150 L 260 145 M 265 150 L 260 155"/>
+
+  <!-- 第三步：个性化输出 -->
+  <rect class="box" x="270" y="120" width="100" height="60" rx="3"/>
+  <text x="320" y="145" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">个性化输出</text>
+  <text x="320" y="165" text-anchor="middle" font-size="8" fill="#666">定制方案</text>
+  <text x="320" y="177" text-anchor="middle" font-size="8" fill="#666">精准推荐</text>
+
+  <!-- 分支路径 -->
+  <line class="thin-line" x1="195" y1="180" x2="195" y2="220"/>
+  <text x="195" y="235" text-anchor="middle" font-size="9" fill="#666">根据用户画像分类</text>
+
+  <!-- 三条分支 -->
+  <line class="thin-line" x1="195" y1="220" x2="100" y2="250"/>
+  <line class="thin-line" x1="195" y1="220" x2="195" y2="250"/>
+  <line class="thin-line" x1="195" y1="220" x2="290" y2="250"/>
+
+  <!-- 分支标签 -->
+  <circle cx="100" cy="250" r="6" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="100" y="268" text-anchor="middle" font-size="8" fill="#666">A类</text>
+
+  <circle cx="195" cy="250" r="6" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="195" y="268" text-anchor="middle" font-size="8" fill="#666">B类</text>
+
+  <circle cx="290" cy="250" r="6" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="290" y="268" text-anchor="middle" font-size="8" fill="#666">C类</text>
+
+  <!-- 数据符号装饰 -->
+  <circle cx="50" cy="100" r="3" fill="#999" opacity="0.5"/>
+  <circle cx="75" cy="95" r="2" fill="#999" opacity="0.5"/>
+  <circle cx="100" cy="98" r="2.5" fill="#999" opacity="0.5"/>
+
+  <!-- 顶部标题 -->
+  <text x="200" y="40" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">数据驱动的个性化叙事</text>
+  <text x="200" y="55" text-anchor="middle" font-size="9" fill="#666">Data-Driven Personalization</text>
+</svg>

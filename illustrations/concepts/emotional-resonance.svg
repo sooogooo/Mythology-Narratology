@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .peak { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 坐标轴 -->
+  <line class="thin-line" x1="50" y1="150" x2="350" y2="150" opacity="0.5"/>
+  <line class="thin-line" x1="50" y1="50" x2="50" y2="250" opacity="0.5"/>
+
+  <!-- Y轴标注 -->
+  <text x="30" y="60" font-size="10" fill="#999">高</text>
+  <text x="30" y="155" font-size="10" fill="#999">中</text>
+  <text x="30" y="245" font-size="10" fill="#999">低</text>
+
+  <!-- 情感波形主曲线 -->
+  <path class="line" d="M 50 150
+    Q 80 140, 100 120
+    Q 120 100, 140 90
+    Q 160 80, 180 75
+    Q 200 72, 220 80
+    Q 240 90, 260 110
+    Q 280 135, 300 150
+    Q 320 165, 350 170"/>
+
+  <!-- 共鸣峰值标记点 -->
+  <circle class="peak" cx="180" cy="75" r="4"/>
+  <circle class="peak" cx="100" cy="120" r="3" opacity="0.7"/>
+  <circle class="peak" cx="260" cy="110" r="3" opacity="0.7"/>
+
+  <!-- 峰值标注 -->
+  <text x="180" y="60" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">情感高峰</text>
+  <line class="thin-line" x1="180" y1="65" x2="180" y2="71" stroke-dasharray="2,2"/>
+
+  <!-- 阶段标注 -->
+  <text x="100" y="270" text-anchor="middle" font-size="9" fill="#666">认知期</text>
+  <text x="180" y="270" text-anchor="middle" font-size="9" fill="#666">决策期</text>
+  <text x="260" y="270" text-anchor="middle" font-size="9" fill="#666">体验期</text>
+
+  <!-- 共鸣区域（阴影效果） -->
+  <path class="thin-line" d="M 160 75 Q 180 60, 200 75" opacity="0.3" stroke-dasharray="1,2"/>
+  <text x="180" y="50" text-anchor="middle" font-size="8" fill="#999" opacity="0.8">共鸣区</text>
+
+  <!-- 装饰性网格线 -->
+  <line class="thin-line" x1="50" y1="100" x2="350" y2="100" opacity="0.2" stroke-dasharray="2,2"/>
+  <line class="thin-line" x1="50" y1="200" x2="350" y2="200" opacity="0.2" stroke-dasharray="2,2"/>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .dashed { stroke-dasharray: 4,4; }
+      .fill-light { fill: #fafafa; opacity: 0.7; }
+    </style>
+  </defs>
+
+  <!-- 左圆：虚拟世界 -->
+  <circle class="line dashed" cx="150" cy="150" r="80"/>
+  <text x="110" y="100" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">虚拟</text>
+  <text x="110" y="115" text-anchor="middle" font-size="9" fill="#666">Virtual</text>
+
+  <!-- 虚拟世界元素 -->
+  <text x="100" y="145" text-anchor="middle" font-size="9" fill="#666">AR试妆</text>
+  <text x="100" y="160" text-anchor="middle" font-size="9" fill="#666">AI模拟</text>
+  <text x="100" y="175" text-anchor="middle" font-size="9" fill="#666">3D预览</text>
+  <text x="100" y="190" text-anchor="middle" font-size="9" fill="#666">虚拟咨询</text>
+
+  <!-- 右圆：现实世界 -->
+  <circle class="line" cx="250" cy="150" r="80"/>
+  <text x="290" y="100" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">现实</text>
+  <text x="290" y="115" text-anchor="middle" font-size="9" fill="#666">Reality</text>
+
+  <!-- 现实世界元素 -->
+  <text x="300" y="145" text-anchor="middle" font-size="9" fill="#666">面诊</text>
+  <text x="300" y="160" text-anchor="middle" font-size="9" fill="#666">手术</text>
+  <text x="300" y="175" text-anchor="middle" font-size="9" fill="#666">恢复</text>
+  <text x="300" y="190" text-anchor="middle" font-size="9" fill="#666">真实效果</text>
+
+  <!-- 交集区域高亮 -->
+  <path class="fill-light" d="M 200 150
+    A 80 80 0 0 1 200 230
+    A 80 80 0 0 0 200 70
+    A 80 80 0 0 1 200 150 Z"
+    fill="#999" opacity="0.15" stroke="none"/>
+
+  <!-- 交集区域标注 -->
+  <text x="200" y="143" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">融合体验</text>
+  <text x="200" y="158" text-anchor="middle" font-size="9" fill="#666">虚拟辅助</text>
+  <text x="200" y="171" text-anchor="middle" font-size="9" fill="#666">+</text>
+  <text x="200" y="184" text-anchor="middle" font-size="9" fill="#666">现实决策</text>
+
+  <!-- 边界虚线强调 -->
+  <path class="thin-line dashed" d="M 200 70 A 80 80 0 0 1 200 230" opacity="0.5"/>
+  <path class="thin-line dashed" d="M 200 70 A 80 80 0 0 0 200 230" opacity="0.5"/>
+
+  <!-- 底部说明 -->
+  <text x="200" y="260" text-anchor="middle" font-size="9" fill="#999">数字技术重塑医美体验空间</text>
+
+  <!-- 装饰性连接线 -->
+  <line class="thin-line" x1="170" y1="120" x2="230" y2="120" opacity="0.3"/>
+  <line class="thin-line" x1="170" y1="200" x2="230" y2="200" opacity="0.3"/>
+</svg>

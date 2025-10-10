@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .node { fill: #fafafa; stroke: #666; stroke-width: 1; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 循环圆 -->
+  <circle class="line" cx="200" cy="150" r="90"/>
+
+  <!-- 医生节点（左侧） -->
+  <circle class="node" cx="110" cy="150" r="35"/>
+  <text x="110" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">医生</text>
+  <text x="110" y="162" text-anchor="middle" font-size="8" fill="#666">Doctor</text>
+
+  <!-- 患者节点（右侧） -->
+  <circle class="node" cx="290" cy="150" r="35"/>
+  <text x="290" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">患者</text>
+  <text x="290" y="162" text-anchor="middle" font-size="8" fill="#666">Patient</text>
+
+  <!-- 交互节点（上） -->
+  <circle cx="200" cy="60" r="8" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="200" y="45" text-anchor="middle" font-size="10" fill="#666">倾听需求</text>
+
+  <!-- 交互节点（右上） -->
+  <circle cx="255" cy="95" r="8" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="285" y="90" font-size="10" fill="#666">专业建议</text>
+
+  <!-- 交互节点（右下） -->
+  <circle cx="255" cy="205" r="8" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="285" y="210" font-size="10" fill="#666">反馈调整</text>
+
+  <!-- 交互节点（下） -->
+  <circle cx="200" cy="240" r="8" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="200" y="262" text-anchor="middle" font-size="10" fill="#666">共同决策</text>
+
+  <!-- 交互节点（左下） -->
+  <circle cx="145" cy="205" r="8" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="115" y="210" text-anchor="end" font-size="10" fill="#666">执行方案</text>
+
+  <!-- 交互节点（左上） -->
+  <circle cx="145" cy="95" r="8" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="115" y="90" text-anchor="end" font-size="10" fill="#666">评估效果</text>
+
+  <!-- 循环箭头 -->
+  <path class="arrow" d="M 202 65 L 207 60 L 205 68"/>
+  <path class="arrow" d="M 258 100 L 263 95 L 261 103"/>
+  <path class="arrow" d="M 258 200 L 263 205 L 261 197"/>
+  <path class="arrow" d="M 202 235 L 197 240 L 199 232"/>
+  <path class="arrow" d="M 142 200 L 137 205 L 139 197"/>
+  <path class="arrow" d="M 142 100 L 137 95 L 139 103"/>
+
+  <!-- 中心标签 -->
+  <circle cx="200" cy="150" r="25" fill="none" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="200" y="153" text-anchor="middle" font-size="10" fill="#999" font-weight="bold">共创</text>
+  <text x="200" y="165" text-anchor="middle" font-size="8" fill="#999">Co-Creation</text>
+</svg>

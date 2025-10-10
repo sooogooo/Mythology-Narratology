@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .node { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .center-node { fill: #fafafa; stroke: #333; stroke-width: 1.2; }
+      .wave { stroke: #999; fill: none; stroke-width: 0.3; opacity: 0.4; }
+    </style>
+  </defs>
+
+  <!-- 中心节点：内容源 -->
+  <circle class="center-node" cx="200" cy="150" r="20"/>
+  <text x="200" y="153" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">内容</text>
+
+  <!-- 第一圈节点（KOL） -->
+  <circle class="node" cx="200" cy="80" r="12"/>
+  <circle class="node" cx="270" cy="150" r="12"/>
+  <circle class="node" cx="200" cy="220" r="12"/>
+  <circle class="node" cx="130" cy="150" r="12"/>
+
+  <!-- 第二圈节点（传播者） -->
+  <circle class="node" cx="200" cy="40" r="8"/>
+  <circle class="node" cx="250" cy="60" r="8"/>
+  <circle class="node" cx="310" cy="110" r="8"/>
+  <circle class="node" cx="320" cy="170" r="8"/>
+  <circle class="node" cx="310" cy="230" r="8"/>
+  <circle class="node" cx="250" cy="250" r="8"/>
+  <circle class="node" cx="150" cy="250" r="8"/>
+  <circle class="node" cx="90" cy="230" r="8"/>
+  <circle class="node" cx="80" cy="170" r="8"/>
+  <circle class="node" cx="90" cy="110" r="8"/>
+  <circle class="node" cx="150" cy="60" r="8"/>
+
+  <!-- 连接线：中心到第一圈 -->
+  <line class="line" x1="200" y1="150" x2="200" y2="80"/>
+  <line class="line" x1="200" y1="150" x2="270" y2="150"/>
+  <line class="line" x1="200" y1="150" x2="200" y2="220"/>
+  <line class="line" x1="200" y1="150" x2="130" y2="150"/>
+
+  <!-- 连接线：第一圈到第二圈 -->
+  <line class="line" x1="200" y1="80" x2="200" y2="40"/>
+  <line class="line" x1="200" y1="80" x2="250" y2="60"/>
+  <line class="line" x1="200" y1="80" x2="150" y2="60"/>
+
+  <line class="line" x1="270" y1="150" x2="310" y2="110"/>
+  <line class="line" x1="270" y1="150" x2="320" y2="170"/>
+  <line class="line" x1="270" y1="150" x2="310" y2="230"/>
+
+  <line class="line" x1="200" y1="220" x2="250" y2="250"/>
+  <line class="line" x1="200" y1="220" x2="150" y2="250"/>
+  <line class="line" x1="200" y1="220" x2="90" y2="230"/>
+
+  <line class="line" x1="130" y1="150" x2="80" y2="170"/>
+  <line class="line" x1="130" y1="150" x2="90" y2="110"/>
+  <line class="line" x1="130" y1="150" x2="90" y2="230"/>
+
+  <!-- 传播波纹 -->
+  <circle class="wave" cx="200" cy="150" r="40"/>
+  <circle class="wave" cx="200" cy="150" r="70"/>
+  <circle class="wave" cx="200" cy="150" r="100"/>
+
+  <!-- 标注 -->
+  <text x="200" y="25" text-anchor="middle" font-size="9" fill="#999">KOL</text>
+  <text x="340" y="155" text-anchor="start" font-size="9" fill="#999">用户</text>
+  <text x="340" y="245" text-anchor="start" font-size="9" fill="#999">分享</text>
+
+  <!-- 传播指示箭头 -->
+  <polygon points="320,42 325,40 323,45" fill="#999" opacity="0.5"/>
+</svg>

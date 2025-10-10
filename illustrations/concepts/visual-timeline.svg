@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .box { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 主时间轴 -->
+  <line class="line" x1="50" y1="150" x2="350" y2="150"/>
+
+  <!-- Before节点（左侧） -->
+  <circle cx="100" cy="150" r="8" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+  <text x="100" y="130" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">Before</text>
+
+  <!-- Before图片框 -->
+  <rect class="box" x="60" y="170" width="80" height="60" rx="3"/>
+  <text x="100" y="205" text-anchor="middle" font-size="10" fill="#666">原始状态</text>
+
+  <!-- 时间流动箭头 -->
+  <path class="arrow" d="M 160 145 L 240 145 L 235 140 M 240 145 L 235 150"/>
+  <text x="200" y="135" text-anchor="middle" font-size="9" fill="#999">医美过程</text>
+  <text x="200" y="165" text-anchor="middle" font-size="8" fill="#999" opacity="0.7">Time</text>
+
+  <!-- After节点（右侧） -->
+  <circle cx="300" cy="150" r="8" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+  <text x="300" y="130" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">After</text>
+
+  <!-- After图片框 -->
+  <rect class="box" x="260" y="170" width="80" height="60" rx="3"/>
+  <text x="300" y="205" text-anchor="middle" font-size="10" fill="#666">理想效果</text>
+
+  <!-- 对比线 -->
+  <line class="thin-line" x1="100" y1="240" x2="300" y2="240" stroke-dasharray="2,2" opacity="0.5"/>
+
+  <!-- 视觉符号 -->
+  <!-- Before: 简单图形 -->
+  <circle cx="80" cy="195" r="3" fill="#999" opacity="0.5"/>
+  <circle cx="100" cy="195" r="3" fill="#999" opacity="0.5"/>
+  <circle cx="120" cy="195" r="3" fill="#999" opacity="0.5"/>
+
+  <!-- After: 星形 -->
+  <path d="M 300 188 L 303 195 L 310 195 L 304 199 L 307 206 L 300 202 L 293 206 L 296 199 L 290 195 L 297 195 Z"
+        fill="#999" opacity="0.5"/>
+
+  <!-- 情感标记 -->
+  <text x="100" y="255" text-anchor="middle" font-size="9" fill="#999">不满 → 期待</text>
+  <text x="300" y="255" text-anchor="middle" font-size="9" fill="#999">满足 → 自信</text>
+
+  <!-- 叙事弧线 -->
+  <path class="thin-line" d="M 100 245 Q 200 225, 300 245" opacity="0.4"/>
+</svg>

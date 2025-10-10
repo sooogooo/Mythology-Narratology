@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .thick-line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .center { fill: #fafafa; stroke: #333; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- 外圆 -->
+  <circle class="thick-line" cx="200" cy="150" r="110"/>
+
+  <!-- 12等分线 -->
+  <line class="line" x1="200" y1="40" x2="200" y2="260"/>
+  <line class="line" x1="90" y1="150" x2="310" y2="150"/>
+  <line class="line" x1="145" y1="63" x2="255" y2="237"/>
+  <line class="line" x1="145" y1="237" x2="255" y2="63"/>
+  <line class="line" x1="115" y1="95" x2="285" y2="205"/>
+  <line class="line" x1="115" y1="205" x2="285" y2="95"/>
+
+  <!-- 中心圆 -->
+  <circle class="center" cx="200" cy="150" r="35"/>
+  <text x="200" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">品牌</text>
+  <text x="200" y="162" text-anchor="middle" font-size="9" fill="#666">原型</text>
+
+  <!-- 12个原型标签（顺时针，从正上方开始） -->
+  <text x="200" y="30" text-anchor="middle" font-size="9" fill="#333">英雄</text>
+  <text x="275" y="75" text-anchor="start" font-size="9" fill="#333">魔法师</text>
+  <text x="320" y="155" text-anchor="start" font-size="9" fill="#333">智者</text>
+  <text x="275" y="230" text-anchor="start" font-size="9" fill="#333">创造者</text>
+  <text x="200" y="275" text-anchor="middle" font-size="9" fill="#333">照顾者</text>
+  <text x="125" y="230" text-anchor="end" font-size="9" fill="#333">天真者</text>
+  <text x="80" y="155" text-anchor="end" font-size="9" fill="#333">探险家</text>
+  <text x="125" y="75" text-anchor="end" font-size="9" fill="#333">统治者</text>
+
+  <!-- 内圈额外原型 -->
+  <text x="235" y="95" font-size="8" fill="#666">情人</text>
+  <text x="250" y="185" font-size="8" fill="#666">小丑</text>
+  <text x="165" y="185" font-size="8" fill="#666">反叛者</text>
+  <text x="165" y="95" font-size="8" fill="#666">常人</text>
+
+  <!-- 装饰圆环 -->
+  <circle class="line" cx="200" cy="150" r="75" opacity="0.3"/>
+
+  <!-- 标注线条 -->
+  <line class="line" x1="200" y1="35" x2="200" y2="40" opacity="0.5"/>
+  <line class="line" x1="320" y1="150" x2="310" y2="150" opacity="0.5"/>
+  <line class="line" x1="200" y1="270" x2="200" y2="260" opacity="0.5"/>
+  <line class="line" x1="80" y1="150" x2="90" y2="150" opacity="0.5"/>
+</svg>

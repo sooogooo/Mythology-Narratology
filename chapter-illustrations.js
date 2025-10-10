@@ -20,6 +20,30 @@ const ChapterIllustrations = {
         'chapter6', 'chapter7', 'chapter8', 'chapter9', 'chapter10'
     ],
 
+    // concepts子目录下的概念配图列表
+    concepts: [
+        // 第一章
+        'aphrodite-birth', 'beauty-cultures', 'narrative-framework',
+        // 第二章
+        'hero-journey', 'conflict-resolution', 'emotional-resonance',
+        // 第三章
+        'golden-ratio', 'culture-spectrum', 'psychology-maze', 'power-pyramid',
+        // 第四章
+        'visual-timeline', 'text-narrative-tree', 'multimodal-network',
+        // 第五章
+        'brand-archetypes', 'myth-spiral', 'ip-personality',
+        // 第六章
+        'listening-funnel', 'reframing', 'co-creation',
+        // 第七章
+        'social-network', 'data-personalization', 'virtual-real',
+        // 第八章
+        'truth-balance', 'empowerment-paradox', 'age-protection',
+        // 第九章
+        'global-brands', 'domestic-innovation', 'ip-growth',
+        // 第十章
+        'tech-tree', 'values-web', 'responsible-ecosystem'
+    ],
+
     /**
      * 加载指定插图
      * @param {string} illustrationId - 插图ID
@@ -31,14 +55,21 @@ const ChapterIllustrations = {
             return this.cache[illustrationId];
         }
 
-        // 检查插图是否存在
-        if (!this.available.includes(illustrationId)) {
+        // 确定插图路径
+        let path = null;
+        if (this.available.includes(illustrationId)) {
+            // 章节主配图
+            path = `illustrations/${illustrationId}.svg`;
+        } else if (this.concepts.includes(illustrationId)) {
+            // 概念配图
+            path = `illustrations/concepts/${illustrationId}.svg`;
+        } else {
             console.warn(`插图 ${illustrationId} 不存在`);
             return null;
         }
 
         try {
-            const response = await fetch(`illustrations/${illustrationId}.svg`);
+            const response = await fetch(path);
             if (!response.ok) {
                 throw new Error(`Failed to load illustration: ${illustrationId}`);
             }

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+    </style>
+  </defs>
+
+  <!-- 天平底座 -->
+  <line class="line" x1="200" y1="220" x2="200" y2="140"/>
+  <polygon points="190,220 210,220 205,235 195,235" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+
+  <!-- 天平横梁 -->
+  <line class="line" x1="100" y1="140" x2="300" y2="140"/>
+
+  <!-- 左侧：理想自我 -->
+  <line class="thin-line" x1="120" y1="140" x2="120" y2="100"/>
+  <circle cx="120" cy="80" r="35" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="120" y="78" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">理想自我</text>
+  <text x="120" y="92" text-anchor="middle" font-size="9" fill="#666">Ideal Self</text>
+
+  <!-- 理想自我符号 -->
+  <circle cx="120" cy="60" r="3" fill="#999" opacity="0.5"/>
+  <path class="thin-line" d="M 108 72 Q 120 68, 132 72" opacity="0.5"/>
+
+  <!-- 右侧：现实自我 -->
+  <line class="thin-line" x1="280" y1="140" x2="280" y2="100"/>
+  <circle cx="280" cy="80" r="35" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="280" y="78" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">现实自我</text>
+  <text x="280" y="92" text-anchor="middle" font-size="9" fill="#666">Real Self</text>
+
+  <!-- 现实自我符号 -->
+  <circle cx="280" cy="60" r="3" fill="#666" opacity="0.5"/>
+  <path class="thin-line" d="M 268 72 Q 280 70, 292 72" opacity="0.5"/>
+
+  <!-- 平衡点标注 -->
+  <circle cx="200" cy="135" r="5" fill="#999"/>
+  <text x="200" y="125" text-anchor="middle" font-size="10" fill="#999">医美介入</text>
+
+  <!-- 张力线条 -->
+  <line class="thin-line" x1="155" y1="80" x2="245" y2="80" stroke-dasharray="3,3" opacity="0.4"/>
+  <text x="200" y="68" text-anchor="middle" font-size="9" fill="#999" opacity="0.7">审美张力</text>
+</svg>

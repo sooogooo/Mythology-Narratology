@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .fill-light { fill: #fafafa; stroke: #666; stroke-width: 0.5; }
+    </style>
+  </defs>
+
+  <!-- 贝壳轮廓 -->
+  <path class="line" d="M 200 220 Q 150 200, 130 160 Q 120 140, 125 120 Q 130 100, 145 90 L 200 80 L 255 90 Q 270 100, 275 120 Q 280 140, 270 160 Q 250 200, 200 220 Z"/>
+
+  <!-- 贝壳纹理 -->
+  <path class="thin-line" d="M 200 80 L 200 210"/>
+  <path class="thin-line" d="M 180 85 Q 185 140, 190 210"/>
+  <path class="thin-line" d="M 220 85 Q 215 140, 210 210"/>
+  <path class="thin-line" d="M 160 95 Q 170 140, 180 210"/>
+  <path class="thin-line" d="M 240 95 Q 230 140, 220 210"/>
+
+  <!-- 水波纹 -->
+  <path class="thin-line" d="M 80 240 Q 140 235, 200 240 Q 260 245, 320 240" opacity="0.6"/>
+  <path class="thin-line" d="M 70 250 Q 135 245, 200 250 Q 265 255, 330 250" opacity="0.5"/>
+  <path class="thin-line" d="M 60 260 Q 130 255, 200 260 Q 270 265, 340 260" opacity="0.4"/>
+  <path class="thin-line" d="M 50 270 Q 125 265, 200 270 Q 275 275, 350 270" opacity="0.3"/>
+
+  <!-- 光芒线条 -->
+  <line class="thin-line" x1="200" y1="70" x2="200" y2="40" opacity="0.7"/>
+  <line class="thin-line" x1="200" y1="70" x2="230" y2="50" opacity="0.6"/>
+  <line class="thin-line" x1="200" y1="70" x2="250" y2="65" opacity="0.5"/>
+  <line class="thin-line" x1="200" y1="70" x2="170" y2="50" opacity="0.6"/>
+  <line class="thin-line" x1="200" y1="70" x2="150" y2="65" opacity="0.5"/>
+  <line class="thin-line" x1="200" y1="70" x2="220" y2="45" opacity="0.5"/>
+  <line class="thin-line" x1="200" y1="70" x2="180" y2="45" opacity="0.5"/>
+
+  <!-- 小光点 -->
+  <circle cx="200" cy="70" r="2" fill="#999"/>
+  <circle cx="185" cy="110" r="1.5" fill="#999" opacity="0.6"/>
+  <circle cx="215" cy="110" r="1.5" fill="#999" opacity="0.6"/>
+  <circle cx="200" cy="145" r="1.5" fill="#999" opacity="0.5"/>
+</svg>

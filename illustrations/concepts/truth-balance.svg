@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+    </style>
+  </defs>
+
+  <!-- 天平底座 -->
+  <line class="line" x1="200" y1="220" x2="200" y2="140"/>
+  <polygon points="190,220 210,220 205,235 195,235" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+
+  <!-- 天平横梁 -->
+  <line class="line" x1="100" y1="140" x2="300" y2="140"/>
+
+  <!-- 左侧：真实 -->
+  <line class="thin-line" x1="120" y1="140" x2="120" y2="100"/>
+  <circle cx="120" cy="80" r="35" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="120" y="78" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">真实</text>
+  <text x="120" y="92" text-anchor="middle" font-size="9" fill="#666">Truth</text>
+
+  <!-- 真实符号：朴素的圆点 -->
+  <circle cx="120" cy="60" r="3" fill="#666"/>
+
+  <!-- 右侧：夸张 -->
+  <line class="thin-line" x1="280" y1="140" x2="280" y2="100"/>
+  <circle cx="280" cy="80" r="35" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="280" y="78" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">夸张</text>
+  <text x="280" y="92" text-anchor="middle" font-size="9" fill="#666">Exaggeration</text>
+
+  <!-- 夸张符号：爆炸星形 -->
+  <path d="M 280 55 L 283 65 L 293 65 L 285 71 L 288 81 L 280 75 L 272 81 L 275 71 L 267 65 L 277 65 Z"
+        fill="#999" opacity="0.5"/>
+
+  <!-- 平衡点标注 -->
+  <circle cx="200" cy="135" r="5" fill="#999"/>
+  <text x="200" y="125" text-anchor="middle" font-size="10" fill="#999">伦理平衡点</text>
+
+  <!-- 倾斜示意（轻微向左倾） -->
+  <line class="thin-line" x1="100" y1="143" x2="300" y2="137" stroke-dasharray="2,2" opacity="0.3"/>
+
+  <!-- 底部标注 -->
+  <text x="120" y="260" text-anchor="middle" font-size="9" fill="#666">• 科学依据</text>
+  <text x="120" y="273" text-anchor="middle" font-size="9" fill="#666">• 合理期待</text>
+
+  <text x="280" y="260" text-anchor="middle" font-size="9" fill="#666">• 过度承诺</text>
+  <text x="280" y="273" text-anchor="middle" font-size="9" fill="#666">• 虚假宣传</text>
+
+  <!-- 伦理警示 -->
+  <text x="200" y="50" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">叙事真实性的伦理天平</text>
+</svg>

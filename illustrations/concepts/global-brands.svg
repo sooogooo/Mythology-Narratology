@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .continent { fill: none; stroke: #333; stroke-width: 0.8; }
+      .brand { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .connection { stroke: #999; stroke-width: 0.3; stroke-dasharray: 2,2; }
+    </style>
+  </defs>
+
+  <!-- 简化世界地图轮廓 -->
+  <!-- 欧洲 -->
+  <path class="continent" d="M 150 100 L 180 95 L 190 105 L 185 120 L 170 125 L 155 115 Z"/>
+
+  <!-- 亚洲 -->
+  <path class="continent" d="M 220 90 L 280 85 L 310 100 L 320 130 L 300 150 L 270 145 L 240 130 L 220 110 Z"/>
+
+  <!-- 北美 -->
+  <path class="continent" d="M 80 80 L 120 75 L 130 100 L 120 130 L 90 140 L 70 120 Z"/>
+
+  <!-- 南美 -->
+  <path class="continent" d="M 100 160 L 120 155 L 125 180 L 115 210 L 100 215 L 90 190 Z"/>
+
+  <!-- 非洲 -->
+  <path class="continent" d="M 160 140 L 185 135 L 200 160 L 195 195 L 175 205 L 155 185 Z"/>
+
+  <!-- 澳洲 -->
+  <path class="continent" d="M 290 180 L 320 175 L 330 195 L 315 210 L 290 205 Z"/>
+
+  <!-- 品牌节点 -->
+  <!-- 欧洲品牌 -->
+  <circle class="brand" cx="170" cy="110" r="8"/>
+  <text x="170" y="90" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">瑞士</text>
+
+  <!-- 美国品牌 -->
+  <circle class="brand" cx="100" cy="105" r="8"/>
+  <text x="100" y="85" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">美国</text>
+
+  <!-- 韩国品牌 -->
+  <circle class="brand" cx="290" cy="120" r="8"/>
+  <text x="290" y="100" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">韩国</text>
+
+  <!-- 日本品牌 -->
+  <circle class="brand" cx="310" cy="110" r="8"/>
+  <text x="320" y="105" text-anchor="start" font-size="8" fill="#333" font-weight="bold">日本</text>
+
+  <!-- 中国品牌 -->
+  <circle class="brand" cx="270" cy="125" r="8"/>
+  <text x="270" y="145" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">中国</text>
+
+  <!-- 巴西品牌 -->
+  <circle class="brand" cx="110" cy="185" r="8"/>
+  <text x="110" y="175" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">巴西</text>
+
+  <!-- 全球连接线 -->
+  <line class="connection" x1="100" y1="105" x2="170" y2="110"/>
+  <line class="connection" x1="170" y1="110" x2="270" y2="125"/>
+  <line class="connection" x1="270" y1="125" x2="290" y2="120"/>
+  <line class="connection" x1="290" y1="120" x2="310" y2="110"/>
+  <line class="connection" x1="100" y1="105" x2="290" y2="120"/>
+
+  <!-- 标题 -->
+  <text x="200" y="35" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">国际医美品牌地图</text>
+  <text x="200" y="50" text-anchor="middle" font-size="9" fill="#666">Global Medical Aesthetics Brands</text>
+
+  <!-- 图例 -->
+  <circle cx="50" cy="250" r="5" fill="#fafafa" stroke="#666" stroke-width="0.8"/>
+  <text x="65" y="254" font-size="8" fill="#666">品牌中心</text>
+
+  <line class="connection" x1="130" y1="250" x2="160" y2="250"/>
+  <text x="170" y="254" font-size="8" fill="#666">国际连接</text>
+
+  <!-- 底部注释 -->
+  <text x="200" y="280" text-anchor="middle" font-size="9" fill="#999">技术流动 · 文化交融 · 品牌全球化</text>
+</svg>

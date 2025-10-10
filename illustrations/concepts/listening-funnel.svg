@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .layer { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- 漏斗轮廓（倒三角） -->
+  <path class="line" d="M 80 50 L 320 50 L 250 150 L 200 240 L 150 150 Z"/>
+
+  <!-- 层级分割线 -->
+  <line class="thin-line" x1="100" y1="80" x2="300" y2="80"/>
+  <line class="thin-line" x1="130" y1="120" x2="270" y2="120"/>
+  <line class="thin-line" x1="160" y1="160" x2="240" y2="160"/>
+
+  <!-- 第一层：表面倾听 -->
+  <text x="200" y="70" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">表面倾听</text>
+  <text x="200" y="95" text-anchor="middle" font-size="9" fill="#666">听见话语 · Surface Listening</text>
+
+  <!-- 第二层：理解倾听 -->
+  <text x="200" y="105" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">理解倾听</text>
+  <text x="200" y="135" text-anchor="middle" font-size="9" fill="#666">理解诉求 · Understanding</text>
+
+  <!-- 第三层：共情倾听 -->
+  <text x="200" y="145" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">共情倾听</text>
+  <text x="200" y="175" text-anchor="middle" font-size="9" fill="#666">感受情绪 · Empathy</text>
+
+  <!-- 第四层：深层倾听 -->
+  <text x="200" y="195" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">深层倾听</text>
+  <text x="200" y="218" text-anchor="middle" font-size="9" fill="#666">洞察需求 · Deep Insight</text>
+
+  <!-- 信息流箭头 -->
+  <path class="thin-line" d="M 200 235 L 200 250" stroke-dasharray="2,2"/>
+  <polygon points="197,245 200,250 203,245" fill="#999"/>
+
+  <!-- 输出标签 -->
+  <text x="200" y="270" text-anchor="middle" font-size="10" fill="#999">精准方案</text>
+
+  <!-- 侧边标注 -->
+  <text x="340" y="65" font-size="9" fill="#999">广泛</text>
+  <text x="340" y="140" font-size="9" fill="#999">聚焦</text>
+  <text x="340" y="215" font-size="9" fill="#999">深入</text>
+
+  <!-- 装饰线 -->
+  <line class="thin-line" x1="335" y1="67" x2="320" y2="67" opacity="0.5"/>
+  <line class="thin-line" x1="335" y1="142" x2="270" y2="142" opacity="0.5"/>
+  <line class="thin-line" x1="335" y1="217" x2="240" y2="217" opacity="0.5"/>
+</svg>

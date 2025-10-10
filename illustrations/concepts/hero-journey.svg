@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .arrow-head { fill: #666; }
+    </style>
+  </defs>
+
+  <!-- 中心圆形路径 -->
+  <circle class="line" cx="200" cy="150" r="90"/>
+
+  <!-- 三个阶段节点 -->
+  <!-- 1. 启程（顶部） -->
+  <circle cx="200" cy="60" r="8" fill="#fafafa" stroke="#333" stroke-width="1"/>
+  <text x="200" y="45" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">启程</text>
+  <text x="200" y="65" text-anchor="middle" font-size="9" fill="#666">Departure</text>
+
+  <!-- 2. 试炼（左下） -->
+  <circle cx="122" cy="198" r="8" fill="#fafafa" stroke="#333" stroke-width="1"/>
+  <text x="90" y="218" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">试炼</text>
+  <text x="90" y="230" text-anchor="middle" font-size="9" fill="#666">Ordeal</text>
+
+  <!-- 3. 归来（右下） -->
+  <circle cx="278" cy="198" r="8" fill="#fafafa" stroke="#333" stroke-width="1"/>
+  <text x="310" y="218" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">归来</text>
+  <text x="310" y="230" text-anchor="middle" font-size="9" fill="#666">Return</text>
+
+  <!-- 箭头方向（顺时针） -->
+  <path class="arrow-head" d="M 245 90 L 250 85 L 248 92 Z"/>
+  <path class="arrow-head" d="M 140 215 L 145 220 L 140 222 Z"/>
+  <path class="arrow-head" d="M 260 120 L 265 118 L 262 125 Z"/>
+
+  <!-- 中心：转变 -->
+  <circle cx="200" cy="150" r="25" fill="none" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="200" y="153" text-anchor="middle" font-size="11" fill="#999">转变</text>
+  <text x="200" y="165" text-anchor="middle" font-size="9" fill="#999" opacity="0.7">Transformation</text>
+
+  <!-- 装饰性内圈 -->
+  <circle class="thin-line" cx="200" cy="150" r="50" opacity="0.3"/>
+</svg>

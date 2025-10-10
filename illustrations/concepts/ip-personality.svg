@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .trait { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- 简化人形轮廓 -->
+  <!-- 头部 -->
+  <circle class="line" cx="200" cy="80" r="25"/>
+
+  <!-- 身体 -->
+  <line class="line" x1="200" y1="105" x2="200" y2="180"/>
+
+  <!-- 手臂 -->
+  <line class="line" x1="200" y1="120" x2="160" y2="150"/>
+  <line class="line" x1="200" y1="120" x2="240" y2="150"/>
+
+  <!-- 腿部 -->
+  <line class="line" x1="200" y1="180" x2="180" y2="230"/>
+  <line class="line" x1="200" y1="180" x2="220" y2="230"/>
+
+  <!-- 人格特质圆环节点 -->
+  <!-- 专业性（上） -->
+  <circle class="trait" cx="200" cy="30" r="18"/>
+  <text x="200" y="33" text-anchor="middle" font-size="9" fill="#333">专业性</text>
+  <text x="200" y="43" text-anchor="middle" font-size="7" fill="#666">Professional</text>
+  <line class="thin-line" x1="200" y1="48" x2="200" y2="55"/>
+
+  <!-- 亲和力（右上） -->
+  <circle class="trait" cx="280" cy="60" r="18"/>
+  <text x="280" y="63" text-anchor="middle" font-size="9" fill="#333">亲和力</text>
+  <text x="280" y="73" text-anchor="middle" font-size="7" fill="#666">Warmth</text>
+  <line class="thin-line" x1="265" y1="72" x2="220" y2="90"/>
+
+  <!-- 创新性（右） -->
+  <circle class="trait" cx="310" cy="140" r="18"/>
+  <text x="310" y="143" text-anchor="middle" font-size="9" fill="#333">创新性</text>
+  <text x="310" y="153" text-anchor="middle" font-size="7" fill="#666">Innovation</text>
+  <line class="thin-line" x1="292" y1="140" x2="240" y2="140"/>
+
+  <!-- 可信度（右下） -->
+  <circle class="trait" cx="280" cy="220" r="18"/>
+  <text x="280" y="223" text-anchor="middle" font-size="9" fill="#333">可信度</text>
+  <text x="280" y="233" text-anchor="middle" font-size="7" fill="#666">Trust</text>
+  <line class="thin-line" x1="265" y1="210" x2="220" y2="220"/>
+
+  <!-- 审美性（下） -->
+  <circle class="trait" cx="200" cy="270" r="18"/>
+  <text x="200" y="273" text-anchor="middle" font-size="9" fill="#333">审美性</text>
+  <text x="200" y="283" text-anchor="middle" font-size="7" fill="#666">Aesthetic</text>
+  <line class="thin-line" x1="200" y1="252" x2="200" y2="230"/>
+
+  <!-- 同理心（左下） -->
+  <circle class="trait" cx="120" cy="220" r="18"/>
+  <text x="120" y="223" text-anchor="middle" font-size="9" fill="#333">同理心</text>
+  <text x="120" y="233" text-anchor="middle" font-size="7" fill="#666">Empathy</text>
+  <line class="thin-line" x1="135" y1="210" x2="180" y2="220"/>
+
+  <!-- 权威性（左） -->
+  <circle class="trait" cx="90" cy="140" r="18"/>
+  <text x="90" y="143" text-anchor="middle" font-size="9" fill="#333">权威性</text>
+  <text x="90" y="153" text-anchor="middle" font-size="7" fill="#666">Authority</text>
+  <line class="thin-line" x1="108" y1="140" x2="160" y2="140"/>
+
+  <!-- 故事性（左上） -->
+  <circle class="trait" cx="120" cy="60" r="18"/>
+  <text x="120" y="63" text-anchor="middle" font-size="9" fill="#333">故事性</text>
+  <text x="120" y="73" text-anchor="middle" font-size="7" fill="#666">Narrative</text>
+  <line class="thin-line" x1="135" y1="72" x2="180" y2="90"/>
+
+  <!-- 中心标签 -->
+  <text x="200" y="145" text-anchor="middle" font-size="10" fill="#999" font-weight="bold">IP人格</text>
+</svg>

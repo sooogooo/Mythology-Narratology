@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .layer { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .arrow { fill: #999; opacity: 0.6; }
+    </style>
+  </defs>
+
+  <!-- 金字塔轮廓 -->
+  <polygon points="200,50 80,230 320,230" class="line"/>
+
+  <!-- 三层分割 -->
+  <line class="thin-line" x1="120" y1="170" x2="280" y2="170"/>
+  <line class="thin-line" x1="145" y1="130" x2="255" y2="130"/>
+
+  <!-- 顶层：精英话语权 -->
+  <text x="200" y="85" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">精英阶层</text>
+  <text x="200" y="100" text-anchor="middle" font-size="9" fill="#666">医美机构 · 明星KOL</text>
+  <text x="200" y="112" text-anchor="middle" font-size="9" fill="#666">制定审美标准</text>
+
+  <!-- 中层：传播者 -->
+  <text x="200" y="145" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">传播阶层</text>
+  <text x="200" y="160" text-anchor="middle" font-size="9" fill="#666">媒体 · 博主 · 广告</text>
+
+  <!-- 底层：接受者 -->
+  <text x="200" y="195" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">大众阶层</text>
+  <text x="200" y="210" text-anchor="middle" font-size="9" fill="#666">消费者 · 潜在客户</text>
+  <text x="200" y="222" text-anchor="middle" font-size="9" fill="#666">接受并内化</text>
+
+  <!-- 权力流动箭头（向下） -->
+  <polygon class="arrow" points="210,115 210,125 215,120"/>
+  <polygon class="arrow" points="210,165 210,175 215,170"/>
+
+  <!-- 侧边标注 -->
+  <text x="335" y="90" font-size="9" fill="#999">话语权</text>
+  <line class="thin-line" x1="325" y1="92" x2="245" y2="92" opacity="0.5"/>
+
+  <text x="335" y="150" font-size="9" fill="#999">传播权</text>
+  <line class="thin-line" x1="325" y1="152" x2="280" y2="152" opacity="0.5"/>
+
+  <text x="335" y="210" font-size="9" fill="#999">消费权</text>
+  <line class="thin-line" x1="325" y1="212" x2="320" y2="212" opacity="0.5"/>
+
+  <!-- 反向箭头（底层反馈） -->
+  <path class="thin-line" d="M 95 220 L 95 180" stroke-dasharray="2,2" opacity="0.5"/>
+  <polygon points="92,185 95,180 98,185" fill="#666" opacity="0.4"/>
+  <text x="70" y="200" font-size="8" fill="#999" opacity="0.7">反馈</text>
+</svg>
