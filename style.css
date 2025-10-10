@@ -1527,6 +1527,103 @@ body {
     font-size: 1.1rem;
 }
 
+/* Concept Illustration Styles */
+.concept-illustration {
+    margin: var(--spacing-xl) auto;
+    max-width: 800px;
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.concept-illustration:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+}
+
+.concept-illustration svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform var(--transition-base);
+}
+
+.concept-illustration svg:hover {
+    transform: scale(1.02);
+}
+
+.concept-illustration-caption {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.concept-illustration-title {
+    font-family: var(--font-family-serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.illustration-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl);
+    color: var(--color-text-secondary);
+}
+
+.illustration-loading i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    animation: spin 1s linear infinite;
+}
+
+.illustration-loading p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.illustration-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    color: var(--color-text-tertiary);
+    font-size: 0.9rem;
+}
+
+.illustration-error i {
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .concept-illustration {
+        max-width: 100%;
+        padding: var(--spacing-md);
+        margin: var(--spacing-lg) 0;
+    }
+
+    .concept-illustration-caption {
+        font-size: 0.85rem;
+    }
+}
+
 /* Print Styles */
 @media print {
     .header,
@@ -1549,5 +1646,11 @@ body {
 
     .chapter-article {
         box-shadow: none;
+    }
+
+    .concept-illustration {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
     }
 }

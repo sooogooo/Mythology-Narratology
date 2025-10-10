@@ -64,7 +64,7 @@
 
 当代社会一方面倡导"美的多元化"，另一方面又在技术和资本的推动下走向"美的同质化"。多元化的声音说"每个人都有自己的美""接纳不完美""多样性即美"，但同质化的现实是网红脸的流行、医美模板化、审美趋同。这种悖论的根源在于，美的神话叙事本质上是排他性的——只有少数人可以像女神一样美丽，而现代民主社会要求包容性。医美行业恰好处于这一张力的中心，它既承诺"人人都能变美"，又依赖于"标准化美"的范本。
 
-<div class="concept-illustration" data-illustration="beauty-evolution-timeline"></div>
+<div class="concept-illustration" data-illustration="beauty-evolution-timeline" data-title="美的演化时间轴" data-caption="从神话时代到当代社会，美的标准如何演变，医美技术如何重塑我们对美的理解。"></div>
 
 ### 本节小结
 

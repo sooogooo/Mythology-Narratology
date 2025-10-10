@@ -536,56 +536,101 @@ async function loadChapter(chapterId) {
             }
         }
 
-        // 处理概念配图
+        // 处理概念配图（使用懒加载优化）
         if (typeof ChapterIllustrations !== 'undefined') {
             const conceptIllustrations = contentDiv.querySelectorAll('.concept-illustration[data-illustration]');
-            conceptIllustrations.forEach(async (container) => {
+
+            // 收集所有配图ID用于预加载
+            const illustrationIds = Array.from(conceptIllustrations).map(c => c.getAttribute('data-illustration')).filter(id => id);
+
+            // 预加载所有配图（异步，不阻塞渲染）
+            if (illustrationIds.length > 0) {
+                ChapterIllustrations.preload(illustrationIds).catch(err => {
+                    console.warn('预加载配图部分失败:', err);
+                });
+            }
+
+            // 使用IntersectionObserver实现懒加载
+            const observerOptions = {
+                root: null,
+                rootMargin: '200px', // 提前200px开始加载
+                threshold: 0
+            };
+
+            const loadIllustration = async (container) => {
                 const illustrationId = container.getAttribute('data-illustration');
-                if (illustrationId) {
-                    // 显示加载状态
+                const caption = container.getAttribute('data-caption') || '';
+                const title = container.getAttribute('data-title') || '';
+
+                if (!illustrationId || container.dataset.loaded === 'true') return;
+
+                // 标记为已开始加载，避免重复
+                container.dataset.loaded = 'true';
+
+                // 显示加载状态
+                container.innerHTML = `
+                    <div class="illustration-loading">
+                        <i class="ri-loader-4-line"></i>
+                        <p>加载配图中...</p>
+                    </div>
+                `;
+
+                try {
+                    const svg = await ChapterIllustrations.load(illustrationId);
+                    if (svg) {
+                        // 构建完整的配图HTML（包含标题和说明）
+                        let html = svg;
+
+                        if (title || caption) {
+                            html += '<div class="concept-illustration-caption">';
+                            if (title) {
+                                html += `<div class="concept-illustration-title">${title}</div>`;
+                            }
+                            if (caption) {
+                                html += `<p>${caption}</p>`;
+                            }
+                            html += '</div>';
+                        }
+
+                        container.innerHTML = html;
+
+                        // 添加点击放大功能
+                        const svgElement = container.querySelector('svg');
+                        if (svgElement && typeof ImageViewer !== 'undefined') {
+                            svgElement.addEventListener('click', () => {
+                                // 将SVG转换为base64用于查看
+                                const svgData = new XMLSerializer().serializeToString(svgElement);
+                                const svgBase64 = btoa(unescape(encodeURIComponent(svgData)));
+                                const svgUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                                const viewerTitle = title || `概念配图 - ${illustrationId}`;
+                                ImageViewer.open(svgUrl, viewerTitle, 'svg');
+                            });
+                        }
+                    }
+                } catch (error) {
+                    console.warn(`概念配图加载失败: ${illustrationId}`, error);
                     container.innerHTML = `
-                        <div class="illustration-loading" style="text-align: center; padding: var(--spacing-lg); color: var(--color-text-secondary);">
-                            <i class="ri-loader-4-line" style="animation: spin 1s linear infinite;"></i>
-                            <p style="margin-top: var(--spacing-sm); font-size: 0.9rem;">加载配图中...</p>
+                        <div class="illustration-error">
+                            <i class="ri-image-line"></i>
+                            <p>配图加载失败</p>
                         </div>
                     `;
-
-                    try {
-                        const svg = await ChapterIllustrations.load(illustrationId);
-                        if (svg) {
-                            container.innerHTML = svg;
-                            container.style.cssText = 'margin: var(--spacing-xl) auto; max-width: 800px; text-align: center;';
-
-                            // 添加点击放大功能
-                            const svgElement = container.querySelector('svg');
-                            if (svgElement && typeof ImageViewer !== 'undefined') {
-                                svgElement.style.cursor = 'pointer';
-                                svgElement.style.transition = 'transform 0.2s';
-                                svgElement.addEventListener('mouseenter', () => {
-                                    svgElement.style.transform = 'scale(1.02)';
-                                });
-                                svgElement.addEventListener('mouseleave', () => {
-                                    svgElement.style.transform = 'scale(1)';
-                                });
-                                svgElement.addEventListener('click', () => {
-                                    // 将SVG转换为base64用于查看
-                                    const svgData = new XMLSerializer().serializeToString(svgElement);
-                                    const svgBase64 = btoa(unescape(encodeURIComponent(svgData)));
-                                    const svgUrl = `data:image/svg+xml;base64,${svgBase64}`;
-                                    ImageViewer.open(svgUrl, `概念配图 - ${illustrationId}`, 'svg');
-                                });
-                            }
-                        }
-                    } catch (error) {
-                        console.warn(`概念配图加载失败: ${illustrationId}`, error);
-                        container.innerHTML = `
-                            <div style="text-align: center; padding: var(--spacing-md); color: var(--color-text-tertiary); font-size: 0.9rem;">
-                                <i class="ri-image-line"></i>
-                                <p>配图加载失败</p>
-                            </div>
-                        `;
-                    }
+                    container.dataset.loaded = 'false'; // 允许重试
                 }
+            };
+
+            const illustrationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadIllustration(entry.target);
+                        illustrationObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // 观察所有配图容器
+            conceptIllustrations.forEach(container => {
+                illustrationObserver.observe(container);
             });
         }
 
