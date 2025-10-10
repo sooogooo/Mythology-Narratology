@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .box { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">医患对话三步曲</text>
+
+  <!-- 第一步：倾听 -->
+  <rect class="box" x="30" y="60" width="110" height="60" rx="4"/>
+  <text x="85" y="80" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">第一步：倾听</text>
+  <text x="85" y="95" text-anchor="middle" font-size="9" fill="#666">• 积极倾听</text>
+  <text x="85" y="107" text-anchor="middle" font-size="9" fill="#666">• 识别需求</text>
+
+  <!-- 箭头1 -->
+  <path class="arrow" d="M 145 90 L 165 90 L 160 85 M 165 90 L 160 95"/>
+
+  <!-- 第二步：重述 -->
+  <rect class="box" x="170" y="60" width="110" height="60" rx="4"/>
+  <text x="225" y="80" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">第二步：重述</text>
+  <text x="225" y="95" text-anchor="middle" font-size="9" fill="#666">• 专业解读</text>
+  <text x="225" y="107" text-anchor="middle" font-size="9" fill="#666">• 重构框架</text>
+
+  <!-- 箭头2 -->
+  <path class="arrow" d="M 225 125 L 225 145 L 220 140 M 225 145 L 230 140"/>
+
+  <!-- 第三步：共创 -->
+  <rect class="box" x="170" y="150" width="110" height="60" rx="4"/>
+  <text x="225" y="170" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">第三步：共创</text>
+  <text x="225" y="185" text-anchor="middle" font-size="9" fill="#666">• 共同决策</text>
+  <text x="225" y="197" text-anchor="middle" font-size="9" fill="#666">• 方案确定</text>
+
+  <!-- 循环反馈箭头 -->
+  <path class="thin-line" d="M 170 180 Q 85 180, 85 125" stroke-dasharray="2,2" opacity="0.5"/>
+  <polygon points="82,130 85,125 88,130" fill="#999" opacity="0.5"/>
+  <text x="115" y="160" font-size="8" fill="#999" opacity="0.6">持续反馈</text>
+
+  <!-- 对话流程层次标注 -->
+  <line class="thin-line" x1="20" y1="90" x2="30" y2="90"/>
+  <text x="15" y="93" text-anchor="end" font-size="8" fill="#999">表层</text>
+
+  <line class="thin-line" x1="20" y1="180" x2="170" y2="180"/>
+  <text x="15" y="183" text-anchor="end" font-size="8" fill="#999">深层</text>
+
+  <!-- 右侧效果标注 -->
+  <text x="310" y="75" font-size="9" fill="#666">理解顾客</text>
+  <line class="thin-line" x1="280" y1="77" x2="305" y2="77" opacity="0.5"/>
+
+  <text x="310" y="95" font-size="9" fill="#666">引导认知</text>
+  <line class="thin-line" x1="280" y1="97" x2="305" y2="97" opacity="0.5"/>
+
+  <text x="310" y="180" font-size="9" fill="#666">建立信任</text>
+  <line class="thin-line" x1="280" y1="182" x2="305" y2="182" opacity="0.5"/>
+
+  <!-- 底部说明 -->
+  <text x="200" y="245" text-anchor="middle" font-size="9" fill="#999">倾听→重述→共创的对话式叙事</text>
+  <text x="200" y="258" text-anchor="middle" font-size="8" fill="#999" opacity="0.7">从单向传递到双向建构</text>
+</svg>

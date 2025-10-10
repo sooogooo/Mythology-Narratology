@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .box { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">品牌-用户情感连接桥</text>
+
+  <!-- 左侧：品牌端 -->
+  <rect class="box" x="30" y="100" width="100" height="120" rx="4"/>
+  <text x="80" y="85" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">品牌端</text>
+  <text x="80" y="130" text-anchor="middle" font-size="9" fill="#666">品牌故事</text>
+  <text x="80" y="150" text-anchor="middle" font-size="9" fill="#666">品牌价值</text>
+  <text x="80" y="170" text-anchor="middle" font-size="9" fill="#666">品牌原型</text>
+  <text x="80" y="190" text-anchor="middle" font-size="9" fill="#666">品牌承诺</text>
+  <text x="80" y="210" text-anchor="middle" font-size="9" fill="#666">品牌体验</text>
+
+  <!-- 右侧：用户端 -->
+  <rect class="box" x="270" y="100" width="100" height="120" rx="4"/>
+  <text x="320" y="85" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">用户端</text>
+  <text x="320" y="130" text-anchor="middle" font-size="9" fill="#666">个人故事</text>
+  <text x="320" y="150" text-anchor="middle" font-size="9" fill="#666">价值认同</text>
+  <text x="320" y="170" text-anchor="middle" font-size="9" fill="#666">情感投射</text>
+  <text x="320" y="190" text-anchor="middle" font-size="9" fill="#666">信任建立</text>
+  <text x="320" y="210" text-anchor="middle" font-size="9" fill="#666">忠诚度</text>
+
+  <!-- 连接桥（悬索桥结构） -->
+  <!-- 桥塔 -->
+  <rect x="145" y="90" width="8" height="130" fill="#999" opacity="0.3"/>
+  <rect x="247" y="90" width="8" height="130" fill="#999" opacity="0.3"/>
+
+  <!-- 主缆 -->
+  <path class="line" d="M 145 100 Q 200 120, 255 100"/>
+  <path class="line" d="M 145 210 Q 200 190, 255 210"/>
+
+  <!-- 吊索 -->
+  <line class="thin-line" x1="165" y1="110" x2="165" y2="200" opacity="0.4"/>
+  <line class="thin-line" x1="185" y1="113" x2="185" y2="197" opacity="0.4"/>
+  <line class="thin-line" x1="200" y1="115" x2="200" y2="195" opacity="0.4"/>
+  <line class="thin-line" x1="215" y1="113" x2="215" y2="197" opacity="0.4"/>
+  <line class="thin-line" x1="235" y1="110" x2="235" y2="200" opacity="0.4"/>
+
+  <!-- 桥面（中间情感连接层） -->
+  <rect x="145" y="148" width="110" height="24" fill="#fafafa" stroke="#666" stroke-width="0.8" rx="2"/>
+  <text x="200" y="163" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">情感共鸣</text>
+
+  <!-- 桥上的连接要素 -->
+  <circle cx="165" cy="160" r="2" fill="#999"/>
+  <text x="165" y="142" text-anchor="middle" font-size="7" fill="#999">故事</text>
+
+  <circle cx="185" cy="160" r="2" fill="#999"/>
+  <text x="185" y="142" text-anchor="middle" font-size="7" fill="#999">仪式</text>
+
+  <circle cx="200" cy="160" r="2" fill="#999"/>
+  <text x="200" y="142" text-anchor="middle" font-size="7" fill="#999">符号</text>
+
+  <circle cx="215" cy="160" r="2" fill="#999"/>
+  <text x="215" y="142" text-anchor="middle" font-size="7" fill="#999">体验</text>
+
+  <circle cx="235" cy="160" r="2" fill="#999"/>
+  <text x="235" y="142" text-anchor="middle" font-size="7" fill="#999">社群</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="250" text-anchor="middle" font-size="9" fill="#999">品牌通过叙事建立情感连接</text>
+  <text x="200" y="263" text-anchor="middle" font-size="8" fill="#999" opacity="0.7">从功能价值到情感价值的跨越</text>
+</svg>

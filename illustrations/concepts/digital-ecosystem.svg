@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .node { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .center { fill: #fafafa; stroke: #333; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">数字叙事生态地图</text>
+
+  <!-- 中心：内容 -->
+  <circle class="center" cx="200" cy="150" r="25"/>
+  <text x="200" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">内容</text>
+  <text x="200" y="160" text-anchor="middle" font-size="8" fill="#666">Content</text>
+
+  <!-- 第一圈：平台层 -->
+  <circle class="node" cx="200" cy="80" r="18"/>
+  <text x="200" y="78" text-anchor="middle" font-size="9" fill="#333">小红书</text>
+  <text x="200" y="88" text-anchor="middle" font-size="7" fill="#666">图文</text>
+
+  <circle class="node" cx="290" cy="120" r="18"/>
+  <text x="290" y="118" text-anchor="middle" font-size="9" fill="#333">抖音</text>
+  <text x="290" y="128" text-anchor="middle" font-size="7" fill="#666">视频</text>
+
+  <circle class="node" cx="290" cy="180" r="18"/>
+  <text x="290" y="178" text-anchor="middle" font-size="9" fill="#333">微博</text>
+  <text x="290" y="188" text-anchor="middle" font-size="7" fill="#666">传播</text>
+
+  <circle class="node" cx="200" cy="220" r="18"/>
+  <text x="200" y="218" text-anchor="middle" font-size="9" fill="#333">微信</text>
+  <text x="200" y="228" text-anchor="middle" font-size="7" fill="#666">私域</text>
+
+  <circle class="node" cx="110" cy="180" r="18"/>
+  <text x="110" y="178" text-anchor="middle" font-size="9" fill="#333">知乎</text>
+  <text x="110" y="188" text-anchor="middle" font-size="7" fill="#666">专业</text>
+
+  <circle class="node" cx="110" cy="120" r="18"/>
+  <text x="110" y="118" text-anchor="middle" font-size="9" fill="#333">B站</text>
+  <text x="110" y="128" text-anchor="middle" font-size="7" fill="#666">科普</text>
+
+  <!-- 连接线：中心到平台 -->
+  <line class="line" x1="200" y1="150" x2="200" y2="80"/>
+  <line class="line" x1="200" y1="150" x2="290" y2="120"/>
+  <line class="line" x1="200" y1="150" x2="290" y2="180"/>
+  <line class="line" x1="200" y1="150" x2="200" y2="220"/>
+  <line class="line" x1="200" y1="150" x2="110" y2="180"/>
+  <line class="line" x1="200" y1="150" x2="110" y2="120"/>
+
+  <!-- 第二圈：参与者 -->
+  <circle cx="245" cy="65" r="8" fill="#fafafa" stroke="#999" stroke-width="0.5"/>
+  <text x="260" y="60" font-size="7" fill="#999">KOL</text>
+
+  <circle cx="330" cy="150" r="8" fill="#fafafa" stroke="#999" stroke-width="0.5"/>
+  <text x="345" y="153" font-size="7" fill="#999">用户</text>
+
+  <circle cx="245" cy="235" r="8" fill="#fafafa" stroke="#999" stroke-width="0.5"/>
+  <text x="260" y="245" font-size="7" fill="#999">机构</text>
+
+  <circle cx="70" cy="150" r="8" fill="#fafafa" stroke="#999" stroke-width="0.5"/>
+  <text x="50" y="153" text-anchor="end" font-size="7" fill="#999">医生</text>
+
+  <!-- 算法层标注 -->
+  <circle cx="200" cy="150" r="50" fill="none" stroke="#999" stroke-width="0.3" stroke-dasharray="3,3" opacity="0.3"/>
+  <text x="260" y="115" font-size="8" fill="#999" opacity="0.6">算法</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="275" text-anchor="middle" font-size="9" fill="#999">多平台 · 多角色 · 算法驱动的叙事网络</text>
+  <text x="200" y="288" text-anchor="middle" font-size="8" fill="#999" opacity="0.7">内容流动的数字化生态</text>
+</svg>

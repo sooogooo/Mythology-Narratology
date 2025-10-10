@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .thick-line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .layer { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">未来医美叙事愿景全景</text>
+
+  <!-- 三层结构：底层技术革新 + 中层价值重构 + 顶层生态系统 -->
+
+  <!-- 底层：技术革新 -->
+  <rect class="layer" x="30" y="220" width="340" height="45" rx="4"/>
+  <text x="40" y="238" font-size="11" fill="#333" font-weight="bold">技术革新层</text>
+  <text x="50" y="253" font-size="8" fill="#666">• AI个性化 • 基因美学 • 再生医学 • AR/VR</text>
+
+  <!-- 中层：价值观重构 -->
+  <rect class="layer" x="50" y="160" width="300" height="50" rx="4"/>
+  <text x="60" y="178" font-size="11" fill="#333" font-weight="bold">价值观重构层</text>
+  <text x="70" y="193" font-size="8" fill="#666">• 身体积极性 • 性别流动性 • 多元美学 • 年龄包容</text>
+
+  <!-- 顶层：生态系统 -->
+  <rect class="layer" x="70" y="95" width="260" height="55" rx="4"/>
+  <text x="80" y="113" font-size="11" fill="#333" font-weight="bold">负责任生态层</text>
+  <text x="90" y="128" font-size="8" fill="#666">• 行业规范 • 跨界合作 • 公众教育 • 媒介素养</text>
+  <text x="90" y="140" font-size="8" fill="#666">• 透明度 • 伦理审查 • 美学民主化</text>
+
+  <!-- 连接线：层级关系 -->
+  <line class="line" x1="200" y1="220" x2="200" y2="210" stroke-dasharray="2,2" opacity="0.5"/>
+  <line class="line" x1="200" y1="160" x2="200" y2="150" stroke-dasharray="2,2" opacity="0.5"/>
+
+  <!-- 三角形支撑结构 -->
+  <path class="line" d="M 30 220 L 200 95 L 370 220" opacity="0.2"/>
+
+  <!-- 顶部愿景 -->
+  <circle cx="200" cy="60" r="20" fill="#fafafa" stroke="#333" stroke-width="1"/>
+  <text x="200" y="58" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">美学</text>
+  <text x="200" y="70" text-anchor="middle" font-size="8" fill="#666">民主化</text>
+
+  <!-- 愿景光芒 -->
+  <line class="line" x1="200" y1="60" x2="200" y2="40" opacity="0.5"/>
+  <line class="line" x1="200" y1="60" x2="220" y2="45" opacity="0.4"/>
+  <line class="line" x1="200" y1="60" x2="230" y2="55" opacity="0.3"/>
+  <line class="line" x1="200" y1="60" x2="180" y2="45" opacity="0.4"/>
+  <line class="line" x1="200" y1="60" x2="170" y2="55" opacity="0.3"/>
+
+  <!-- 侧边关键词 -->
+  <text x="20" y="200" font-size="8" fill="#999" opacity="0.7">科技</text>
+  <text x="20" y="175" font-size="8" fill="#999" opacity="0.7">文化</text>
+  <text x="20" y="125" font-size="8" fill="#999" opacity="0.7">责任</text>
+
+  <text x="380" y="200" text-anchor="end" font-size="8" fill="#999" opacity="0.7">赋能</text>
+  <text x="380" y="175" text-anchor="end" font-size="8" fill="#999" opacity="0.7">包容</text>
+  <text x="380" y="125" text-anchor="end" font-size="8" fill="#999" opacity="0.7">透明</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="285" text-anchor="middle" font-size="9" fill="#999">技术驱动 · 价值引领 · 生态共建</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .axis { stroke: #333; fill: none; stroke-width: 0.8; }
+      .grid { stroke: #999; fill: none; stroke-width: 0.3; opacity: 0.3; }
+      .data { fill: #999; opacity: 0.2; stroke: #333; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">成功叙事要素雷达图</text>
+
+  <!-- 雷达图中心 -->
+  <circle cx="200" cy="150" r="2" fill="#333"/>
+
+  <!-- 6个维度轴 -->
+  <!-- 1. 科学性（顶部） -->
+  <line class="axis" x1="200" y1="150" x2="200" y2="60"/>
+  <text x="200" y="50" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">科学性</text>
+  <text x="200" y="62" text-anchor="middle" font-size="7" fill="#666">Evidence</text>
+
+  <!-- 2. 情感性（右上） -->
+  <line class="axis" x1="200" y1="150" x2="278" y2="97"/>
+  <text x="290" y="95" font-size="10" fill="#333" font-weight="bold">情感性</text>
+  <text x="290" y="105" font-size="7" fill="#666">Emotion</text>
+
+  <!-- 3. 真实性（右下） -->
+  <line class="axis" x1="200" y1="150" x2="278" y2="203"/>
+  <text x="290" y="208" font-size="10" fill="#333" font-weight="bold">真实性</text>
+  <text x="290" y="218" font-size="7" fill="#666">Authenticity</text>
+
+  <!-- 4. 创新性（底部） -->
+  <line class="axis" x1="200" y1="150" x2="200" y2="240"/>
+  <text x="200" y="255" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">创新性</text>
+  <text x="200" y="265" text-anchor="middle" font-size="7" fill="#666">Innovation</text>
+
+  <!-- 5. 传播力（左下） -->
+  <line class="axis" x1="200" y1="150" x2="122" y2="203"/>
+  <text x="110" y="208" text-anchor="end" font-size="10" fill="#333" font-weight="bold">传播力</text>
+  <text x="110" y="218" text-anchor="end" font-size="7" fill="#666">Virality</text>
+
+  <!-- 6. 一致性（左上） -->
+  <line class="axis" x1="200" y1="150" x2="122" y2="97"/>
+  <text x="110" y="95" text-anchor="end" font-size="10" fill="#333" font-weight="bold">一致性</text>
+  <text x="110" y="105" text-anchor="end" font-size="7" fill="#666">Consistency</text>
+
+  <!-- 雷达网格 -->
+  <polygon class="grid" points="200,90 248,111 248,189 200,210 152,189 152,111"/>
+  <polygon class="grid" points="200,120 224,131 224,169 200,180 176,169 176,131"/>
+
+  <!-- 数据填充区域（示例高分叙事） -->
+  <polygon class="data" points="200,75 260,105 265,190 200,220 140,195 145,105"/>
+
+  <!-- 数据点标记 -->
+  <circle cx="200" cy="75" r="3" fill="#333"/>
+  <circle cx="260" cy="105" r="3" fill="#333"/>
+  <circle cx="265" cy="190" r="3" fill="#333"/>
+  <circle cx="200" cy="220" r="3" fill="#333"/>
+  <circle cx="140" cy="195" r="3" fill="#333"/>
+  <circle cx="145" cy="105" r="3" fill="#333"/>
+
+  <!-- 刻度标注 -->
+  <text x="200" y="95" text-anchor="middle" font-size="7" fill="#999">5</text>
+  <text x="200" y="125" text-anchor="middle" font-size="7" fill="#999">3</text>
+
+  <!-- 底部说明 -->
+  <text x="200" y="285" text-anchor="middle" font-size="9" fill="#999">优秀医美叙事的六大核心要素</text>
+</svg>

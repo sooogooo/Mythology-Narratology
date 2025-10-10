@@ -22,26 +22,36 @@ const ChapterIllustrations = {
 
     // concepts子目录下的概念配图列表
     concepts: [
-        // 第一章
+        // 第一章（4个）
         'aphrodite-birth', 'beauty-cultures', 'narrative-framework',
-        // 第二章
+        'beauty-evolution-timeline',
+        // 第二章（4个）
         'hero-journey', 'conflict-resolution', 'emotional-resonance',
-        // 第三章
+        'anxiety-solution-cycle',
+        // 第三章（5个）
         'golden-ratio', 'culture-spectrum', 'psychology-maze', 'power-pyramid',
-        // 第四章
+        'beauty-dimensions',
+        // 第四章（4个）
         'visual-timeline', 'text-narrative-tree', 'multimodal-network',
-        // 第五章
+        'before-after-narrative',
+        // 第五章（4个）
         'brand-archetypes', 'myth-spiral', 'ip-personality',
-        // 第六章
+        'brand-emotion-bridge',
+        // 第六章（4个）
         'listening-funnel', 'reframing', 'co-creation',
-        // 第七章
+        'consultation-dialogue',
+        // 第七章（4个）
         'social-network', 'data-personalization', 'virtual-real',
-        // 第八章
+        'digital-ecosystem',
+        // 第八章（4个）
         'truth-balance', 'empowerment-paradox', 'age-protection',
-        // 第九章
+        'ethics-decision-tree',
+        // 第九章（4个）
         'global-brands', 'domestic-innovation', 'ip-growth',
-        // 第十章
-        'tech-tree', 'values-web', 'responsible-ecosystem'
+        'success-elements-radar',
+        // 第十章（4个）
+        'tech-tree', 'values-web', 'responsible-ecosystem',
+        'future-vision-panorama'
     ],
 
     /**

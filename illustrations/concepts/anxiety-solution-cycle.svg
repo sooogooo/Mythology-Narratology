@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .node { fill: #fafafa; stroke: #666; stroke-width: 0.8; }
+      .arrow { fill: #999; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">焦虑-需求-解决循环</text>
+
+  <!-- 循环圆圈 -->
+  <circle class="line" cx="200" cy="150" r="90"/>
+
+  <!-- 节点1：焦虑触发（顶部） -->
+  <circle class="node" cx="200" cy="60" r="30"/>
+  <text x="200" y="58" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">焦虑触发</text>
+  <text x="200" y="70" text-anchor="middle" font-size="8" fill="#666">外貌不满</text>
+
+  <!-- 节点2：需求形成（右侧） -->
+  <circle class="node" cx="278" cy="150" r="30"/>
+  <text x="278" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">需求形成</text>
+  <text x="278" y="160" text-anchor="middle" font-size="8" fill="#666">变美渴望</text>
+
+  <!-- 节点3：寻求方案（左下） -->
+  <circle class="node" cx="145" cy="218" r="30"/>
+  <text x="145" y="216" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">寻求方案</text>
+  <text x="145" y="228" text-anchor="middle" font-size="8" fill="#666">咨询医美</text>
+
+  <!-- 节点4：实施改变（右下） -->
+  <circle class="node" cx="255" cy="218" r="30"/>
+  <text x="255" y="216" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">实施改变</text>
+  <text x="255" y="228" text-anchor="middle" font-size="8" fill="#666">接受治疗</text>
+
+  <!-- 节点5：短暂满足（左侧） -->
+  <circle class="node" cx="122" cy="150" r="30"/>
+  <text x="122" y="148" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">短暂满足</text>
+  <text x="122" y="160" text-anchor="middle" font-size="8" fill="#666">效果达成</text>
+
+  <!-- 循环箭头 -->
+  <path class="arrow" d="M 220 75 L 225 70 L 223 78"/>
+  <path class="arrow" d="M 268 170 L 273 175 L 271 167"/>
+  <path class="arrow" d="M 162 235 L 157 240 L 159 232"/>
+  <path class="arrow" d="M 238 235 L 233 240 L 235 232"/>
+  <path class="arrow" d="M 135 130 L 130 125 L 132 133"/>
+
+  <!-- 中心：永续循环 -->
+  <circle cx="200" cy="150" r="20" fill="none" stroke="#999" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="200" y="153" text-anchor="middle" font-size="9" fill="#999" font-weight="bold">永续</text>
+  <text x="200" y="163" text-anchor="middle" font-size="7" fill="#999">循环</text>
+
+  <!-- 外部影响因素标注 -->
+  <text x="30" y="100" font-size="8" fill="#999" opacity="0.6">社会比较</text>
+  <line class="thin-line" x1="40" y1="102" x2="92" y2="140" opacity="0.3" stroke-dasharray="1,2"/>
+
+  <text x="340" y="100" text-anchor="end" font-size="8" fill="#999" opacity="0.6">媒体影响</text>
+  <line class="thin-line" x1="360" y1="102" x2="308" y2="140" opacity="0.3" stroke-dasharray="1,2"/>
+
+  <text x="200" y="280" text-anchor="middle" font-size="8" fill="#999" opacity="0.6">年龄焦虑</text>
+  <line class="thin-line" x1="200" y1="273" x2="200" y2="248" opacity="0.3" stroke-dasharray="1,2"/>
+
+  <!-- 底部说明 -->
+  <text x="200" y="292" text-anchor="middle" font-size="9" fill="#999">医美消费的心理动力学模型</text>
+</svg>

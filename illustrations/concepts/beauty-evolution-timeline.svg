@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <style>
+      .line { stroke: #333; fill: none; stroke-width: 0.8; }
+      .thin-line { stroke: #666; fill: none; stroke-width: 0.5; }
+      .marker { fill: #666; }
+      .text-main { fill: #333; font-size: 10px; font-weight: 600; }
+      .text-sub { fill: #666; font-size: 8px; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">美的演变：从神话到医美</text>
+
+  <!-- 主时间轴 -->
+  <line class="line" x1="40" y1="150" x2="360" y2="150"/>
+
+  <!-- 箭头 -->
+  <polygon points="355,145 365,150 355,155" fill="#333"/>
+  <text x="370" y="154" font-size="9" fill="#999">时间</text>
+
+  <!-- 时间节点1：古希腊 (约公元前800) -->
+  <circle class="marker" cx="70" cy="150" r="4"/>
+  <line class="thin-line" x1="70" y1="150" x2="70" y2="100"/>
+  <text class="text-main" x="70" y="90" text-anchor="middle">古希腊</text>
+  <text class="text-sub" x="70" y="100" text-anchor="middle">BC 800</text>
+  <text class="text-sub" x="70" y="180" text-anchor="middle">神话美学</text>
+  <text class="text-sub" x="70" y="191" text-anchor="middle">阿芙洛狄忒</text>
+
+  <!-- 时间节点2：古埃及 (约公元前3000) -->
+  <circle class="marker" cx="55" cy="150" r="3" opacity="0.6"/>
+  <line class="thin-line" x1="55" y1="150" x2="55" y2="210" opacity="0.6"/>
+  <text class="text-sub" x="55" y="223" text-anchor="middle" opacity="0.7">古埃及</text>
+  <text class="text-sub" x="55" y="233" text-anchor="middle" opacity="0.7">BC 3000</text>
+
+  <!-- 时间节点3：中国古代 (约公元200) -->
+  <circle class="marker" cx="140" cy="150" r="4"/>
+  <line class="thin-line" x1="140" y1="150" x2="140" y2="210"/>
+  <text class="text-main" x="140" y="223" text-anchor="middle">中国古代</text>
+  <text class="text-sub" x="140" y="233" text-anchor="middle">200 AD</text>
+  <text class="text-sub" x="140" y="90" text-anchor="middle">驻颜术</text>
+  <text class="text-sub" x="140" y="101" text-anchor="middle">长生不老</text>
+
+  <!-- 时间节点4：文艺复兴 (约1500) -->
+  <circle class="marker" cx="210" cy="150" r="4"/>
+  <line class="thin-line" x1="210" y1="150" x2="210" y2="100"/>
+  <text class="text-main" x="210" y="90" text-anchor="middle">文艺复兴</text>
+  <text class="text-sub" x="210" y="100" text-anchor="middle">1500</text>
+  <text class="text-sub" x="210" y="180" text-anchor="middle">比例美学</text>
+  <text class="text-sub" x="210" y="191" text-anchor="middle">科学理性</text>
+
+  <!-- 时间节点5：现代医美 (1990s) -->
+  <circle class="marker" cx="290" cy="150" r="5"/>
+  <line class="thin-line" x1="290" y1="150" x2="290" y2="210"/>
+  <text class="text-main" x="290" y="223" text-anchor="middle">现代医美</text>
+  <text class="text-sub" x="290" y="233" text-anchor="middle">1990s</text>
+  <text class="text-sub" x="290" y="90" text-anchor="middle">微创技术</text>
+  <text class="text-sub" x="290" y="101" text-anchor="middle">个性化定制</text>
+
+  <!-- 演变曲线 -->
+  <path class="thin-line" d="M 70 150 Q 140 130, 210 145 Q 250 150, 290 140"
+        opacity="0.3" stroke-dasharray="2,2"/>
+
+  <!-- 里程碑标记 -->
+  <text x="105" y="138" font-size="7" fill="#999" opacity="0.6">传统</text>
+  <path class="thin-line" d="M 105 140 L 105 148" opacity="0.3"/>
+
+  <text x="250" y="138" font-size="7" fill="#999" opacity="0.6">科技</text>
+  <path class="thin-line" d="M 250 140 L 250 148" opacity="0.3"/>
+
+  <!-- 底部标注 -->
+  <text x="200" y="270" text-anchor="middle" font-size="9" fill="#999">从神话叙事到科学实践 · 审美标准的历史演变</text>
+
+  <!-- 装饰性背景网格 -->
+  <line class="thin-line" x1="40" y1="120" x2="360" y2="120" opacity="0.1" stroke-dasharray="1,2"/>
+  <line class="thin-line" x1="40" y1="180" x2="360" y2="180" opacity="0.1" stroke-dasharray="1,2"/>
+</svg>
