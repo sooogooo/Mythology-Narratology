@@ -1496,6 +1496,38 @@ body {
     color: var(--color-text);
 }
 
+/* Chapter Images Styles */
+.chapter-article img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-xl) auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.chapter-article img:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive image styles */
+@media (max-width: 768px) {
+    .chapter-article img {
+        margin: var(--spacing-lg) auto;
+        border-radius: var(--radius-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .chapter-article img {
+        margin: var(--spacing-md) 0;
+        width: 100%;
+    }
+}
+
 .chapter-nav-bottom {
     display: flex;
     justify-content: space-between;
