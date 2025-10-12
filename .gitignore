@@ -49,3 +49,9 @@ coverage/
 
 # Local development
 .local/
+
+# Backup files
+*.backup
+*.backup2
+*.old
+*~.md
