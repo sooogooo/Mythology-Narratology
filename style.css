@@ -1,7 +1,7 @@
 /* CSS Variables and Themes */
 :root {
-    --font-family-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-family-serif: 'Noto Serif SC', serif;
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    --font-family-serif: "Times New Roman", "STSong", "SimSun", Georgia, serif;
 
     /* Font Sizes */
     --font-size-base: 16px;
@@ -1037,7 +1037,7 @@ body {
 }
 
 .footer-btn span {
-    font-family: 'Noto Sans SC', sans-serif;
+    font-family: var(--font-family-sans);
 }
 
 /* ICP Footer */

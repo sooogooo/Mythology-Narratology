@@ -19,37 +19,65 @@
 
     <title>医美神话叙事学 - 如何发现美以及如何讲述美</title>
 
-    <!-- DNS预解析和预连接 -->
+    <!-- 内联关键CSS - 零延迟渲染 -->
+    <style>
+        /* 重置和基础样式 */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.6;color:#333;background:#fafafa;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+        /* 加载指示器 */
+        .page-loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#fafafa;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.3s}
+        .page-loader.loaded{opacity:0;pointer-events:none}
+        .loader-spinner{width:40px;height:40px;border:3px solid #f3f3f3;border-top:3px solid #8B7355;border-radius:50%;animation:spin 1s linear infinite}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+        /* 头部快速渲染 */
+        .header{position:sticky;top:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:1000;padding:12px 16px}
+        .header-container{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+        .site-title{font-size:18px;font-weight:500;color:#8B7355}
+
+        /* 主内容区域 */
+        .main-content{min-height:calc(100vh - 120px);padding:16px;max-width:1200px;margin:0 auto}
+        .page{display:none}
+        .page.active{display:block}
+
+        /* 底部导航 */
+        .footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;padding:8px 0;z-index:1000}
+        .footer-nav{display:flex;justify-content:space-around;max-width:600px;margin:0 auto}
+        .footer-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;background:none;border:none;color:#666;font-size:12px;cursor:pointer}
+        .footer-btn.active{color:#8B7355}
+    </style>
+
+    <!-- DNS预解析 - 仅关键域名 -->
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://fonts.loli.net">
-    <link rel="dns-prefetch" href="https://gstatic.loli.net">
     <link rel="dns-prefetch" href="https://images.dev.stemcell.gold">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
-    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 
-    <!-- 关键CSS - 同步加载 -->
-    <link rel="stylesheet" href="style.css?v=20251011112200">
-
-    <!-- 非关键CSS - 异步加载 -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"></noscript>
-
-    <link rel="preload" href="ui-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="ui-enhancements.css"></noscript>
-
-    <link rel="preload" href="visual-components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="visual-components.css"></noscript>
-
-    <!-- 优化字体加载 - 使用国内CDN镜像 + font-display: swap -->
-    <link rel="preload" href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap"></noscript>
+    <!-- 主样式表 - 高优先级 -->
+    <link rel="stylesheet" href="style.css?v=20251013" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css?v=20251013"></noscript>
 
     <!-- 非关键JavaScript - 延迟加载 -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+
+    <!-- 延迟加载图标库 -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css';
+                document.head.appendChild(link);
+            }, 100);
+        });
+    </script>
 </head>
 <body>
+    <!-- 加载指示器 -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
@@ -562,6 +590,40 @@
     <script src="data-charts.js" defer></script>
     <script src="ai-stats-ui.js" defer></script>
     <script src="init-visual.js" defer></script>
+
+    <!-- 页面加载完成处理 -->
+    <script>
+        // 隐藏加载指示器
+        window.addEventListener('load', function() {
+            var loader = document.getElementById('pageLoader');
+            if (loader) {
+                setTimeout(function() {
+                    loader.classList.add('loaded');
+                }, 200);
+            }
+
+            // 延迟加载非关键CSS
+            setTimeout(function() {
+                var cssFiles = ['ui-enhancements.css', 'visual-components.css'];
+                cssFiles.forEach(function(file) {
+                    var link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = file;
+                    document.head.appendChild(link);
+                });
+            }, 500);
+        });
+
+        // DOM加载完成后立即显示基础内容
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                var loader = document.getElementById('pageLoader');
+                if (loader) {
+                    loader.style.opacity = '0.5';
+                }
+            });
+        }
+    </script>
 
     <!-- Service Worker注册 -->
     <script>
