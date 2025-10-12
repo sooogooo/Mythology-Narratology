@@ -577,6 +577,9 @@
     <script src="toast.js" defer></script>
     <script src="ai-models.js" defer></script>
     <script src="api-keys-manager.js" defer></script>
+    <!-- SVG渲染依赖 - outline.js需要这些函数 -->
+    <script src="svg-icons.js" defer></script>
+    <script src="svg-illustrations.js" defer></script>
     <script src="outline.js?v=20251010183100" defer></script>
     <script src="app.js" defer></script>
 
@@ -585,8 +588,6 @@
         window.addEventListener('load', function() {
             setTimeout(function() {
                 var scripts = [
-                    'svg-icons.js',
-                    'svg-illustrations.js',
                     'chapter-illustrations.js?v=20251010183100',
                     'image-viewer.js',
                     'visual-todo.js',
@@ -603,7 +604,7 @@
                         document.body.appendChild(script);
                     }, index * 100);
                 });
-            }, 2000);
+            }, 1500);
         });
     </script>
 
