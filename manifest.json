@@ -1,0 +1,29 @@
+{
+  "name": "医美神话叙事学 - 如何发现美以及如何讲述美",
+  "short_name": "医美神话叙事学",
+  "description": "探索医美行业叙事艺术的150,000字专业著作，配有150张精美配图和AI智能助手",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#8B7355",
+  "background_color": "#FAFAFA",
+  "icons": [
+    {
+      "src": "https://docs.bccsw.cn/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://docs.bccsw.cn/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["books", "education", "medical"],
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}

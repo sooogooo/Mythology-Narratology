@@ -3,27 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="探索医美行业叙事艺术的150,000字专业著作，配有150张精美配图和AI智能助手">
+    <meta name="keywords" content="医美,神话叙事学,美学,医美叙事,AI助手,医学美容">
+    <meta name="theme-color" content="#8B7355">
+
+    <!-- PWA配置 -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="https://docs.bccsw.cn/favicon.png">
+    <link rel="apple-touch-icon" href="https://docs.bccsw.cn/logo.png">
+
+    <!-- iOS PWA支持 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="医美神话叙事学">
+
     <title>医美神话叙事学 - 如何发现美以及如何讲述美</title>
-    <link rel="icon" type="image/png" href="https://docs.bccsw.cn/favicon.png">
 
-    <!-- Remix Icon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- DNS预解析和预连接 -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.loli.net">
+    <link rel="dns-prefetch" href="https://gstatic.loli.net">
+    <link rel="dns-prefetch" href="https://images.dev.stemcell.gold">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
+    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Marked.js for Markdown parsing -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- Mermaid.js for diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-
+    <!-- 关键CSS - 同步加载 -->
     <link rel="stylesheet" href="style.css?v=20251011112200">
-    <link rel="stylesheet" href="ui-enhancements.css">
-    <link rel="stylesheet" href="visual-components.css">
+
+    <!-- 非关键CSS - 异步加载 -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"></noscript>
+
+    <link rel="preload" href="ui-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="ui-enhancements.css"></noscript>
+
+    <link rel="preload" href="visual-components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="visual-components.css"></noscript>
+
+    <!-- 优化字体加载 - 使用国内CDN镜像 + font-display: swap -->
+    <link rel="preload" href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap"></noscript>
+
+    <!-- 非关键JavaScript - 延迟加载 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -521,19 +545,33 @@
         </div>
     </div>
 
-    <script src="toast.js"></script>
-    <script src="ai-models.js"></script>
-    <script src="api-keys-manager.js"></script>
-    <script src="svg-icons.js"></script>
-    <script src="svg-illustrations.js"></script>
-    <script src="chapter-illustrations.js?v=20251010183100"></script>
-    <script src="image-viewer.js"></script>
-    <script src="visual-todo.js"></script>
-    <script src="mermaid-integration.js"></script>
-    <script src="data-charts.js"></script>
-    <script src="ai-stats-ui.js"></script>
-    <script src="init-visual.js"></script>
-    <script src="outline.js?v=20251010183100"></script>
-    <script src="app.js"></script>
+    <!-- 核心JavaScript - defer加载（保持执行顺序） -->
+    <script src="toast.js" defer></script>
+    <script src="ai-models.js" defer></script>
+    <script src="api-keys-manager.js" defer></script>
+    <script src="outline.js?v=20251010183100" defer></script>
+    <script src="app.js" defer></script>
+
+    <!-- 可视化功能 - defer加载 -->
+    <script src="svg-icons.js" defer></script>
+    <script src="svg-illustrations.js" defer></script>
+    <script src="chapter-illustrations.js?v=20251010183100" defer></script>
+    <script src="image-viewer.js" defer></script>
+    <script src="visual-todo.js" defer></script>
+    <script src="mermaid-integration.js" defer></script>
+    <script src="data-charts.js" defer></script>
+    <script src="ai-stats-ui.js" defer></script>
+    <script src="init-visual.js" defer></script>
+
+    <!-- Service Worker注册 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+    </script>
 </body>
 </html>
