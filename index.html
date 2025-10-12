@@ -573,42 +573,17 @@
         </div>
     </div>
 
-    <!-- 核心JavaScript - 立即加载（首屏必须） -->
+    <!-- 核心JavaScript - 立即加载，保持顺序 -->
     <script src="toast.js" defer></script>
+    <script src="ai-models.js" defer></script>
+    <script src="api-keys-manager.js" defer></script>
     <script src="outline.js?v=20251010183100" defer></script>
     <script src="app.js" defer></script>
 
-    <!-- 懒加载管理器 -->
+    <!-- 非关键JavaScript - 延迟加载 -->
     <script>
-        (function() {
-            var scriptsLoaded = {
-                ai: false,
-                visual: false
-            };
-
-            // 加载AI功能脚本（延迟1秒）
-            function loadAIScripts() {
-                if (scriptsLoaded.ai) return;
-                scriptsLoaded.ai = true;
-
-                var scripts = [
-                    'ai-models.js',
-                    'api-keys-manager.js'
-                ];
-
-                scripts.forEach(function(src) {
-                    var script = document.createElement('script');
-                    script.src = src;
-                    script.defer = true;
-                    document.body.appendChild(script);
-                });
-            }
-
-            // 加载可视化功能脚本（按需）
-            function loadVisualScripts() {
-                if (scriptsLoaded.visual) return;
-                scriptsLoaded.visual = true;
-
+        window.addEventListener('load', function() {
+            setTimeout(function() {
                 var scripts = [
                     'svg-icons.js',
                     'svg-illustrations.js',
@@ -626,41 +601,10 @@
                         var script = document.createElement('script');
                         script.src = src;
                         document.body.appendChild(script);
-                    }, index * 50); // 每50ms加载一个，避免阻塞
+                    }, index * 100);
                 });
-            }
-
-            // 1秒后加载AI功能
-            setTimeout(loadAIScripts, 1000);
-
-            // 监听页面切换，按需加载可视化脚本
-            document.addEventListener('DOMContentLoaded', function() {
-                // 检测导航到可视化页面
-                document.addEventListener('click', function(e) {
-                    var target = e.target;
-                    while (target && target !== document) {
-                        if (target.dataset && target.dataset.page === 'visual') {
-                            loadVisualScripts();
-                            break;
-                        }
-                        target = target.parentElement;
-                    }
-                });
-
-                // 3秒后预加载可视化脚本（空闲时）
-                setTimeout(function() {
-                    if (window.requestIdleCallback) {
-                        requestIdleCallback(loadVisualScripts);
-                    } else {
-                        setTimeout(loadVisualScripts, 1000);
-                    }
-                }, 3000);
-            });
-
-            // 导出加载函数供外部使用
-            window.loadVisualScripts = loadVisualScripts;
-            window.loadAIScripts = loadAIScripts;
-        })();
+            }, 2000);
+        });
     </script>
 
     <!-- 页面加载完成处理 -->
