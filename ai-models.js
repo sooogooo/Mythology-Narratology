@@ -130,6 +130,129 @@ const AIModels = {
                 return data.content?.[0]?.text || '无响应';
             }
         },
+        'tongyi-qwen': {
+            name: '通义千问 (Qwen)',
+            provider: 'aliyun',
+            endpoint: 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'qwen-turbo',
+                    input: {
+                        messages: [{ role: 'user', content: prompt }]
+                    },
+                    parameters: {
+                        result_format: 'message'
+                    }
+                })
+            }),
+            formatResponse: (data) => {
+                return data.output?.choices?.[0]?.message?.content || data.output?.text || '无响应';
+            }
+        },
+        'ernie-bot': {
+            name: '文心一言 (ERNIE Bot)',
+            provider: 'baidu',
+            endpoint: 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions',
+            apiKeyParam: 'access_token',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.result || '无响应';
+            },
+            // 百度需要特殊处理：endpoint需要附加access_token参数
+            getEndpoint: (apiKey) => {
+                return `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token=${apiKey}`;
+            }
+        },
+        'spark': {
+            name: '讯飞星火 (Spark)',
+            provider: 'xfyun',
+            endpoint: 'https://spark-api-open.xf-yun.com/v1/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'generalv3.5',
+                    messages: [{ role: 'user', content: prompt }],
+                    stream: false
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'chatglm': {
+            name: '智谱AI (ChatGLM)',
+            provider: 'zhipu',
+            endpoint: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'glm-4',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'doubao': {
+            name: '豆包 (Doubao)',
+            provider: 'bytedance',
+            endpoint: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'doubao-pro-4k',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
         'custom': {
             name: '自定义模型',
             provider: 'custom',
@@ -258,8 +381,11 @@ const AIModels = {
         // 格式化请求
         const requestConfig = model.formatRequest(prompt, apiKey);
 
+        // 获取endpoint（支持动态endpoint，如百度文心一言）
+        const endpoint = model.getEndpoint ? model.getEndpoint(apiKey) : model.endpoint;
+
         // 发送请求
-        const response = await fetch(model.endpoint, requestConfig);
+        const response = await fetch(endpoint, requestConfig);
 
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));

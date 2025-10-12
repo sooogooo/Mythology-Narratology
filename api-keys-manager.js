@@ -70,9 +70,16 @@ const APIKeysManager = {
 
         // 获取所有支持的提供商
         const providers = [
-            { id: 'google', name: 'Google (Gemini)', models: ['Gemini 2.5 Flash', 'Gemini 2.5 Flash Image'] },
-            { id: 'openai', name: 'OpenAI', models: ['GPT-4', 'GPT-3.5 Turbo'] },
-            { id: 'anthropic', name: 'Anthropic (Claude)', models: ['Claude 3.5 Sonnet'] }
+            // 国际供应商
+            { id: 'google', name: 'Google (Gemini)', models: ['Gemini 2.5 Flash', 'Gemini 2.5 Flash Image'], region: 'international' },
+            { id: 'openai', name: 'OpenAI', models: ['GPT-4', 'GPT-3.5 Turbo'], region: 'international' },
+            { id: 'anthropic', name: 'Anthropic (Claude)', models: ['Claude 3.5 Sonnet'], region: 'international' },
+            // 国内供应商
+            { id: 'aliyun', name: '阿里云 (通义千问)', models: ['Qwen Turbo', 'Qwen Plus', 'Qwen Max'], region: 'china' },
+            { id: 'baidu', name: '百度 (文心一言)', models: ['ERNIE Bot', 'ERNIE Bot Turbo'], region: 'china' },
+            { id: 'xfyun', name: '科大讯飞 (星火)', models: ['Spark v3.5', 'Spark v3.0'], region: 'china' },
+            { id: 'zhipu', name: '智谱AI (ChatGLM)', models: ['GLM-4', 'GLM-3 Turbo'], region: 'china' },
+            { id: 'bytedance', name: '字节跳动 (豆包)', models: ['Doubao Pro', 'Doubao Lite'], region: 'china' }
         ];
 
         let html = `
@@ -83,116 +90,57 @@ const APIKeysManager = {
                 </p>
         `;
 
-        providers.forEach(provider => {
-            const currentKey = AIModels.getApiKey(provider.id);
-            const hasKey = currentKey && currentKey.length > 0;
+        // 分组显示：国内供应商和国际供应商
+        const chinaProviders = providers.filter(p => p.region === 'china');
+        const internationalProviders = providers.filter(p => p.region === 'international');
 
+        // 国内供应商区域
+        if (chinaProviders.length > 0) {
             html += `
-                <div class="api-key-section" style="
-                    margin-bottom: var(--spacing-lg);
-                    padding: var(--spacing-lg);
-                    background: var(--color-bg-secondary);
-                    border-radius: var(--radius-md);
-                    border: 1px solid var(--color-border);
-                ">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md);">
-                        <div>
-                            <h4 style="margin: 0 0 var(--spacing-xs) 0; font-size: 1rem; color: var(--color-text);">
-                                ${provider.name}
-                            </h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--color-text-secondary);">
-                                ${provider.models.join(', ')}
-                            </p>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: var(--spacing-xs);">
-                            ${hasKey ? '<i class="ri-checkbox-circle-fill" style="color: #4caf50; font-size: 1.2rem;"></i>' : '<i class="ri-close-circle-fill" style="color: #999; font-size: 1.2rem;"></i>'}
-                            <span style="font-size: 0.85rem; color: ${hasKey ? '#4caf50' : '#999'};">
-                                ${hasKey ? '已配置' : '未配置'}
-                            </span>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; gap: var(--spacing-sm);">
-                        <input
-                            type="password"
-                            id="apiKey_${provider.id}"
-                            placeholder="${hasKey ? '••••••••••••••••' : '输入 API Key'}"
-                            value="${hasKey ? currentKey : ''}"
-                            style="
-                                flex: 1;
-                                padding: var(--spacing-sm) var(--spacing-md);
-                                border: 1px solid var(--color-border);
-                                border-radius: var(--radius-sm);
-                                background: var(--color-surface);
-                                color: var(--color-text);
-                                font-size: 0.9rem;
-                                font-family: monospace;
-                            "
-                        />
-                        <button
-                            onclick="APIKeysManager.toggleVisibility('${provider.id}')"
-                            style="
-                                padding: var(--spacing-sm) var(--spacing-md);
-                                background: var(--color-surface);
-                                border: 1px solid var(--color-border);
-                                border-radius: var(--radius-sm);
-                                cursor: pointer;
-                                color: var(--color-text-secondary);
-                            "
-                            title="显示/隐藏"
-                        >
-                            <i class="ri-eye-line"></i>
-                        </button>
-                        <button
-                            onclick="APIKeysManager.saveKey('${provider.id}')"
-                            style="
-                                padding: var(--spacing-sm) var(--spacing-lg);
-                                background: var(--color-primary);
-                                color: var(--color-surface);
-                                border: none;
-                                border-radius: var(--radius-sm);
-                                cursor: pointer;
-                                font-size: 0.9rem;
-                            "
-                        >
-                            <i class="ri-save-line"></i> 保存
-                        </button>
-                        ${hasKey ? `
-                        <button
-                            onclick="APIKeysManager.clearKey('${provider.id}')"
-                            style="
-                                padding: var(--spacing-sm) var(--spacing-md);
-                                background: var(--color-surface);
-                                color: #f44336;
-                                border: 1px solid #f44336;
-                                border-radius: var(--radius-sm);
-                                cursor: pointer;
-                            "
-                            title="清除"
-                        >
-                            <i class="ri-delete-bin-line"></i>
-                        </button>
-                        ` : ''}
-                    </div>
-
-                    <div style="margin-top: var(--spacing-sm);">
-                        <a href="${this.getProviderUrl(provider.id)}"
-                           target="_blank"
-                           style="
-                               font-size: 0.85rem;
-                               color: var(--color-primary);
-                               text-decoration: none;
-                               display: inline-flex;
-                               align-items: center;
-                               gap: 4px;
-                           ">
-                            <i class="ri-external-link-line"></i>
-                            获取 ${provider.name} API Key
-                        </a>
-                    </div>
-                </div>
+                <div style="margin-bottom: var(--spacing-xl);">
+                    <h4 style="
+                        font-size: 1.1rem;
+                        color: var(--color-primary);
+                        margin-bottom: var(--spacing-lg);
+                        padding-bottom: var(--spacing-sm);
+                        border-bottom: 2px solid var(--color-primary);
+                        display: flex;
+                        align-items: center;
+                        gap: var(--spacing-xs);
+                    ">
+                        <i class="ri-map-pin-line"></i>
+                        国内AI供应商
+                    </h4>
             `;
-        });
+            chinaProviders.forEach(provider => {
+                html += this.renderProviderSection(provider);
+            });
+            html += `</div>`;
+        }
+
+        // 国际供应商区域
+        if (internationalProviders.length > 0) {
+            html += `
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <h4 style="
+                        font-size: 1.1rem;
+                        color: var(--color-primary);
+                        margin-bottom: var(--spacing-lg);
+                        padding-bottom: var(--spacing-sm);
+                        border-bottom: 2px solid var(--color-primary);
+                        display: flex;
+                        align-items: center;
+                        gap: var(--spacing-xs);
+                    ">
+                        <i class="ri-global-line"></i>
+                        国际AI供应商
+                    </h4>
+            `;
+            internationalProviders.forEach(provider => {
+                html += this.renderProviderSection(provider);
+            });
+            html += `</div>`;
+        }
 
         html += `
                 <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: var(--color-bg); border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
@@ -204,6 +152,7 @@ const APIKeysManager = {
                         <li>密钥不会发送到除官方API以外的任何服务器</li>
                         <li>清除浏览器数据会同时清除密钥</li>
                         <li>建议定期更换API密钥以保证安全</li>
+                        <li>国内供应商无需翻墙即可使用</li>
                     </ul>
                 </div>
             </div>
@@ -213,13 +162,134 @@ const APIKeysManager = {
     },
 
     /**
+     * 渲染单个供应商配置区域
+     */
+    renderProviderSection(provider) {
+        const currentKey = AIModels.getApiKey(provider.id);
+        const hasKey = currentKey && currentKey.length > 0;
+
+        return `
+            <div class="api-key-section" style="
+                margin-bottom: var(--spacing-lg);
+                padding: var(--spacing-lg);
+                background: var(--color-bg-secondary);
+                border-radius: var(--radius-md);
+                border: 1px solid var(--color-border);
+            ">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md);">
+                    <div>
+                        <h4 style="margin: 0 0 var(--spacing-xs) 0; font-size: 1rem; color: var(--color-text);">
+                            ${provider.name}
+                        </h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: var(--color-text-secondary);">
+                            ${provider.models.join(', ')}
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: var(--spacing-xs);">
+                        ${hasKey ? '<i class="ri-checkbox-circle-fill" style="color: #4caf50; font-size: 1.2rem;"></i>' : '<i class="ri-close-circle-fill" style="color: #999; font-size: 1.2rem;"></i>'}
+                        <span style="font-size: 0.85rem; color: ${hasKey ? '#4caf50' : '#999'};">
+                            ${hasKey ? '已配置' : '未配置'}
+                        </span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: var(--spacing-sm);">
+                    <input
+                        type="password"
+                        id="apiKey_${provider.id}"
+                        placeholder="${hasKey ? '••••••••••••••••' : '输入 API Key'}"
+                        value="${hasKey ? currentKey : ''}"
+                        style="
+                            flex: 1;
+                            padding: var(--spacing-sm) var(--spacing-md);
+                            border: 1px solid var(--color-border);
+                            border-radius: var(--radius-sm);
+                            background: var(--color-surface);
+                            color: var(--color-text);
+                            font-size: 0.9rem;
+                            font-family: monospace;
+                        "
+                    />
+                    <button
+                        onclick="APIKeysManager.toggleVisibility('${provider.id}')"
+                        style="
+                            padding: var(--spacing-sm) var(--spacing-md);
+                            background: var(--color-surface);
+                            border: 1px solid var(--color-border);
+                            border-radius: var(--radius-sm);
+                            cursor: pointer;
+                            color: var(--color-text-secondary);
+                        "
+                        title="显示/隐藏"
+                    >
+                        <i class="ri-eye-line"></i>
+                    </button>
+                    <button
+                        onclick="APIKeysManager.saveKey('${provider.id}')"
+                        style="
+                            padding: var(--spacing-sm) var(--spacing-lg);
+                            background: var(--color-primary);
+                            color: var(--color-surface);
+                            border: none;
+                            border-radius: var(--radius-sm);
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                        "
+                    >
+                        <i class="ri-save-line"></i> 保存
+                    </button>
+                    ${hasKey ? `
+                    <button
+                        onclick="APIKeysManager.clearKey('${provider.id}')"
+                        style="
+                            padding: var(--spacing-sm) var(--spacing-md);
+                            background: var(--color-surface);
+                            color: #f44336;
+                            border: 1px solid #f44336;
+                            border-radius: var(--radius-sm);
+                            cursor: pointer;
+                        "
+                        title="清除"
+                    >
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                    ` : ''}
+                </div>
+
+                <div style="margin-top: var(--spacing-sm);">
+                    <a href="${this.getProviderUrl(provider.id)}"
+                       target="_blank"
+                       style="
+                           font-size: 0.85rem;
+                           color: var(--color-primary);
+                           text-decoration: none;
+                           display: inline-flex;
+                           align-items: center;
+                           gap: 4px;
+                       ">
+                        <i class="ri-external-link-line"></i>
+                        获取 ${provider.name} API Key
+                    </a>
+                </div>
+            </div>
+        `;
+    },
+
+    /**
      * 获取API Key获取页面链接
      */
     getProviderUrl(providerId) {
         const urls = {
+            // 国际供应商
             'google': 'https://makersuite.google.com/app/apikey',
             'openai': 'https://platform.openai.com/api-keys',
-            'anthropic': 'https://console.anthropic.com/settings/keys'
+            'anthropic': 'https://console.anthropic.com/settings/keys',
+            // 国内供应商
+            'aliyun': 'https://dashscope.console.aliyun.com/apiKey',
+            'baidu': 'https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application',
+            'xfyun': 'https://console.xfyun.cn/services/bm35',
+            'zhipu': 'https://open.bigmodel.cn/usercenter/apikeys',
+            'bytedance': 'https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey'
         };
         return urls[providerId] || '#';
     },

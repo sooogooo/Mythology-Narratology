@@ -116,11 +116,22 @@
                         font-size: 0.9rem;
                         cursor: pointer;
                     ">
-                        <option value="gemini-flash">Gemini 2.5 Flash</option>
-                        <option value="openai-gpt4">OpenAI GPT-4</option>
-                        <option value="openai-gpt35">OpenAI GPT-3.5 Turbo</option>
-                        <option value="claude-sonnet">Claude 3.5 Sonnet</option>
-                        <option value="custom">自定义模型</option>
+                        <optgroup label="国际模型">
+                            <option value="gemini-flash">Gemini 2.5 Flash</option>
+                            <option value="openai-gpt4">OpenAI GPT-4</option>
+                            <option value="openai-gpt35">OpenAI GPT-3.5 Turbo</option>
+                            <option value="claude-sonnet">Claude 3.5 Sonnet</option>
+                        </optgroup>
+                        <optgroup label="国内模型">
+                            <option value="tongyi-qwen">通义千问 (Qwen)</option>
+                            <option value="ernie-bot">文心一言 (ERNIE Bot)</option>
+                            <option value="spark">讯飞星火 (Spark)</option>
+                            <option value="chatglm">智谱AI (ChatGLM)</option>
+                            <option value="doubao">豆包 (Doubao)</option>
+                        </optgroup>
+                        <optgroup label="其他">
+                            <option value="custom">自定义模型</option>
+                        </optgroup>
                     </select>
                 </div>
 
