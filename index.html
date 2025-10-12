@@ -573,23 +573,95 @@
         </div>
     </div>
 
-    <!-- 核心JavaScript - defer加载（保持执行顺序） -->
+    <!-- 核心JavaScript - 立即加载（首屏必须） -->
     <script src="toast.js" defer></script>
-    <script src="ai-models.js" defer></script>
-    <script src="api-keys-manager.js" defer></script>
     <script src="outline.js?v=20251010183100" defer></script>
     <script src="app.js" defer></script>
 
-    <!-- 可视化功能 - defer加载 -->
-    <script src="svg-icons.js" defer></script>
-    <script src="svg-illustrations.js" defer></script>
-    <script src="chapter-illustrations.js?v=20251010183100" defer></script>
-    <script src="image-viewer.js" defer></script>
-    <script src="visual-todo.js" defer></script>
-    <script src="mermaid-integration.js" defer></script>
-    <script src="data-charts.js" defer></script>
-    <script src="ai-stats-ui.js" defer></script>
-    <script src="init-visual.js" defer></script>
+    <!-- 懒加载管理器 -->
+    <script>
+        (function() {
+            var scriptsLoaded = {
+                ai: false,
+                visual: false
+            };
+
+            // 加载AI功能脚本（延迟1秒）
+            function loadAIScripts() {
+                if (scriptsLoaded.ai) return;
+                scriptsLoaded.ai = true;
+
+                var scripts = [
+                    'ai-models.js',
+                    'api-keys-manager.js'
+                ];
+
+                scripts.forEach(function(src) {
+                    var script = document.createElement('script');
+                    script.src = src;
+                    script.defer = true;
+                    document.body.appendChild(script);
+                });
+            }
+
+            // 加载可视化功能脚本（按需）
+            function loadVisualScripts() {
+                if (scriptsLoaded.visual) return;
+                scriptsLoaded.visual = true;
+
+                var scripts = [
+                    'svg-icons.js',
+                    'svg-illustrations.js',
+                    'chapter-illustrations.js?v=20251010183100',
+                    'image-viewer.js',
+                    'visual-todo.js',
+                    'mermaid-integration.js',
+                    'data-charts.js',
+                    'ai-stats-ui.js',
+                    'init-visual.js'
+                ];
+
+                scripts.forEach(function(src, index) {
+                    setTimeout(function() {
+                        var script = document.createElement('script');
+                        script.src = src;
+                        document.body.appendChild(script);
+                    }, index * 50); // 每50ms加载一个，避免阻塞
+                });
+            }
+
+            // 1秒后加载AI功能
+            setTimeout(loadAIScripts, 1000);
+
+            // 监听页面切换，按需加载可视化脚本
+            document.addEventListener('DOMContentLoaded', function() {
+                // 检测导航到可视化页面
+                document.addEventListener('click', function(e) {
+                    var target = e.target;
+                    while (target && target !== document) {
+                        if (target.dataset && target.dataset.page === 'visual') {
+                            loadVisualScripts();
+                            break;
+                        }
+                        target = target.parentElement;
+                    }
+                });
+
+                // 3秒后预加载可视化脚本（空闲时）
+                setTimeout(function() {
+                    if (window.requestIdleCallback) {
+                        requestIdleCallback(loadVisualScripts);
+                    } else {
+                        setTimeout(loadVisualScripts, 1000);
+                    }
+                }, 3000);
+            });
+
+            // 导出加载函数供外部使用
+            window.loadVisualScripts = loadVisualScripts;
+            window.loadAIScripts = loadAIScripts;
+        })();
+    </script>
 
     <!-- 页面加载完成处理 -->
     <script>
