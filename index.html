@@ -593,14 +593,31 @@
 
     <!-- 页面加载完成处理 -->
     <script>
-        // 隐藏加载指示器
-        window.addEventListener('load', function() {
+        (function() {
             var loader = document.getElementById('pageLoader');
-            if (loader) {
-                setTimeout(function() {
+            var loaded = false;
+
+            // 隐藏加载指示器的函数
+            function hideLoader() {
+                if (!loaded && loader) {
+                    loaded = true;
                     loader.classList.add('loaded');
-                }, 200);
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 300);
+                }
             }
+
+            // DOMContentLoaded立即隐藏（不等资源加载）
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', hideLoader);
+            } else {
+                // 已经加载完成，立即隐藏
+                hideLoader();
+            }
+
+            // 兜底：最多1秒后强制隐藏
+            setTimeout(hideLoader, 1000);
 
             // 延迟加载非关键CSS
             setTimeout(function() {
@@ -612,17 +629,7 @@
                     document.head.appendChild(link);
                 });
             }, 500);
-        });
-
-        // DOM加载完成后立即显示基础内容
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                var loader = document.getElementById('pageLoader');
-                if (loader) {
-                    loader.style.opacity = '0.5';
-                }
-            });
-        }
+        })();
     </script>
 
     <!-- Service Worker注册 -->
