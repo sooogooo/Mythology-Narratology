@@ -1,11 +1,268 @@
 // AI模型配置系统
 const AIModels = {
-    // 预定义的AI模型
+    // 预定义的AI模型 - 国产模型优先
     presets: {
+        // ========== 国产模型 ==========
+        'deepseek-chat': {
+            name: 'DeepSeek V3 (推荐)',
+            provider: 'deepseek',
+            endpoint: 'https://api.deepseek.com/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'deepseek-chat',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'deepseek-reasoner': {
+            name: 'DeepSeek R1 (深度推理)',
+            provider: 'deepseek',
+            endpoint: 'https://api.deepseek.com/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'deepseek-reasoner',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'tongyi-qwen': {
+            name: '通义千问 Qwen-Max',
+            provider: 'aliyun',
+            endpoint: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'qwen-max',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'tongyi-qwen-turbo': {
+            name: '通义千问 Qwen-Turbo (快速)',
+            provider: 'aliyun',
+            endpoint: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'qwen-turbo',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'ernie-bot': {
+            name: '文心一言 ERNIE 4.0',
+            provider: 'baidu',
+            endpoint: 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie-4.0-8k-latest',
+            apiKeyParam: 'access_token',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.result || '无响应';
+            },
+            getEndpoint: (apiKey) => {
+                return `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie-4.0-8k-latest?access_token=${apiKey}`;
+            }
+        },
+        'spark': {
+            name: '讯飞星火 Spark 4.0',
+            provider: 'xfyun',
+            endpoint: 'https://spark-api-open.xf-yun.com/v1/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: '4.0Ultra',
+                    messages: [{ role: 'user', content: prompt }],
+                    stream: false
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'chatglm': {
+            name: '智谱 GLM-4-Plus',
+            provider: 'zhipu',
+            endpoint: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'glm-4-plus',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'doubao': {
+            name: '豆包 Doubao-Pro-256k',
+            provider: 'bytedance',
+            endpoint: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'doubao-pro-256k',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'moonshot': {
+            name: 'Kimi (月之暗面)',
+            provider: 'moonshot',
+            endpoint: 'https://api.moonshot.cn/v1/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'moonshot-v1-128k',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'minimax': {
+            name: 'MiniMax abab6.5s',
+            provider: 'minimax',
+            endpoint: 'https://api.minimax.chat/v1/text/chatcompletion_v2',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'abab6.5s-chat',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        'baichuan': {
+            name: '百川 Baichuan4',
+            provider: 'baichuan',
+            endpoint: 'https://api.baichuan-ai.com/v1/chat/completions',
+            apiKeyParam: 'Authorization',
+            requiresApiKey: true,
+            supportsChat: true,
+            supportsImage: false,
+            formatRequest: (prompt, apiKey) => ({
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'Baichuan4',
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            }),
+            formatResponse: (data) => {
+                return data.choices?.[0]?.message?.content || '无响应';
+            }
+        },
+        // ========== 国际模型 ==========
         'gemini-flash': {
-            name: 'Gemini 2.5 Flash',
+            name: 'Gemini 2.0 Flash',
             provider: 'google',
-            endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
+            endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
             apiKeyParam: 'x-goog-api-key',
             requiresApiKey: true,
             supportsChat: true,
@@ -27,9 +284,9 @@ const AIModels = {
             }
         },
         'gemini-flash-image': {
-            name: 'Gemini 2.5 Flash Image (Nano Banana)',
+            name: 'Gemini 2.0 Flash 图像生成',
             provider: 'google',
-            endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent',
+            endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp-image-generation:generateContent',
             apiKeyParam: 'x-goog-api-key',
             requiresApiKey: true,
             supportsChat: false,
@@ -45,7 +302,7 @@ const AIModels = {
                         parts: [{ text: prompt }]
                     }],
                     generationConfig: {
-                        responseModalities: ['image']
+                        responseModalities: ['image', 'text']
                     }
                 })
             }),
@@ -59,8 +316,8 @@ const AIModels = {
                 return `data:${mimeType};base64,${imageBase64}`;
             }
         },
-        'openai-gpt4': {
-            name: 'OpenAI GPT-4',
+        'openai-gpt4o': {
+            name: 'OpenAI GPT-4o',
             provider: 'openai',
             endpoint: 'https://api.openai.com/v1/chat/completions',
             apiKeyParam: 'Authorization',
@@ -74,7 +331,7 @@ const AIModels = {
                     'Authorization': `Bearer ${apiKey}`
                 },
                 body: JSON.stringify({
-                    model: 'gpt-4',
+                    model: 'gpt-4o',
                     messages: [{ role: 'user', content: prompt }]
                 })
             }),
@@ -82,8 +339,8 @@ const AIModels = {
                 return data.choices?.[0]?.message?.content || '无响应';
             }
         },
-        'openai-gpt35': {
-            name: 'OpenAI GPT-3.5 Turbo',
+        'openai-gpt4o-mini': {
+            name: 'OpenAI GPT-4o-mini (快速)',
             provider: 'openai',
             endpoint: 'https://api.openai.com/v1/chat/completions',
             apiKeyParam: 'Authorization',
@@ -97,7 +354,7 @@ const AIModels = {
                     'Authorization': `Bearer ${apiKey}`
                 },
                 body: JSON.stringify({
-                    model: 'gpt-3.5-turbo',
+                    model: 'gpt-4o-mini',
                     messages: [{ role: 'user', content: prompt }]
                 })
             }),
@@ -130,11 +387,11 @@ const AIModels = {
                 return data.content?.[0]?.text || '无响应';
             }
         },
-        'tongyi-qwen': {
-            name: '通义千问 (Qwen)',
-            provider: 'aliyun',
-            endpoint: 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
-            apiKeyParam: 'Authorization',
+        'claude-opus': {
+            name: 'Claude Opus 4.5 (最强)',
+            provider: 'anthropic',
+            endpoint: 'https://api.anthropic.com/v1/messages',
+            apiKeyParam: 'x-api-key',
             requiresApiKey: true,
             supportsChat: true,
             supportsImage: false,
@@ -142,115 +399,17 @@ const AIModels = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01'
                 },
                 body: JSON.stringify({
-                    model: 'qwen-turbo',
-                    input: {
-                        messages: [{ role: 'user', content: prompt }]
-                    },
-                    parameters: {
-                        result_format: 'message'
-                    }
-                })
-            }),
-            formatResponse: (data) => {
-                return data.output?.choices?.[0]?.message?.content || data.output?.text || '无响应';
-            }
-        },
-        'ernie-bot': {
-            name: '文心一言 (ERNIE Bot)',
-            provider: 'baidu',
-            endpoint: 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions',
-            apiKeyParam: 'access_token',
-            requiresApiKey: true,
-            supportsChat: true,
-            supportsImage: false,
-            formatRequest: (prompt, apiKey) => ({
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
+                    model: 'claude-opus-4-5-20251101',
+                    max_tokens: 4096,
                     messages: [{ role: 'user', content: prompt }]
                 })
             }),
             formatResponse: (data) => {
-                return data.result || '无响应';
-            },
-            // 百度需要特殊处理：endpoint需要附加access_token参数
-            getEndpoint: (apiKey) => {
-                return `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token=${apiKey}`;
-            }
-        },
-        'spark': {
-            name: '讯飞星火 (Spark)',
-            provider: 'xfyun',
-            endpoint: 'https://spark-api-open.xf-yun.com/v1/chat/completions',
-            apiKeyParam: 'Authorization',
-            requiresApiKey: true,
-            supportsChat: true,
-            supportsImage: false,
-            formatRequest: (prompt, apiKey) => ({
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: 'generalv3.5',
-                    messages: [{ role: 'user', content: prompt }],
-                    stream: false
-                })
-            }),
-            formatResponse: (data) => {
-                return data.choices?.[0]?.message?.content || '无响应';
-            }
-        },
-        'chatglm': {
-            name: '智谱AI (ChatGLM)',
-            provider: 'zhipu',
-            endpoint: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
-            apiKeyParam: 'Authorization',
-            requiresApiKey: true,
-            supportsChat: true,
-            supportsImage: false,
-            formatRequest: (prompt, apiKey) => ({
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: 'glm-4',
-                    messages: [{ role: 'user', content: prompt }]
-                })
-            }),
-            formatResponse: (data) => {
-                return data.choices?.[0]?.message?.content || '无响应';
-            }
-        },
-        'doubao': {
-            name: '豆包 (Doubao)',
-            provider: 'bytedance',
-            endpoint: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
-            apiKeyParam: 'Authorization',
-            requiresApiKey: true,
-            supportsChat: true,
-            supportsImage: false,
-            formatRequest: (prompt, apiKey) => ({
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: 'doubao-pro-4k',
-                    messages: [{ role: 'user', content: prompt }]
-                })
-            }),
-            formatResponse: (data) => {
-                return data.choices?.[0]?.message?.content || '无响应';
+                return data.content?.[0]?.text || '无响应';
             }
         },
         'custom': {
@@ -278,7 +437,7 @@ const AIModels = {
     customModels: {},
 
     // 当前选择的模型
-    currentChatModel: 'gemini-flash',
+    currentChatModel: 'deepseek-chat',
     currentImageModel: 'gemini-flash-image',
 
     // 初始化

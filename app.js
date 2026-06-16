@@ -171,31 +171,35 @@ function setupEventListeners() {
     const generateImageBtn = document.getElementById('generateImageBtn');
     generateImageBtn.addEventListener('click', () => generateImage());
 
-    // API Key 管理
+    // API Key 管理 (如果元素存在)
     const saveApiKeyBtn = document.getElementById('saveApiKeyBtn');
     const clearApiKeyBtn = document.getElementById('clearApiKeyBtn');
     const apiKeyInput = document.getElementById('apiKeyInput');
 
-    saveApiKeyBtn.addEventListener('click', () => {
-        const apiKey = apiKeyInput.value.trim();
-        if (apiKey) {
-            localStorage.setItem('gemini_api_key', apiKey);
-            AppState.geminiApiKey = apiKey;
-            apiKeyInput.value = '';
-            showApiKeyStatus('API Key 已保存', 'success');
-        } else {
-            showApiKeyStatus('请输入有效的 API Key', 'error');
-        }
-    });
+    if (saveApiKeyBtn && apiKeyInput) {
+        saveApiKeyBtn.addEventListener('click', () => {
+            const apiKey = apiKeyInput.value.trim();
+            if (apiKey) {
+                localStorage.setItem('gemini_api_key', apiKey);
+                AppState.geminiApiKey = apiKey;
+                apiKeyInput.value = '';
+                showApiKeyStatus('API Key 已保存', 'success');
+            } else {
+                showApiKeyStatus('请输入有效的 API Key', 'error');
+            }
+        });
+    }
 
-    clearApiKeyBtn.addEventListener('click', () => {
-        if (confirm('确定要清除已保存的 API Key 吗？')) {
-            localStorage.removeItem('gemini_api_key');
-            AppState.geminiApiKey = null;
-            apiKeyInput.value = '';
-            showApiKeyStatus('API Key 已清除', 'success');
-        }
-    });
+    if (clearApiKeyBtn && apiKeyInput) {
+        clearApiKeyBtn.addEventListener('click', () => {
+            if (confirm('确定要清除已保存的 API Key 吗？')) {
+                localStorage.removeItem('gemini_api_key');
+                AppState.geminiApiKey = null;
+                apiKeyInput.value = '';
+                showApiKeyStatus('API Key 已清除', 'success');
+            }
+        });
+    }
 
     // 历史标签切换
     document.querySelectorAll('.history-tab').forEach(tab => {

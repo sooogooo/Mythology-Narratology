@@ -71,6 +71,7 @@
 
 .image-viewer-container {
     position: relative;
+    z-index: 10001;
     width: 100%;
     height: 100%;
     display: flex;
@@ -128,9 +129,12 @@
 
 .viewer-image-wrapper {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 80vh;
     transition: transform 0.3s ease;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .viewer-image-wrapper img,
@@ -138,12 +142,17 @@
     max-width: 100%;
     max-height: 100%;
     display: block;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.viewer-image-wrapper img {
+    padding: var(--spacing-sm);
 }
 
 .viewer-image-wrapper svg {
-    background: white;
     padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
 }
 
 .image-viewer-info {
